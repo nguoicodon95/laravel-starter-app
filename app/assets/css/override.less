@@ -1,0 +1,112 @@
+
+// override styles ~
+
+// override bootstrap settings
+
+// panels
+.panel {
+  border-radius:0;
+  border:1px solid #e5e5e5;
+  box-shadow:none;
+  margin-bottom:10px;
+}
+.panel-primary {
+  .panel-heading {
+      background-color:white;
+      border-color:#e5e5e5;
+      color:black;
+      font-size:14px;
+      padding:5px;
+  }
+  .panel-body {
+      padding:5px;
+      font-size:12px;
+      .panel-buttons {
+        margin-bottom:4px;
+      }
+  }
+  img {
+    max-width:100%;
+  }
+}
+
+// grid
+.update-grid {
+  .content-wrap {
+    margin-left:-20px;
+    margin-right:-20px;
+    // extend with inner-content-wrap
+    .content-block {
+      padding-left:5px;
+      padding-right:5px;
+      .large-image {
+        padding-left:0 !important;
+        img {
+          max-width:100%;
+        }
+      }
+      .text-block {
+        padding-left:0 !important;
+      }
+    }
+  }
+  .side-wrap {
+    padding-right:0;
+    .side-nav.edit-profile{border-top:1px solid #cdcdcd;}
+  }
+  .row.no-margin {
+    margin-left:0;
+    margin-right:0
+  }
+  .form-group {
+    img {
+      max-width:100%;
+    }
+  } 
+  .gray-border {
+    border:1px solid #e5e5e5;
+  }
+  .gray-btm-border-only {
+    border-bottom:1px solid #e5e5e5;
+  }
+}
+
+// buttons
+.btn-primary, .btn-primary:hover,
+.btn-primary:focus {
+  background-color:#E81C1D;
+  border-color:#E81C1D;
+}
+
+// #
+
+// override salvattore settings
+
+// list
+.salvattore-wrapper {[class*="col-"] {
+  padding-left: 5px;padding-right: 5px;}}
+
+// media queries
+@media screen and (min-width: 1px) and (max-width: 400px) {
+  body {overflow-x:hidden;}
+  #columns[data-columns]::before {
+    content: '1 .col-xs-12';
+  }
+}
+@media screen and (min-width: 401px) and (max-width: 767px) {
+  body {overflow-x:hidden;}
+  #columns[data-columns]::before {
+    content: '2 .col-xs-6';
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {overflow-x:hidden;}
+  #columns[data-columns]::before {
+    content: '2 .col-sm-6';
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 9999px) {
+  #columns[data-columns]::before {
+    content: '3 .col-md-4';
+  }
+}
