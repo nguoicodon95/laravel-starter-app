@@ -25,8 +25,8 @@
             options: {
               compress: true,
               sourceMap: true,
-              sourceMapFilename: "styles.css.map",
-              sourceMapUrl: "styles.css.map",
+              sourceMapFilename: "./public/css/styles.css.map",
+              sourceMapUrl: "./public/css/styles.css.map",
               sourceMapBasepath: "",
               sourceMapRootpath: "",
             },
