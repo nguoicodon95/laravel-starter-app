@@ -2,7 +2,16 @@
 Stream is a decentralised micro-platform streaming software.
 
 ## Installation
-On it's way...
+Stream can be installed on any Windows or Mac local server, such as Wamp, Mamp, Xampp or production server, like GoDaddy's shared hosting, or Rackspace or any of the cloud web services, like Azure, Pagoda Box or AWS etc..
+
+- Download the zip
+- Extract files
+- Update settings.php
+- Import baseproduct.sql dump
+- Upload your files
+- Visit your domain.com/index.php/stream
+
+For more specific environment set up, see the wiki.
 
 ## Help contribute
 #### Donate $5, $10, $25 NZD.
