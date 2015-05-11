@@ -11,7 +11,7 @@ Stream can be installed on any Windows or Mac local server, such as Wamp, Mamp, 
 - Upload your files
 - Visit your domain.com/index.php/stream
 
-For more specific environment set up, see the wiki.
+For more specific environment set up's, see the wiki.
 
 ## Help contribute
 #### Donate $5, $10, $25 NZD.
