@@ -7,10 +7,15 @@ Stream can be installed on any Windows or Mac local server, such as Wamp, Mamp, 
 - Download ZIP
 - Extract files
 - Update settings.php
-- Import baseproduct.sql dump
+- Create a Database in MySQL
+- Import baseproduct.sql dump file
 - Upload your files
 - Point domain name to public folder
 - Visit your domain.com/index.php/stream
+
+```
+Stream Admin: u - youremail@youremail.com | p - password
+```
 
 For more specific environment set up's, see the wiki.
 
