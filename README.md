@@ -9,8 +9,8 @@ Stream can be installed on any Windows or Mac local server, such as Wamp, Mamp, 
 - Update settings.php
 - Create a Database in MySQL
 - Import baseproduct.sql dump file
-- Upload your files
-- Point domain name to public folder
+- Upload files
+- Map your domain name to the public folder
 - Visit your domain.com/index.php/stream
 
 ```
