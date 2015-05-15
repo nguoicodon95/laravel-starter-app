@@ -17,7 +17,7 @@ Stream can be installed on any Windows or Mac local server, such as Wamp, Mamp, 
 Stream Admin: u - youremail@youremail.com | p - password
 ```
 
-For more specific environment set up's, see the wiki.
+For more specific environment set up's, see the [wiki](https://github.com/puffstream/streambaseproductv0.01/wiki/Installation).
 
 ## Help contribute
 #### Donate $5, $10, $25 NZD.
