@@ -15,7 +15,7 @@ return array(
 
 	// database
 	'host' 	   => 'localhost',
-	'database' => 'baseproduct_stream',
+	'database' => '',
 	'username' => 'root',
 	'password' => '',
 
