@@ -24,12 +24,12 @@ If you'd like to get started with Stream, but not a technical guru on the set up
 
 #### Cost matrix
 
-Stream type | set up | on-going | photos
+Stream type | set up* | on-going* | photos
 --- |:---:|:---:|:---:|
 Personal | $9 | $9.99 | 500
 Commercial | $29 | $29.99 | 750
 
-NB: All cost are in NZD (New Zealand Dollars).
+\* All cost are in NZD (New Zealand Dollars).
 
 ##### What about a custom domain?
 If you supply us a name to search for, we'll find the best top three results and send back to you to consider, if there is one you like, we'll purchase on your behalf and also set up to point to your new stream, the cost for this is $50.
