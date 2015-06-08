@@ -5,7 +5,7 @@ class StreamController extends \BaseController {
 	// get all post
 	public function index()
 	{
-        $sp = StreamPost::with("file")->orderBy('created_at', 'DESC')->get();
+        $sp = StreamPost::with("file")->orderBy('created_at', 'DESC')->paginate(5);
 		return View::make('pages.list')->with("post", $sp);
 	}
 

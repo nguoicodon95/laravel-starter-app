@@ -33,6 +33,17 @@
                         @include('auth.loginMessages')
                         @include('auth.loginForm')
                         @include('sections.addPost')
+                        <!-- Pagination to go here -->
+                        <?php
+                        $count = 0;
+                        foreach($post as $key => $value) {
+                            $count++;
+                        }
+
+                        if($count > 1) {
+                            echo $post->links();
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

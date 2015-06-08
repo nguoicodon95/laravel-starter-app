@@ -26,9 +26,9 @@
               compress: true,
               sourceMap: true,
               sourceMapFilename: "./public/css/styles.css.map",
-              sourceMapUrl: "./public/css/styles.css.map",
-              sourceMapBasepath: "",
-              sourceMapRootpath: "",
+              sourceMapURL: "styles.css.map",
+              sourceMapFileInline: true,
+              outputSourceFiles: false
             },
             files: {
               "./public/css/styles.css":"./app/assets/css/styles.less"
