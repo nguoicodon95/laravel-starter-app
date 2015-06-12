@@ -1,8 +1,8 @@
-/*Table structure for table `streamfile` */
+/*Table structure for table `StreamFile` */
 
-DROP TABLE IF EXISTS `streamfile`;
+DROP TABLE IF EXISTS `StreamFile`;
 
-CREATE TABLE `streamfile` (
+CREATE TABLE `StreamFile` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `file_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `file_thmb_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -12,11 +12,11 @@ CREATE TABLE `streamfile` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-/*Table structure for table `streampost` */
+/*Table structure for table `StreamPost` */
 
-DROP TABLE IF EXISTS `streampost`;
+DROP TABLE IF EXISTS `StreamPost`;
 
-CREATE TABLE `streampost` (
+CREATE TABLE `StreamPost` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `post` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -25,11 +25,11 @@ CREATE TABLE `streampost` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-/*Table structure for table `streamuser` */
+/*Table structure for table `StreamUser` */
 
-DROP TABLE IF EXISTS `streamuser`;
+DROP TABLE IF EXISTS `StreamUser`;
 
-CREATE TABLE `streamuser` (
+CREATE TABLE `StreamUser` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -39,4 +39,4 @@ CREATE TABLE `streamuser` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-insert  into `streamuser`(`id`,`username`,`password`,`remember_token`,`created_at`,`updated_at`) values (1,'youremail@youremail.com','$2y$10$eHmSft2jdQH38yQwXXoOhOgOvaew6KXXNrnKrniLQA66K61aim5n2','vwAwVejH87zm9pPyXjTz2FxhsN62zcFUtbbmvVcFSNzaV1jhpPPEBdsx7Z09','2014-11-28 19:20:15','2015-05-09 01:18:26');
+insert  into `StreamUser`(`id`,`username`,`password`,`remember_token`,`created_at`,`updated_at`) values (1,'youremail@youremail.com','$2y$10$eHmSft2jdQH38yQwXXoOhOgOvaew6KXXNrnKrniLQA66K61aim5n2','vwAwVejH87zm9pPyXjTz2FxhsN62zcFUtbbmvVcFSNzaV1jhpPPEBdsx7Z09','2014-11-28 19:20:15','2015-05-09 01:18:26');
