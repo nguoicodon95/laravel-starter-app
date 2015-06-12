@@ -1,8 +1,8 @@
 @if(Auth::check())
-  <li>
-    <?php $params = Auth::user()->username; ?>
-    <a href="/logout">
-      <span class="menu-text">Logout</span>
-    </a>
-  </li>
+	<?php $params = Auth::user()->username; ?>
+	<p class="text-right">
+		<a href="/logout">
+		  <span class="menu-text">Logout</span>
+		</a>
+	</p>
 @endif

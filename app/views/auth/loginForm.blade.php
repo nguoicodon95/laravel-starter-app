@@ -1,13 +1,13 @@
 @if (!Auth::check())
   {{ Form::open(array('url' => 'login')) }}
-  <p>
-      {{ Form::label('username', 'Username') }}<br/>
-      {{ Form::text('username') }}
-  </p>
-  <p>
-      {{ Form::label('password', 'Password') }}<br/>
-      {{ Form::password('password') }}
-  </p>
-  <p>{{ Form::submit('Login') }}</p>
+  <div class="form-group">
+      {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Username']) }}
+  </div>
+  <div class="form-group">
+      {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) }}
+  </div>
+  <div class="form-group">
+    {{ Form::submit('Login', ['class' => 'btn btn-default']) }}
+  </div>
   {{ Form::close() }}
 @endif

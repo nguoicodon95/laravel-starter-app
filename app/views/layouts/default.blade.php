@@ -27,9 +27,7 @@
             <div class="row">
                 <div class="col-xs-12 inner-side-wrap">
                     <div class="side-nav">
-                        <ul>
                         @include('auth.logoutLink')
-                        </ul>
                         @include('auth.loginMessages')
                         @include('auth.loginForm')
                         @include('sections.addPost')
