@@ -19,7 +19,7 @@ Stream Admin: u - youremail@youremail.com | p - password
 
 For more specific environment set up's, [see the wiki](https://github.com/puffstream/streambaseproductv0.01/wiki/Installation).
 
-## Need help?
+### Need help?
 If you'd like to get started with Stream, but not a technical guru on the set up, we can lend a hand and get you up and running. The set up cost for this is $99 NZD whether for personal or commercial.
 
 ## Help contribute
