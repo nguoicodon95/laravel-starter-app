@@ -22,7 +22,7 @@ For more specific environment set up's, [see the wiki](https://github.com/puffst
 ### Need help?
 If you'd like to get started with Stream, but not a technical guru on the set up, we can lend a hand and get you up and running. The set up cost is $99 NZD for personal/commercial*.
 
-&#42; ongoing/upgrading cost may apply.
+&#42;ongoing/upgrading cost may apply.
 
 ## Help contribute
 #### Donate $5, $10, $25 NZD.
