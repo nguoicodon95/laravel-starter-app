@@ -5,7 +5,7 @@
   {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Add a title']) }}
   </div>
   <div class="form-group">
-  {{ Form::textarea('post', null, ['class' => 'form-control', 'placeholder' => 'Add a post', 'style' => 'height:100px;']) }}
+  {{ Form::textarea('post', null, ['class' => 'form-control', 'placeholder' => 'Add a description', 'style' => 'height:100px;']) }}
   </div>
   <div class="form-group">
   {{ Form::label('file', 'Add an image') }}
