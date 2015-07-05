@@ -22,7 +22,7 @@
 	@endif
 	<div class="panel-body">
 	  {{ str_limit($value->post, $limit = 350, $end = '...') }}
-	  <br /><br />
+	  <br />
 	  <div class="panel-buttons">
 	    @if (Auth::check())
 	      <button type="button" class="btn btn-primary btn-xs edit-button" data-link="edit/{{ $value->id }}">Edit</button>
