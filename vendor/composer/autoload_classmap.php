@@ -8,6 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'FileHelper' => $baseDir . '/app/helpers/FileHelper.php',
+    'ParsedownHelper' => $baseDir . '/app/helpers/ParsedownHelper.php',
+    'Parsedown' => $baseDir . '/app/lib/Parsedown.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'StreamController' => $baseDir . '/app/controllers/StreamController.php',

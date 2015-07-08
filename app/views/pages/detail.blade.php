@@ -16,8 +16,10 @@
     @endif
     <div class="smaller-phones col-xs-6 text-block">
       <?php
+      $ParsedownHelper = new ParsedownHelper();
       $sanitized = htmlspecialchars($value->post, ENT_QUOTES);
-      echo str_replace(array("\r\n", "\n"), array("<br />", "<br />"), $sanitized);
+      $parseText = $ParsedownHelper->line($sanitized);
+      echo str_replace(array("\r\n", "\n"), array("<br />", "<br />"), $parseText);
       ?>
     </div>
   </div>

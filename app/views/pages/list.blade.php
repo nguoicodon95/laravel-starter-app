@@ -21,7 +21,14 @@
 	  @endif           
 	@endif
 	<div class="panel-body">
-	  {{ str_limit($value->post, $limit = 350, $end = '...') }}
+	  <?php
+      $ParsedownHelper = new ParsedownHelper();
+      $sanitized = htmlspecialchars($value->post, ENT_QUOTES);
+      $parseText = $ParsedownHelper->line($sanitized);
+      // now strip tags
+      $stripTags = strip_tags($parseText);
+      ?>
+	  {{ str_limit($stripTags, $limit = 350, $end = '...') }}
 	  <br />
 	  <div class="panel-buttons">
 	    @if (Auth::check())

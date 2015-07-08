@@ -15,7 +15,7 @@ return array(
 
 	// database
 	'host' 	   => 'localhost',
-	'database' => '',
+	'database' => 'puffstream_stream',
 	'username' => 'root',
 	'password' => '',
 
