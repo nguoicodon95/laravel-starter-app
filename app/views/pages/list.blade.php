@@ -3,24 +3,19 @@
 @include('partials.title')
 @stop
 @section('list')
+<?php (Auth::check()) ?  $action = "edit" : $action = "detail"; ?>
+<?php (Auth::check()) ?  $actionLabel = "Edit" : $actionLabel = "View"; ?>
 <div id="columns" class="salvattore-wrapper" data-columns>
 @foreach($post as $key => $value)
 <div class="panel panel-primary">
 	<div class="panel-heading">
-	    @if (Auth::check())
-	    <a href="edit/{{ $value->id }}">{{ $value->title }}</a>
-	    @else
-	    <a href="detail/{{ $value->id }}">{{ $value->title }}</a>
-	    @endif
+	    <a href="{{ $action }}/{{ $value->id }}">{{ $value->title }}</a>
 	</div>
-	@if($value->file->count() > 0)   
-	  @if (Auth::check())     
-	  <a href="edit/{{ $value->id }}"><img src="{{ $value->file[0]->file_thmb_url }}" /></a>
-	  @else
-	  <a href="detail/{{ $value->id }}"><img src="{{ $value->file[0]->file_thmb_url }}" /></a>
-	  @endif           
+	@if($value->file->count() > 0)
+	  	<a href="{{ $action }}/{{ $value->id }}"><img src="{{ $value->file[0]->file_thmb_url }}" /></a>          
 	@endif
 	<div class="panel-body">
+	  <a href="{{ $action }}/{{ $value->id }}" class="summary-description">
 	  <?php
       $ParsedownHelper = new ParsedownHelper();
       $sanitized = htmlspecialchars($value->post, ENT_QUOTES);
@@ -30,12 +25,9 @@
       ?>
 	  {{ str_limit($stripTags, $limit = 350, $end = '...') }}
 	  <br />
+	  </a>
 	  <div class="panel-buttons">
-	    @if (Auth::check())
-	      <button type="button" class="btn btn-primary btn-xs edit-button" data-link="edit/{{ $value->id }}">Edit</button>
-	    @else
-	    <button type="button" class="btn btn-primary btn-xs link-button" data-link="detail/{{ $value->id }}">View</button>
-	    @endif
+	      <button type="button" class="btn btn-primary btn-xs edit-button" data-link="{{ $action }}/{{ $value->id }}">{{ $actionLabel }}</button>
 	  </div>
 	</div> 
 </div> 
