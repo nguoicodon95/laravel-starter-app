@@ -17,13 +17,17 @@
           </div>
         </div>
         <div class="form-group">
-        @if($value->file->count() > 0)       
-          <input type="button" onclick="javascript:$('.deleteImageForm').submit()" class="btn btn-default" value="Delete image" /><br />
-          <img src="/{{ $value->file[0]->file_url }}" class="large-image" />
-        @else
-          {{ Form::label('file2', 'Add an image') }}
-          {{ Form::file('file2', ['class' => 'form-control']) }}
-        @endif
+          <div class="row">
+            <div class="col-xs-12 col-md-10">
+              @if($value->file->count() > 0)       
+                <input type="button" onclick="javascript:$('.deleteImageForm').submit()" class="btn btn-default" value="Delete image" /><br />
+                <img src="/{{ $value->file[0]->file_url }}" class="large-image" />
+              @else
+                {{ Form::label('file2', 'Add an image') }}
+                {{ Form::file('file2', ['class' => 'form-control']) }}
+              @endif
+            </div>
+          </div>
         </div>
         <div class="form-group">
           <div class="row">
