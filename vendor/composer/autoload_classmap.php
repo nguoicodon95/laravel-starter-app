@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
+    'PostHelper' => $baseDir . '/app/helpers/PostHelper.php',
     'FileHelper' => $baseDir . '/app/helpers/FileHelper.php',
     'ParsedownHelper' => $baseDir . '/app/helpers/ParsedownHelper.php',
     'Parsedown' => $baseDir . '/app/lib/Parsedown.php',

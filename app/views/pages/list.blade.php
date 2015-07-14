@@ -16,14 +16,7 @@
 	@endif
 	<div class="panel-body">
 	  <a href="{{ $action }}/{{ $value->id }}" class="summary-description">
-	  <?php
-      $ParsedownHelper = new ParsedownHelper();
-      $sanitized = htmlspecialchars($value->post, ENT_QUOTES);
-      $parseText = $ParsedownHelper->line($sanitized);
-      // now strip tags
-      $stripTags = strip_tags($parseText);
-      ?>
-	  {{ str_limit($stripTags, $limit = 350, $end = '...') }}
+	  <?php $p = new PostHelper(); echo $p->summary($value->post); ?>
 	  <br />
 	  </a>
 	  <div class="panel-buttons">
