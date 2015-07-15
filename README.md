@@ -1,5 +1,5 @@
 ## Overview
-Stream is a decentralised micro-platform streaming software.
+With Stream you can write something, then watch the web come to you.
 
 ## Installation
 Stream can be installed on any Windows or Mac local server, such as Wamp, Mamp, Xampp or production server, like GoDaddy's shared hosting, or Rackspace or any of the cloud web services, like Azure, Pagoda Box or AWS etc..
