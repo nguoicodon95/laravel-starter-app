@@ -1,6 +1,0 @@
-{
-  "name": "ProjectPackages",
-  "dependencies": {
-    "bootstrap": "~3.3.1"
-  }
-}
