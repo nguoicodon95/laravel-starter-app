@@ -2,7 +2,7 @@
   "name": "ProjectPackages",
   "description": "Using Grunt Laravel and JavaScript",
   "url": "http://www.puffstream.com",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "some command"
