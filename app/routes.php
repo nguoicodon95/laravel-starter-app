@@ -11,6 +11,9 @@ Route::get('/', function() {
 
 Route::resource('stream', 'ListsController');
 
+// Auth
+Route::resource('login', 'AuthController');
+
 // Forms
 Route::group(array('prefix' => 'forms'), function()
 {

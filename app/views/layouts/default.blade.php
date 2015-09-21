@@ -18,7 +18,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Puff Stream</a>
+          <a class="navbar-brand" href="/">Puff Stream</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <form class="navbar-form navbar-left" role="search">
@@ -58,19 +58,19 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-xs-12">
-                  <h3 style="margin-bottom:15px">Sign in to Stream</h3>
+                  <h3 style="margin-bottom:15px">Sign in here</h3>
                   {{ Form::open(array('url' => 'login')) }}
-                      <div class="form-group">
-                        {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Username']) }}
-                      </div>
-                      <div class="form-group">
-                        {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) }}
-                      </div>
-                      <div class="form-group text-right">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                        {{ Form::submit('Sign in', ['class' => 'btn btn-primary']) }}
-                      </div>
-                    {{ Form::close() }}
+                    <div class="form-group">
+                      {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Username']) }}
+                    </div>
+                    <div class="form-group">
+                      {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) }}
+                    </div>
+                    <div class="form-group text-right">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                      {{ Form::submit('Sign in', ['class' => 'btn btn-primary']) }}
+                    </div>
+                  {{ Form::close() }}
                 </div>
               </div>
             </div>
