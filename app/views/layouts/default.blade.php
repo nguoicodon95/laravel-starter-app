@@ -27,10 +27,11 @@
             </div>
             <button type="submit" class="btn btn-default">Search</button>
             &nbsp;&nbsp;
-            <button type="button" class="btn btn-primary new-stream-button">New Stream</button>
+            <button type="button" class="btn btn-primary stream button">Stream</button>
           </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" class="signin-link">Sign in</a></li>
+          <ul class="nav navbar-nav navbar-right"> 
+            <li><a href="#" class="signin link">Sign in</a></li>
+            <li><button type="button" style="margin-top:8px" class="btn btn-primary post button">Post</button></li>
           </ul>
         </div>
       </div>
@@ -58,7 +59,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-xs-12">
-                  <h3 style="margin-bottom:15px">Sign in here</h3>
+                  <h3 style="margin-bottom:15px">Sign in</h3>
                   {{ Form::open(array('url' => 'login')) }}
                     <div class="form-group">
                       {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Username']) }}
@@ -67,7 +68,7 @@
                       {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password']) }}
                     </div>
                     <div class="form-group text-right">
-                      <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                       {{ Form::submit('Sign in', ['class' => 'btn btn-primary']) }}
                     </div>
                   {{ Form::close() }}
@@ -86,13 +87,13 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-xs-12">
-                  <h3 style="margin-bottom:15px">Create a Stream</h3>
+                  <h3 style="margin-bottom:15px">Create new Stream</h3>
                   {{ Form::open(array('url' => 'stream')) }}
                       <div class="form-group">
                         {{ Form::text('stream', null, ['class' => 'form-control', 'placeholder' => 'Add a name']) }}
                       </div>
                       <div class="form-group text-right">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
                       </div>
                     {{ Form::close() }}

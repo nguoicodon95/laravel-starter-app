@@ -1,1 +1,1 @@
-$(document).ready(function(){$(".new-stream-button").on("click",function(){$(".stream-modal").modal("show")}),$(".signin-link").on("click",function(){$(".signin-modal").modal("show")})});
+$(document).ready(function(){$(".stream.button").on("click",function(){$(".stream-modal").modal("show")}),$(".signin.link").on("click",function(){$(".signin-modal").modal("show")})});

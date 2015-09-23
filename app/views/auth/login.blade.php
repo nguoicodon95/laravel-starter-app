@@ -9,7 +9,7 @@
 	            <div class="col-xs-12 col-sm-12 col-md-4">
 	              <div class="row">
 	                <div class="col-xs-12">
-	                  <h3 style="margin-bottom:15px">Sign in here</h3>
+	                  <h3 style="margin-bottom:15px">Sign in</h3>
 	                  {{ Form::open(array('url' => 'login')) }}
 	                    <div class="form-group">
 	                      {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Username']) }}

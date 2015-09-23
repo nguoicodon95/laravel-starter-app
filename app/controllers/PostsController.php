@@ -10,18 +10,19 @@ class PostsController extends \BaseController {
 	public function index()
 	{
         // get all posts
-        $posts = Post::all();
+        // $posts = Post::all();
 
-        $tags = Tag::lists("name", "id");
+        // $tags = Tag::lists("name", "id");
 
-        $tag = Tag::find(1);
+        // $tag = Tag::find(1);
 
-        $photos = $tag->photos()->get();
+        // $photos = $tag->photos()->get();
 
         // load the view and pass the posts
-        return View::make('forms.posts')->with('posts', $posts)->with('tags', $tags)->with('photos', $photos);
+        // return View::make('forms.posts')->with('posts', $posts)->with('tags', $tags)->with('photos', $photos);
+		
+		return View::make('pages.post');
 	}
-
 
 	/**
 	 * Show the form for creating a new resource.

@@ -4,7 +4,7 @@
 // @ROUTES
 //
 
-// root
+// Root
 Route::get('/', function() {
     return Redirect::to("stream");
 });
@@ -13,6 +13,9 @@ Route::resource('stream', 'ListsController');
 
 // Auth
 Route::resource('login', 'AuthController');
+
+// Post
+Route::resource('post', 'PostsController');
 
 // Forms
 Route::group(array('prefix' => 'forms'), function()
