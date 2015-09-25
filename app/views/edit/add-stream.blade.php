@@ -25,13 +25,13 @@
 	<div class="panel panel-default">
 	  <div class="panel-body">
 	    <div style="padding:10px;">
-	        <h4 style="font-size:32px;padding-bottom:10px;margin-bottom:10px;">
-	            <input type="text" placeholder="Add title" class="form-control" style="padding-top:0;padding-bottom:0;width:100%;height:auto;display:inline-block;font-size:32px;" />
-	        </h4>
-	        <p style="font-size:17px;line-height:24px;padding-bottom:10px">
+	        <div class="form-group">
+	            <input type="text" placeholder="Add title" class="form-control" style="padding-top:2px;padding-bottom:2px;width:100%;height:auto;display:inline-block;font-size:25px;" />
+	        </div>
+	        <div class="form-group">
 	        	<textarea class="form-control" placeholder="Write something.." style="height:300px;font-size:17px;"></textarea>
-	        </p>
-	        <div class="text-center">
+	        </div>
+	        <div class="well text-center">
 	        	<button type="button" class="btn btn-primary" style="font-size:17px">Select photos for post</button>
 	    	</div>
 	        <!--
@@ -69,17 +69,25 @@
 @section('right')
 	<div class="panel panel-default">
 	  <div class="panel-body">
-	  	<h5>Tag / User</h5>
+	  	<h5>Tags</h5>
         <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">Cars</span>
         <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">JS</span>
 	    <hr />
-	    <h5>Recent tags</h5>
-	    <a href="#">Cars</a>
+	    <div class="form-group">
+		    <div>
+		    	<input type="radio" name="withpost" checked /> post and photos
+		    </div>
+	    	<div>
+				<input type="radio" name="withpost" /> photos only
+	    	</div>
+    	</div>
+    	<div class="form-group">
+        	<button type="button" class="btn btn-primary" style="font-size:17px">Publish</button>
+    	</div>
 	    <hr />
-	    <h5>Find us</h5>
+	    <h5>Found:</h5>
 	    <ul>
-	        <li><a href="#">Twitter</a></li>
-	        <li><a href="#">YouTube</a></li>
+	    	<li>Flickr [7]</li>
 	    </ul>
 	  </div>
 	</div>
