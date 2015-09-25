@@ -9,10 +9,11 @@ Route::get('/', function() {
     return Redirect::to("stream");
 });
 
-Route::resource('stream', 'ListsController');
-
 // Auth
 Route::resource('login', 'AuthController');
+
+// Stream
+Route::resource('stream', 'StreamController');
 
 // Post
 Route::resource('post', 'PostsController');
@@ -20,15 +21,15 @@ Route::resource('post', 'PostsController');
 // Forms
 Route::group(array('prefix' => 'forms'), function()
 {
-	Route::resource('tags', 'TagsController');
-	Route::resource('photos', 'PhotosController');
-	Route::resource('posts', 'PostsController');
+	Route::resource('tag', 'TagsController');
+	Route::resource('photo', 'PhotosController');
+	Route::resource('post', 'PostsController');
 });
 
 // API
 Route::group(array('prefix' => 'api/v1'), function()
 {
-	Route::resource('tags', 'TagsController');
-	Route::resource('photos', 'PhotosController');
-	Route::resource('posts', 'PostsController');
+	Route::resource('tag', 'TagsController');
+	Route::resource('photo', 'PhotosController');
+	Route::resource('post', 'PostsController');
 });

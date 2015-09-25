@@ -1,6 +1,6 @@
 <?php
 
-class PostsController extends \BaseController {
+class StreamController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,17 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-        // get all posts
-        $posts = Post::all();
-
-        $tags = Tag::lists("name", "id");
-
-        $tag = Tag::find(1);
-
-        $photos = $tag->photos()->get();
-
-        // load the view and pass the posts
-        return View::make('forms.posts')->with('posts', $posts)->with('tags', $tags)->with('photos', $photos);  
+		return View::make('pages.stream');
 	}
 
 	/**
@@ -29,7 +19,7 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('edit.add-stream');
 	}
 
 
@@ -41,15 +31,6 @@ class PostsController extends \BaseController {
 	public function store()
 	{
 		//
-        $post = new Post;
-        $post->title = Input::get('title');
-        $post->summary = Input::get('summary');
-        $post->body = Input::get('body');
-        $post->save();
-        $post->tags()->sync([Input::get('tag')]);
-
-        // redirect
-        return Redirect::to('forms/posts');
 	}
 
 
@@ -61,7 +42,7 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return View::make('pages.post');
+
 	}
 
 
@@ -73,7 +54,7 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return View::make('edit.edit-post');
+
 	}
 
 
