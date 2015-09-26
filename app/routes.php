@@ -11,6 +11,7 @@ Route::get('/', function() {
 // Login
 Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
+Route::resource('loginbox', 'AuthController');
 
 // User
 Route::group(array('before'=>'auth|admin'), function() {

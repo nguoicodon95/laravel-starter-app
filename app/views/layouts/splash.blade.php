@@ -27,7 +27,7 @@
             </div>
             <button type="submit" class="btn btn-default" disabled>Search</button>
             &nbsp;&nbsp;
-            <button type="button" class="btn btn-primary new-stream-button" disabled>New Stream</button>
+            <button type="button" class="btn btn-primary new-stream-button" disabled>Stream</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a>Sign in</a></li>

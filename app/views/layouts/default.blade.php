@@ -27,15 +27,17 @@
             </div>
             <button type="submit" class="btn btn-default">Search</button>
             &nbsp;&nbsp;
+            @if (Auth::check())
             <button type="button" class="btn btn-primary stream button">Stream</button>
+            @endif
           </form>
           <ul class="nav navbar-nav navbar-right"> 
             @if (!Auth::check())
             <li><a href="#" class="signin link">Sign in</a></li>
             @else
             <li><a href="/logout" class="signout link">Sign out</a></li>
-            @endif
             <li><button type="button" style="margin-top:8px" class="btn btn-primary post button">Post</button></li>
+            @endif 
           </ul>
         </div>
       </div>

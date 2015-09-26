@@ -1,5 +1,6 @@
 @extends('layouts.default')
 @section('left')
+	@if (Auth::check())
 	<div class="panel panel-default">
 		<div class="panel-body">
 		<h4>James Star</h4>
@@ -10,6 +11,7 @@
 		</ul>
 		</div>
 	</div>
+	@endif
 	<div class="panel panel-default">
 		<div class="panel-body">
 		<h4>Stream stats</h4>
