@@ -1,6 +1,6 @@
 <?php
 
-class AuthController extends \BaseController {
+class UsersController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,26 +10,7 @@ class AuthController extends \BaseController {
 	public function index()
 	{
         // load the view and pass the photos
-        return View::make('auth.login');
-	}
-
-	// login
-	public function login()
-	{
-		// get user
-	    $user = array('username' => Input::get('username'), 
-	    			  'password' => Input::get('password'));
-	    // check user auth
-	    if (Auth::attempt($user)) {
-	        return Redirect::to('stream');
-	    }    
-	    return Redirect::to('stream');
-	}
-
-	public function logout()
-	{
-    	Auth::logout();
-    	return Redirect::to('stream');
+        return View::make('pages.post');
 	}
 
 	/**

@@ -9,8 +9,14 @@ Route::get('/', function() {
     return Redirect::to("stream");
 });
 
-// Auth
-Route::resource('login', 'AuthController');
+// Login
+Route::post('login', 'AuthController@login');
+Route::get('logout', 'AuthController@logout');
+
+// User
+Route::group(array('before'=>'auth'), function() {
+	Route::resource('user', 'UsersController');
+});
 
 // Stream
 Route::resource('stream', 'StreamController');
