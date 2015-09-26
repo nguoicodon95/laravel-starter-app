@@ -1,4 +1,3 @@
-
 <?php
 
 // @ROUTES
@@ -14,7 +13,7 @@ Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
 
 // User
-Route::group(array('before'=>'auth'), function() {
+Route::group(array('before'=>'auth|admin'), function() {
 	Route::resource('user', 'UsersController');
 });
 

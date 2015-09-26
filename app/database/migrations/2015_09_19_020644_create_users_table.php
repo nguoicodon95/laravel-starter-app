@@ -17,6 +17,8 @@ class CreateUsersTable extends Migration {
 			$t->increments('id');
 			$t->string('username');
 			$t->string('password');
+			$t->boolean('is_admin');
+			$t->string('remember_token');
 			$t->timestamps();
 		});
 	}

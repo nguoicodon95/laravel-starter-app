@@ -70,6 +70,14 @@ Route::filter('guest', function()
 	if (Auth::check()) return Redirect::to('/');
 });
 
+// is admin
+
+Route::filter('admin', function($route, $request)
+{
+	if (!Auth::user()->is_admin) {
+		return Redirect::guest('/');
+	}
+});
 
 /*
 |--------------------------------------------------------------------------
