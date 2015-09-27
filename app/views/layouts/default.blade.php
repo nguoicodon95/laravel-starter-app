@@ -94,9 +94,9 @@
               <div class="row">
                 <div class="col-xs-12">
                   <h3 style="margin-bottom:15px">Create new Stream</h3>
-                  {{ Form::open(array('url' => 'stream')) }}
+                  {{ Form::open(array('url' => 'stream/newtag')) }}
                       <div class="form-group">
-                        {{ Form::text('stream', null, ['class' => 'form-control', 'placeholder' => 'Add a name']) }}
+                        {{ Form::text('newtag', null, ['class' => 'form-control', 'placeholder' => 'Add a name']) }}
                       </div>
                       <div class="form-group text-right">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

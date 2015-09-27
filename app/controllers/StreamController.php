@@ -12,6 +12,13 @@ class StreamController extends \BaseController {
 		return View::make('pages.stream');
 	}
 
+	// new tag
+	public function newtag() {
+		$newtag = Input::get('newtag');
+		Session::flash('newtag', $newtag);     
+		return Redirect::to('/stream/create');
+	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *

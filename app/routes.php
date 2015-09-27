@@ -20,22 +20,22 @@ Route::resource('loginbox', 'AuthController');
 Route::group(array('before'=>'auth|admin'), function() {
 	Route::resource('user', 'UsersController');
 	Route::resource('post', 'PostsController');
+	// New Tag
+	Route::post('stream/newtag', 'StreamController@newtag');
 });
 
 // Post
 Route::resource('post', 'PostsController', ['only' => ['index', 'show']]);
 
 // Forms
-Route::group(array('prefix' => 'forms'), function()
-{
+Route::group(array('prefix' => 'forms'), function() {
 	Route::resource('tag', 'TagsController');
 	Route::resource('photo', 'PhotosController');
 	Route::resource('post', 'PostsController');
 });
 
 // API
-Route::group(array('prefix' => 'api/v1'), function()
-{
+Route::group(array('prefix' => 'api/v1'), function() {
 	Route::resource('tag', 'TagsController');
 	Route::resource('photo', 'PhotosController');
 	Route::resource('post', 'PostsController');

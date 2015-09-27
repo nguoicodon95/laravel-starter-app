@@ -70,7 +70,9 @@
 	<div class="panel panel-default">
 	  <div class="panel-body">
 	  	<h5>Tags</h5>
-        <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">Cars</span>
+        <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">
+        	<?php echo Session::get('newtag'); ?>
+        </span>
         <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">JS</span>
 	    <hr />
 	    <div class="form-group">
