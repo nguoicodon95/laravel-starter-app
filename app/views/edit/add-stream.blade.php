@@ -81,6 +81,11 @@
 				<input type="radio" name="withpost" /> photos only
 	    	</div>
     	</div>
+    	<hr />
+		<div class="form-group">
+			<input type="checkbox" name="location" /> personal stream
+		</div>
+		<hr />
     	<div class="form-group">
         	<button type="button" class="btn btn-primary" style="font-size:17px">Publish</button>
     	</div>

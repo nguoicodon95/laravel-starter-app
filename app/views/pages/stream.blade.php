@@ -27,8 +27,10 @@
 	<div class="panel panel-default">
 	  <div class="panel-body">
 	    <div style="padding:10px;">
+	    	@if (Auth::check())
 	        <input type="text" class="form-control" placeholder="Write something" />
 	        <hr />
+	        @endif
 	        <h4>
 	            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">Cars</span>
 	            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">JS</span>
@@ -139,12 +141,13 @@
 	  <div class="panel-body">
 	    <h5>Recent tags</h5>
 	    <a href="#">Cars</a>
-	    <hr />
-	    <h5>Find us</h5>
-	    <ul>
-	        <li><a href="#">Twitter</a></li>
-	        <li><a href="#">YouTube</a></li>
-	    </ul>
+	  </div>
+	</div>
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	  		Stream&nbsp;
+			<a href="#">Twitter</a>&nbsp; 
+			<a href="#">YouTube</a>
 	  </div>
 	</div>
 @stop

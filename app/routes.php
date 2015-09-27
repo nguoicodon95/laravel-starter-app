@@ -8,6 +8,9 @@ Route::get('/', function() {
     return Redirect::to("stream");
 });
 
+// Stream
+Route::resource('stream', 'StreamController');
+
 // Login
 Route::post('login', 'AuthController@login');
 Route::get('logout', 'AuthController@logout');
@@ -16,13 +19,11 @@ Route::resource('loginbox', 'AuthController');
 // User
 Route::group(array('before'=>'auth|admin'), function() {
 	Route::resource('user', 'UsersController');
+	Route::resource('post', 'PostsController');
 });
 
-// Stream
-Route::resource('stream', 'StreamController');
-
 // Post
-Route::resource('post', 'PostsController');
+Route::resource('post', 'PostsController', ['only' => ['index', 'show']]);
 
 // Forms
 Route::group(array('prefix' => 'forms'), function()
