@@ -1,7 +1,6 @@
-$(document).ready(function() {
+(function() {
 
 	// modals
-
 	$(".stream.button").on("click", function() {
     	$(".stream-modal").modal("show");	    		
 	});
@@ -10,4 +9,4 @@ $(document).ready(function() {
     	$(".signin-modal").modal("show");	    		
 	});
 
-});
+})();

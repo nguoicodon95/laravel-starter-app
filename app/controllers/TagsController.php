@@ -48,7 +48,7 @@ class TagsController extends \BaseController {
         $tag->tags()->sync([Input::get('name')]);
 
         // redirect
-        return Redirect::to('forms/tags');
+        return Redirect::to('forms/tag');
 	}
 
 

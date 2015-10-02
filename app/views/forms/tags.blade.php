@@ -26,7 +26,7 @@
 			<div class="col-xs-6">
 				<h3>Add a tag</h3>
 				{{ $posts }}
-				{{ Form::open(array('url' => 'api/v1/tags')) }}
+				{{ Form::open(array('url' => 'api/v1/tag')) }}
 						{{ Form::hidden('type', 'tag') }}
 					<div class="form-group">
 						{{ Form::label('name', 'Name') }}

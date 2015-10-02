@@ -16,6 +16,8 @@ gulp.task('libs', function() {
     .pipe(gulp.dest('public/assets/js'));
   var jquery = gulp.src('bower_components/jquery/dist/jquery.min.js')
     .pipe(gulp.dest('public/assets/js'));
+  var angularJS = gulp.src('node_modules/angular/angular.min.js')
+    .pipe(gulp.dest('public/assets/js'));
 });
 
 gulp.task('concat', function() {

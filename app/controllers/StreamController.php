@@ -37,7 +37,21 @@ class StreamController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		// store tag
+        $tag = new Tag;
+        $tag->name = Input::get('name');
+        $tag->save();
+        $tag->tags()->sync([$tag->id]);
+
+        // store post
+        $post = new Post;
+        $post->title = Input::get('title');
+        $post->body = Input::get('body');
+        $post->save();
+        $post->tags()->sync([$tag->id]);
+
+        // redirect
+        return Redirect::to('stream');
 	}
 
 

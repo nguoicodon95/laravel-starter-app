@@ -6,8 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Puff Stream</title>
     <link href="/assets/css/styles.css" rel="stylesheet" />
+    <script src="/assets/js/angular.min.js"></script>
+    <script>
+      // declare a module
+      var streamApp = angular.module('streamApp', []);
+      streamApp.config(function($interpolateProvider) {
+        $interpolateProvider.startSymbol('<%');
+        $interpolateProvider.endSymbol('%>');
+      });
+    </script>
   </head>
-  <body>
+  <body ng-app="streamApp">
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
