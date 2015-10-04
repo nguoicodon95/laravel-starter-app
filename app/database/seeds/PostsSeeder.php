@@ -4,29 +4,23 @@ class PostsSeeder extends Seeder
 {
 	public function run()
 	{
-	    DB::table('users')->delete();
-	    DB::table('users')->insert(array(
+	    DB::table('posts')->delete();
+	    DB::table('posts')->insert(array(
     		array(
-					'username'=>'jamess.developer@gmail.com',
-					'password' => Hash::make('secret'),
-					'is_admin' => 1,
-					'remember_token' => 'cdHoby5h1YjxjDziFXk6OHp6p7etk8l5sdLKWB9Lfwn1rxUSuasDv7RlatMR',
+					'title'=>'About Puff Stream',
+					'body' => 'Puff Stream has been established in one of three ways - a personal project, a publication stream and development for the Stream Software.',
 					'created_at'=>date('Y-m-d H:m:s'),
 					'updated_at'=>date('Y-m-d H:m:s')
 					),
     		array(
-					'username'=>'test1@gmail.com',
-					'password' => Hash::make('secret'),
-					'is_admin' => 0,
-					'remember_token' => 'cdHoby5h1YjxjDziFXk6OHp6p7etk8l5sdLKWB9Lfwn1rxUSuasDv7RlatMR',
+					'title'=>'About Stream',
+					'body' => 'Stream is a FREE Open Source Software, features include add a post, add photos, add web links etc..',
 					'created_at'=>date('Y-m-d H:m:s'),
 					'updated_at'=>date('Y-m-d H:m:s')
 					),
     		array(
-					'username'=>'test2@@gmail.com',
-					'password' => Hash::make('secret'),
-					'is_admin' => 0,
-					'remember_token' => 'cdHoby5h1YjxjDziFXk6OHp6p7etk8l5sdLKWB9Lfwn1rxUSuasDv7RlatMR',
+					'title'=>'Use Gimp',
+					'body' => 'Use Gimp to group a series of related products together, example, tee, shorts and shoes. Or maybe use it to try and explain something quite complicated, like a philosophical statement.',
 					'created_at'=>date('Y-m-d H:m:s'),
 					'updated_at'=>date('Y-m-d H:m:s')
 					),

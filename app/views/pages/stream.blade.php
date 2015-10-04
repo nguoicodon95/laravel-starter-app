@@ -34,7 +34,41 @@
 
 			@foreach($tags as $tag)
 				@foreach($tag->posts as $post)
-				{{ $tag->name . "" . $post->title }}
+				<h4>
+	            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">{{$tag->name}}</span>
+	            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">JS</span>
+	            {{$post->title}}</h4>
+		        <p style="padding-bottom:10px">
+		        {{$post->body}}
+		        </p>
+		        <div style="padding:0 30px">
+		            <div class="row" style="margin-bottom:10px;">
+		                <div class="col-xs-12 col-sm-5 left-photo">
+		                    <div>
+		                        <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" />
+		                    </div>
+		                </div>
+		                <div class="col-xs-12 col-sm-7 right-photo">
+		                    <div>
+		                        <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" />
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row hidden-xs">
+		                <div class="col-xs-7" style="padding-right:10px;">
+		                    <div style="overflow:hidden">
+		                        <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" style="height:182px;" />
+		                    </div>
+		                </div>
+		                <div class="col-xs-5" style="padding-left:0;">
+		                    <div style="overflow:hidden">
+		                        <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" style="height:182px;" />
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		        <hr />
+
 				@endforeach
 			@endforeach
 
@@ -152,9 +186,20 @@
 	</div>
 	<div class="panel panel-default">
 	  <div class="panel-body">
-	  		Stream&nbsp;
-			<a href="#">Twitter</a>&nbsp; 
-			<a href="#">YouTube</a>
+	  	<h5>This website will be reset daily.</h5>
+	  	Sign up and help us to test out Stream and Stream's features.
+	  </div>
+	</div>
+	<div class="panel panel-default">
+	  <div class="panel-body">
+  		Stream&nbsp;
+		<a href="#">Twitter</a>&nbsp; 
+		<a href="#">YouTube</a>&nbsp;
+		<a href="#">LinkedIn</a>&nbsp;
+		<a href="#">YouTube</a>&nbsp;
+		<a href="#">Docs</a>&nbsp;
+		<a href="#">Devs</a>&nbsp;
+		<a href="#">Code</a>	
 	  </div>
 	</div>
 @stop
