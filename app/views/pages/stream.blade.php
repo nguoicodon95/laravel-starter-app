@@ -31,6 +31,13 @@
 	        <input type="text" class="form-control" placeholder="Write something" />
 	        <hr />
 	        @endif
+
+			@foreach($tags as $tag)
+				@foreach($tag->posts as $post)
+				{{ $tag->name . "" . $post->title }}
+				@endforeach
+			@endforeach
+
 	        <h4>
 	            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">Cars</span>
 	            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">JS</span>

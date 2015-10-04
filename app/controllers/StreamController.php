@@ -9,7 +9,12 @@ class StreamController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('pages.stream');
+
+		$tags = Tag::all();
+
+        // load the view and pass the posts
+        return View::make('pages.stream')->with('tags', $tags);
+
 	}
 
 	// new tag
