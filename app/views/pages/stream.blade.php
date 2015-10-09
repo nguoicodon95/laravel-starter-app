@@ -32,8 +32,8 @@
 	        <hr />
 	        @endif
 
-			@foreach($tags as $tag)
-				@foreach($tag->posts as $post)
+			@foreach($posts as $post)
+				@foreach($post->tags as $tag)
 				<h4>
 	            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">{{$tag->name}}</span>
 	            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">JS</span>
@@ -86,7 +86,12 @@
 	<div class="panel panel-default">
 	  <div class="panel-body">
 	  	<h5>This website will be reset daily.</h5>
-	  	Sign up and help us to test out Stream and Stream's features.
+	  	<p>
+	  		Use <span class="text-warning">admin@domain.com/password</span> to sign in and start testing Stream.
+	  	</p>
+	  	<p>
+	  		<a href="javascript:void(0)" class="features link">All available and upcomming features.</a>
+	  	</p>
 	  </div>
 	</div>
 	<div class="panel panel-default">

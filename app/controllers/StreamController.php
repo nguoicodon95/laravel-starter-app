@@ -10,10 +10,8 @@ class StreamController extends \BaseController {
 	public function index()
 	{
 
-		$tags = Tag::all();
-
-        // load the view and pass the posts
-        return View::make('pages.stream')->with('tags', $tags);
+		$posts = Post::orderBy('id', 'DESC')->get();
+        return View::make('pages.stream')->with('posts', $posts);
 
 	}
 

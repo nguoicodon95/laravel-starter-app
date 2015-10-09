@@ -9,4 +9,8 @@
     	$(".signin-modal").modal("show");	    		
 	});
 
+	$(".features.link").on("click", function() {
+    	$(".features-modal").modal("show");	    		
+	});
+
 })();

@@ -8,7 +8,7 @@ class PostsSeeder extends Seeder
 	    DB::table('posts')->insert(array(
     		array(
 					'title'=>'About Puff Stream',
-					'body' => 'Puff Stream has been established in one of three ways - a personal project, a publication stream and development for the Stream Software.',
+					'body' => 'Puff Stream has been established in one of three ways - a personal project, a publication and a development front for Stream Software.',
 					'created_at'=>date('Y-m-d H:m:s'),
 					'updated_at'=>date('Y-m-d H:m:s')
 					),

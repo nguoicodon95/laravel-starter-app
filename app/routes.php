@@ -40,3 +40,26 @@ Route::group(array('prefix' => 'api/v1'), function() {
 	Route::resource('photo', 'PhotosController');
 	Route::resource('post', 'PostsController');
 });
+
+// Artisan commands
+// Route::group(array('before'=>'auth|admin'), function() {
+Route::get('/stream/reset/{key?}',  array('as' => 'resetdb', function($key = null)
+{
+    if($key == "reset123") {
+		try {
+			// delete tables here
+			echo "reset migration";
+			Artisan::call("migrate:reset", array('--force' => true));
+			echo "<br />start migration";
+			Artisan::call("migrate", array("--path"=>"app/database/migrations", "--force" => true));
+			echo "<br />init db seeding";
+			Artisan::call('db:seed', array('--force' => true));
+			echo "<br />done";
+	    } catch (Exception $e) {
+			Response::make($e->getMessage(), 500);
+	    }
+  } else {
+    App::abort(404);
+  }
+}));
+// });

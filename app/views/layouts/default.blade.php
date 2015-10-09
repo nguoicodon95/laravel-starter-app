@@ -119,6 +119,96 @@
         </div>
       </div>
     </div>
+    <!-- new stream modal -->
+    <div class="modal fade features-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div style="width:100%;height:300px;overflow:auto">
+                    <h3 style="margin-bottom:15px">All available and upcoming features</h3>
+                    <h4>Membership</h4>
+                    <ul>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign text-primary" aria-hidden="true"></span>
+                        Sign in and out
+                      </li>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
+                        Register form
+                      </li>
+                    </ul>
+                    <h4>Administration</h4>
+                    <ul>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
+                        Manage members
+                      </li>
+                    </ul> 
+                    <h4>Streams and posts</h4>
+                    <ul>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign text-primary" aria-hidden="true"></span>
+                        Create a new Stream
+                      </li>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign text-primary" aria-hidden="true"></span>
+                        Add posts
+                      </li> 
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
+                        Add photos
+                      </li>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
+                        Additional options
+                      </li>
+                    </ul>
+                     <h4>Photos, videos and tags</h4>
+                    <ul>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
+                        Add photos
+                      </li>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
+                        Add videos
+                      </li> 
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
+                        Add tags
+                      </li>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
+                        Additional options
+                      </li>
+                    </ul>                   
+                    <h4>Responsive Design</h4>
+                    <ul>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign text-primary" aria-hidden="true"></span>
+                        Layout
+                      </li>
+                      <li>
+                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
+                        Photos
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top:15px;">
+                <div class="col-xs-12 text-right">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/main-min.js"></script>

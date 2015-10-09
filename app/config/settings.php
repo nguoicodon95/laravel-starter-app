@@ -1,9 +1,8 @@
 <?php
 
 return array(
-	
+		
 	// database
-
 	'host' 	   => 'localhost',
 	'database' => 'stream_db',
 	'username' => 'root',

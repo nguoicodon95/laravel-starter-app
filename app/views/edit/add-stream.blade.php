@@ -70,9 +70,9 @@
 	<div class="panel panel-default">
 	  <div class="panel-body">
 		{{ Form::open(array('url' => 'stream')) }}
-			<input type="text" name="title" value="<% title %>" />
-			<textarea name="body"><% body %></textarea>
-			<input type="text" name="name" value="{{strtolower(Session::get('newtag'))}}" />
+			<input type="hidden" name="title" value="<% title %>" />
+			<input type="hidden" name="body" value="<% body %>" />
+			<input type="hidden" name="name" value="{{strtolower(Session::get('newtag'))}}" />
 		  	<h5>Tags</h5>
 	        <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">
 	        	<?php echo strtolower(Session::get('newtag')); ?>
