@@ -14,7 +14,7 @@ class PostsSeeder extends Seeder
 					),
     		array(
 					'title'=>'About Stream',
-					'body' => 'We’ve designed Stream to make writing anything fun and easy. Publish stuff on your own stream, or create multiple streams. It’s free, simple to customise and completely open source.<br /><br />Stream it. And see the web.<br /><br />Stream, FREE Open Source Software v2 – coming in 31st October 2015.',
+					'body' => 'We’ve designed Stream to make writing anything fun and easy. Publish stuff on your own stream, or create multiple streams. It’s free, simple to customise and completely open source.<br /><br />Stream it. And see the web.<br /><br />Stream, FREE Open Source Software v2 – coming in 31st October 2016.',
 					'created_at'=>date('Y-m-d H:m:s'),
 					'updated_at'=>date('Y-m-d H:m:s')
 					),
