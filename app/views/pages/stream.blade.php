@@ -96,14 +96,20 @@
 	</div>
 	<div class="panel panel-default">
 	  <div class="panel-body">
-  		Puff Stream&nbsp;
+		Puff Stream&nbsp;
 		<a href="http://www.twitter.com/puffstream" target="_blank">Twitter</a>&nbsp; 
 		<a href="https://www.facebook.com/PuffStreamPublications/" target="_blank">Facebook</a>&nbsp;
 		<a href="https://www.linkedin.com/company/puff-stream">LinkedIn</a>&nbsp;
 		<a href="https://www.youtube.com/user/puffstream" target="_blank">YouTube</a>&nbsp;
 		<a href="https://puffstream.atlassian.net/wiki/display/STREAM/Docs" target="_blank">Docs</a>&nbsp;
 		<a href="http://puffstream.github.io/stream/" target="_blank">Devs</a>&nbsp;
-		<a href="https://github.com/puffstream" target="_blank">Code</a>	
+		<a href="https://github.com/puffstream" target="_blank">Code</a>&nbsp;	
+		<div style="display:inline-block">
+			<div class="visible-xs visible-sm">
+				<a href="/page/pricing" target="_blank">Pricing</a>&nbsp;
+				<a href="/page/funding" target="_blank">Funding</a>	
+			</div>
+		</div>
 	  </div>
 	</div>
 @stop

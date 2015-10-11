@@ -41,6 +41,8 @@
             @endif
           </form>
           <ul class="nav navbar-nav navbar-right"> 
+            <li class="hidden-xs hidden-sm"><a href="/page/pricing">Pricing</a></li>
+            <li class="hidden-xs hidden-sm"><a href="/page/funding">Funding</a></li>
             @if (!Auth::check())
             <li><a href="#" class="signin link">Sign in</a></li>
             @else

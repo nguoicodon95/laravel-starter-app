@@ -27,6 +27,12 @@ Route::group(array('before'=>'auth|admin'), function() {
 // Post
 Route::resource('post', 'PostsController', ['only' => ['index', 'show']]);
 
+// Pages
+Route::group(array('prefix' => 'page'), function() {
+	Route::resource('pricing', 'PagesController@pricing');
+	Route::resource('funding', 'PagesController@funding');
+});
+
 // Forms
 Route::group(array('prefix' => 'forms'), function() {
 	Route::resource('tag', 'TagsController');
@@ -42,7 +48,6 @@ Route::group(array('prefix' => 'api/v1'), function() {
 });
 
 // Artisan commands
-// Route::group(array('before'=>'auth|admin'), function() {
 Route::get('/stream/reset/{key?}',  array('as' => 'resetdb', function($key = null)
 {
     if($key == "reset123") {
@@ -62,4 +67,3 @@ Route::get('/stream/reset/{key?}',  array('as' => 'resetdb', function($key = nul
     App::abort(404);
   }
 }));
-// });
