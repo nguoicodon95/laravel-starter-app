@@ -19,6 +19,8 @@
     @media screen and (max-width: 767px) {
       .navbar-form.navbar-left {
         margin-top:0;
+        margin-bottom:0;
+        padding-bottom:0;
       }
     }
     </style>

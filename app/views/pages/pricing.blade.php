@@ -4,7 +4,7 @@
 		<div class="panel-body">
 	        <div class="row">
 	            <div class="col-xs-12">
-	            	pricing
+	            	Pricing details to go here
 	            </div>
 	        </div>
 		</div>
