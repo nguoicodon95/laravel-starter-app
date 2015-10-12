@@ -90,7 +90,7 @@
 	  		Use <span class="text-warning">admin@domain.com/password</span> to sign in and start testing Stream.
 	  	</p>
 	  	<p>
-	  		<a href="javascript:void(0)" class="features link">All available and upcoming features.</a>
+	  		<a href="javascript:void(0)" class="features link">Available and upcoming features.</a>
 	  	</p>
 	  </div>
 	</div>

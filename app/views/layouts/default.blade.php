@@ -15,6 +15,13 @@
         $interpolateProvider.endSymbol('%>');
       });
     </script>
+    <style>
+    @media screen and (max-width: 767px) {
+      .navbar-form.navbar-left {
+        margin-top:0;
+      }
+    }
+    </style>
   </head>
   <body ng-app="streamApp">
     <nav class="navbar navbar-inverse">
@@ -29,12 +36,12 @@
           </button>
           <a class="navbar-brand" href="/">Puff Stream</a>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="box-shadow:none;border:0">
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
               <input type="text" class="form-control search-box" placeholder="Posts or photos">
             </div>
-            <button type="submit" class="btn btn-default">Search</button>
+            <button type="submit" class="form-control btn btn-default">Search</button>
             &nbsp;&nbsp;
             @if (Auth::check())
             <button type="button" class="btn btn-primary stream button">Stream</button>
@@ -130,7 +137,7 @@
               <div class="row">
                 <div class="col-xs-12">
                   <div style="width:100%;height:300px;overflow:auto">
-                    <h3 style="margin-bottom:15px">All available and upcoming features</h3>
+                    <h3 style="margin-bottom:15px">Available and upcoming features</h3>
                     <h4>Membership</h4>
                     <ul>
                       <li>
