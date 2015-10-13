@@ -96,6 +96,17 @@
 	</div>
 	<div class="panel panel-default">
 	  <div class="panel-body">
+	  	<div class="text-center" style="margin:4px 0 13px 0;">
+			<div class="fb-like" data-href="http://www.puffstream.com/stream" data-layout="button_count" data-action="recommend" data-show-faces="true" data-share="true"></div>
+	  	</div>
+	  	<div class="text-center">
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.puffstream.com/stream" data-text="With Stream you can write something, then watch the web come to you." data-via="puffstream" data-hashtags="stream">&nbsp;</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</div>
+	  </div>
+	</div>
+	<div class="panel panel-default">
+	  <div class="panel-body">
 		Puff Stream&nbsp;
 		<a href="http://www.twitter.com/puffstream" target="_blank">Twitter</a>&nbsp; 
 		<a href="https://www.facebook.com/PuffStreamPublications/" target="_blank">Facebook</a>&nbsp;
@@ -109,17 +120,6 @@
 				<a href="/page/pricing" target="_blank">Pricing</a>&nbsp;
 				<a href="/page/funding" target="_blank">Funding</a>	
 			</div>
-		</div>
-	  </div>
-	</div>
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	  	<div class="text-center" style="margin:4px 0 13px 0;">
-			<div class="fb-like" data-href="http://www.puffstream.com" data-layout="button_count" data-action="recommend" data-show-faces="true" data-share="true"></div>
-	  	</div>
-	  	<div class="text-center">
-			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.puffstream.com" data-text="With Stream you can write something, then watch the web come to you." data-via="puffstream" data-hashtags="stream">&nbsp;</a>
-			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 		</div>
 	  </div>
 	</div>
