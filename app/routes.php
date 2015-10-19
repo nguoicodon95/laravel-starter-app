@@ -34,17 +34,19 @@ Route::group(array('prefix' => 'page'), function() {
 });
 
 // Forms
-Route::group(array('prefix' => 'forms'), function() {
-	Route::resource('tag', 'TagsController');
-	Route::resource('photo', 'PhotosController');
-	Route::resource('post', 'PostsController');
+Route::group(array('before'=>'auth'), function() {
+	Route::group(array('prefix' => 'forms'), function() {
+		Route::resource('tag', 'TagsController');
+		Route::resource('photo', 'PhotosController');
+		Route::resource('post', 'PostsController');
+	});
 });
 
 // API
-Route::group(array('prefix' => 'api/v1'), function() {
-	Route::resource('tag', 'TagsController');
-	Route::resource('photo', 'PhotosController');
-	Route::resource('post', 'PostsController');
+Route::group(array('before'=>'auth'), function() {
+	Route::group(array('prefix' => 'api/v1'), function() {
+		Route::resource('tag', '\\Api\\V1\\TagsController');
+	});
 });
 
 // Artisan commands
