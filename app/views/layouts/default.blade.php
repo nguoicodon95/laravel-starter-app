@@ -130,7 +130,7 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-xs-12">
-                  <h3 style="margin-bottom:15px">Create new Stream</h3>
+                  <h3 style="margin-bottom:15px">Create Stream</h3>
                   {{ Form::open(array('url' => 'stream/newtag')) }}
                       <div class="form-group">
                         {{ Form::text('newtag', null, ['class' => 'form-control', 'placeholder' => 'Add a name']) }}
@@ -139,6 +139,168 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         {{ Form::submit('Create', ['class' => 'btn btn-primary']) }}
                       </div>
+                    {{ Form::close() }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- new post modal -->
+    <div class="modal fade post-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content" style="height:420px;">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-12">
+                    <!-- Post details -->
+                    <div class="post-wizard-1" style="display:none;">
+                      <h3 style="margin-bottom:15px">Create Post</h3>
+                      <div class="post-form-contents" style="height:265px;margin-bottom:20px">
+                        <div class="form-group">
+                            <input type="text" placeholder="Add title" class="form-control" style="width:100%;height:auto;display:inline-block;font-size:17px;" />
+                        </div>
+                        <div class="form-group">
+                          <textarea class="form-control" placeholder="Write something.." style="height:200px;font-size:17px;"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group text-right">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Next</button>
+                      </div>
+                    </div>
+                    <!-- Stream details -->
+                    <div class="post-wizard-2" style="display:none">
+                      <h3 style="margin-bottom:15px">Add to Stream</h3>
+                      <div class="post-form-contents" style="height:265px;padding-top:10px;margin-bottom:20px;">
+                        <div class="form-group">
+                            <input type="text" placeholder="Enter Stream" class="form-control" style="width:100%;height:auto;display:inline-block;font-size:17px;" />
+                        </div>
+                      </div>
+                      <div class="form-group text-right">
+                        <button type="button" class="btn btn-primary">Previous</button>
+                        <button type="button" class="btn btn-primary">Next</button>
+                      </div>
+                    </div>
+                    <!-- Photo details #1 -->
+                    <div class="post-wizard-3" style="display:none">
+                      <h3 style="margin-bottom:15px">Select photos</h3>
+                      <div class="post-form-contents" style="height:265px;margin-bottom:20px;overflow-x:hidden;overflow-y:scroll">
+                        <h4 style="margin-bottom:20px;">Photos found on Flickr</h4>
+                        <div style="width:98%">
+                          <div class="row" style="margin-bottom:20px;">
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                          </div>
+                          <div class="row" style="margin-bottom:20px;">
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                          </div>
+                          <div class="row" style="margin-bottom:20px;">
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                          </div>
+                          <div class="row" style="margin-bottom:20px;">
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                            <div class="col-xs-3">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group text-right">
+                        <button type="button" class="btn btn-default" style="float:left;">Add photos</button>
+                        <button type="button" class="btn btn-primary">Previous</button>
+                        <button type="button" class="btn btn-primary">Next</button>
+                      </div>
+                    </div>
+                    <!-- Photo details #2 -->
+                    <div class="post-wizard-4" style="display:none">
+                      <h3 style="margin-bottom:15px">Preview of selected photos</h3>
+                      <div class="post-form-contents" style="height:265px;margin-bottom:20px;overflow-x:hidden;overflow-y:scroll">
+                        <div style="width:98%">
+                          <div class="row" style="margin-bottom:20px;">
+                            <div class="col-xs-11">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                          </div>
+                           <div class="row" style="margin-bottom:20px;">
+                            <div class="col-xs-11">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                          </div>
+                          <div class="row" style="margin-bottom:20px;">
+                            <div class="col-xs-11">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                          </div>
+                          <div class="row" style="margin-bottom:20px;">
+                            <div class="col-xs-11">
+                              <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group text-right">
+                        <button type="button" class="btn btn-primary">Previous</button>
+                        <button type="button" class="btn btn-primary">Next</button>
+                      </div>
+                    </div>
+                    <!-- Publish -->
+                    <div class="post-wizard-5" style="display:block">
+                      <h3 style="margin-bottom:15px">Ready to publish your post</h3>
+                      <div class="post-form-contents" style="height:265px;padding-top:10px;margin-bottom:20px;">
+                        <h3 style="font-weight:bold">Stream: <span class="text-warning">Cars</span></h3>
+                        <h4 style="font-weight:bold">Title: <span class="text-warning">xx</span></h4>
+                        <h4 style="font-weight:bold">Total words: <span class="text-warning">233</span></h4>
+                        <h4 style="font-weight:bold">Selected images: <span class="text-warning">3</span></h4>
+                      </div>
+                      <div class="form-group text-right">
+                        <button type="button" class="btn btn-default">Cancel</button>
+                        <button type="button" class="btn btn-primary">Previous</button>
+                        <button type="button" class="btn btn-primary">Publish</button>
+                      </div>
+                    </div>
                     {{ Form::close() }}
                 </div>
               </div>
