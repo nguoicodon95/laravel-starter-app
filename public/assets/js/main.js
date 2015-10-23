@@ -17,4 +17,33 @@
     	$(".features-modal").modal("show");	    		
 	});
 
+	// post wizard module
+	var postWizard = {};
+
+	window.pw = pw = postWizard;
+
+	pw.defaults = {
+		buttons : {
+			next : ".next.button"
+		},
+		wrapper : ".post-wizard",
+		"form-holders" : ".post-wizard-"
+	}
+
+	pw.init = function() {
+
+		var h = pw.defaults["form-holders"].split(".")[1];
+
+		// hide all holders
+		var holder = $(pw.defaults.wrapper).find("*[class*='"+h+"']");
+
+		holder.hide();
+
+		// show first one
+		holder.eq(0).show();
+
+	}
+
+	pw.init();
+
 })();

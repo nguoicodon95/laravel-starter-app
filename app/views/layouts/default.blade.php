@@ -148,7 +148,7 @@
       </div>
     </div>
     <!-- new post modal -->
-    <div class="modal fade post-modal" tabindex="-1" role="dialog">
+    <div class="modal fade post-modal post-wizard" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-md">
         <div class="modal-content" style="height:420px;">
           <div class="modal-body">
@@ -168,7 +168,7 @@
                       </div>
                       <div class="form-group text-right">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Next</button>
+                        <button type="button" class="btn btn-primary next button">Next</button>
                       </div>
                     </div>
                     <!-- Stream details -->
@@ -287,16 +287,13 @@
                       </div>
                     </div>
                     <!-- Publish -->
-                    <div class="post-wizard-5" style="display:block">
-                      <h3 style="margin-bottom:15px">Ready to publish your post</h3>
+                    <div class="post-wizard-5" style="display:none">
+                      <h3 style="margin-bottom:15px">&nbsp;</h3>
                       <div class="post-form-contents" style="height:265px;padding-top:10px;margin-bottom:20px;">
-                        <h3 style="font-weight:bold">Stream: <span class="text-warning">Cars</span></h3>
-                        <h4 style="font-weight:bold">Title: <span class="text-warning">xx</span></h4>
-                        <h4 style="font-weight:bold">Total words: <span class="text-warning">233</span></h4>
-                        <h4 style="font-weight:bold">Selected images: <span class="text-warning">3</span></h4>
+                        <h3>Ready to publish your post: <span class="text-primary">xx</span> on <span class="text-primary">xx</span> stream, with a total of <span class="text-primary">xx</span> words and <span class="text-primary">xx</span> images.</h3>
                       </div>
                       <div class="form-group text-right">
-                        <button type="button" class="btn btn-default">Cancel</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-primary">Previous</button>
                         <button type="button" class="btn btn-primary">Publish</button>
                       </div>
