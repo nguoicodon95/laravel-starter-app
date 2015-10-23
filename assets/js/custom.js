@@ -19,7 +19,6 @@
 
 	// post wizard module
 	var postWizard = {};
-
 	window.pw = pw = postWizard;
 
 	pw.defaults = {
@@ -31,16 +30,36 @@
 	}
 
 	pw.init = function() {
+		var holder = pw.getHolder();
+		pw.hideAll();
+		pw.show(1);
+		pw.events();
+	}
 
+	pw.getHolder = function() {
 		var h = pw.defaults["form-holders"].split(".")[1];
-
-		// hide all holders
 		var holder = $(pw.defaults.wrapper).find("*[class*='"+h+"']");
+		return holder;
+	}
 
+	pw.hideAll = function() {
+		var holder = pw.getHolder();
 		holder.hide();
+	}
 
-		// show first one
-		holder.eq(0).show();
+	pw.show = function(p) {
+		var holder = pw.getHolder();
+		var n = Number(p) - 1;
+		holder.eq(n).show();
+	}
+
+	pw.events = function() {
+		var n = $(pw.defaults.buttons.next);
+		$(n).on("click", function(e) {
+			var p = $(e.target).data("next");
+			pw.hideAll();
+			pw.show(p);		
+		})
 
 	}
 

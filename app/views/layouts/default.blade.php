@@ -168,7 +168,7 @@
                       </div>
                       <div class="form-group text-right">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary next button">Next</button>
+                        <button type="button" data-next="2" class="btn btn-primary next button">Next</button>
                       </div>
                     </div>
                     <!-- Stream details -->
@@ -181,7 +181,7 @@
                       </div>
                       <div class="form-group text-right">
                         <button type="button" class="btn btn-primary">Previous</button>
-                        <button type="button" class="btn btn-primary">Next</button>
+                        <button type="button" data-next="3" class="btn btn-primary next button">Next</button>
                       </div>
                     </div>
                     <!-- Photo details #1 -->
@@ -251,7 +251,7 @@
                       <div class="form-group text-right">
                         <button type="button" class="btn btn-default" style="float:left;">Add photos</button>
                         <button type="button" class="btn btn-primary">Previous</button>
-                        <button type="button" class="btn btn-primary">Next</button>
+                        <button type="button" data-next="4" class="btn btn-primary next button">Next</button>
                       </div>
                     </div>
                     <!-- Photo details #2 -->
@@ -283,7 +283,7 @@
                       </div>
                       <div class="form-group text-right">
                         <button type="button" class="btn btn-primary">Previous</button>
-                        <button type="button" class="btn btn-primary">Next</button>
+                        <button type="button" data-next="5" class="btn btn-primary next button">Next</button>
                       </div>
                     </div>
                     <!-- Publish -->
