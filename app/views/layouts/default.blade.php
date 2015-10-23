@@ -155,15 +155,16 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col-xs-12">
+                  {{ Form::open(array('url' => 'posts', 'class' => 'postWizardForm')) }}
                     <!-- Post details -->
                     <div class="post-wizard-1" style="display:none;">
                       <h3 style="margin-bottom:15px">Create Post</h3>
                       <div class="post-form-contents" style="height:265px;margin-bottom:20px">
                         <div class="form-group">
-                            <input type="text" placeholder="Add title" class="form-control" style="width:100%;height:auto;display:inline-block;font-size:17px;" />
+                            <input type="text" name="title" placeholder="Add title" class="form-control" style="width:100%;height:auto;display:inline-block;font-size:17px;" />
                         </div>
                         <div class="form-group">
-                          <textarea class="form-control" placeholder="Write something.." style="height:200px;font-size:17px;"></textarea>
+                          <textarea class="form-control" name="body" placeholder="Write something.." style="height:200px;font-size:17px;"></textarea>
                         </div>
                       </div>
                       <div class="form-group text-right">
@@ -180,7 +181,7 @@
                         </div>
                       </div>
                       <div class="form-group text-right">
-                        <button type="button" class="btn btn-primary">Previous</button>
+                        <button type="button" data-prev="1" class="btn btn-primary prev button">Previous</button>
                         <button type="button" data-next="3" class="btn btn-primary next button">Next</button>
                       </div>
                     </div>
@@ -250,7 +251,7 @@
                       </div>
                       <div class="form-group text-right">
                         <button type="button" class="btn btn-default" style="float:left;">Add photos</button>
-                        <button type="button" class="btn btn-primary">Previous</button>
+                        <button type="button" data-prev="2" class="btn btn-primary prev button">Previous</button>
                         <button type="button" data-next="4" class="btn btn-primary next button">Next</button>
                       </div>
                     </div>
@@ -282,7 +283,7 @@
                         </div>
                       </div>
                       <div class="form-group text-right">
-                        <button type="button" class="btn btn-primary">Previous</button>
+                        <button type="button" data-prev="3" class="btn btn-primary prev button">Previous</button>
                         <button type="button" data-next="5" class="btn btn-primary next button">Next</button>
                       </div>
                     </div>
@@ -294,7 +295,7 @@
                       </div>
                       <div class="form-group text-right">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Previous</button>
+                        <button type="button" data-prev="4" class="btn btn-primary prev button">Previous</button>
                         <button type="button" class="btn btn-primary">Publish</button>
                       </div>
                     </div>

@@ -1,29 +1,13 @@
 (function() {
 
-	// modals
-	$(".stream.button").on("click", function() {
-    	$(".stream-modal").modal("show");	    		
-	});
-
-	$(".post.button").on("click", function() {
-    	$(".post-modal").modal("show");	    		
-	});
-
-	$(".signin.link").on("click", function() {
-    	$(".signin-modal").modal("show");	    		
-	});
-
-	$(".features.link").on("click", function() {
-    	$(".features-modal").modal("show");	    		
-	});
-
 	// post wizard module
 	var postWizard = {};
 	window.pw = pw = postWizard;
 
 	pw.defaults = {
 		buttons : {
-			next : ".next.button"
+			next : ".next.button",
+			prev : ".prev.button"
 		},
 		wrapper : ".post-wizard",
 		"form-holders" : ".post-wizard-"
@@ -34,6 +18,19 @@
 		pw.hideAll();
 		pw.show(1);
 		pw.events();
+	}
+
+	pw.reset = function() {
+		var holder = pw.getHolder();
+		pw.hideAll();
+		pw.resetFields();
+		pw.show(1);
+	}
+
+	pw.resetFields = function() {
+		var f = $(".postWizardForm");
+		f.find("input[name='title']").val("");
+		f.find("textarea[name='body']").val("");
 	}
 
 	pw.getHolder = function() {
@@ -54,15 +51,38 @@
 	}
 
 	pw.events = function() {
+		var p = $(pw.defaults.buttons.prev);
 		var n = $(pw.defaults.buttons.next);
-		$(n).on("click", function(e) {
-			var p = $(e.target).data("next");
+		$(p).on("click", function(e) {
+			var pos = $(e.target).data("prev");
 			pw.hideAll();
-			pw.show(p);		
+			pw.show(pos);		
 		})
-
+		$(n).on("click", function(e) {
+			var pos = $(e.target).data("next");
+			pw.hideAll();
+			pw.show(pos);		
+		})
 	}
 
 	pw.init();
+
+	// modals
+	$(".stream.button").on("click", function() {
+    	$(".stream-modal").modal("show");	    		
+	});
+
+	$(".post.button").on("click", function() {
+		pw.reset();
+    	$(".post-modal").modal("show");	    		
+	});
+
+	$(".signin.link").on("click", function() {
+    	$(".signin-modal").modal("show");	    		
+	});
+
+	$(".features.link").on("click", function() {
+    	$(".features-modal").modal("show");	    		
+	});
 
 })();
