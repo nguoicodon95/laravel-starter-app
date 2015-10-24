@@ -192,58 +192,52 @@
                         <h4 style="margin-bottom:20px;">Photos found on Flickr</h4>
                         <div style="width:98%">
                           <div class="row" style="margin-bottom:20px;">
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                          </div>
-                          <div class="row" style="margin-bottom:20px;">
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                          </div>
-                          <div class="row" style="margin-bottom:20px;">
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                          </div>
-                          <div class="row" style="margin-bottom:20px;">
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-6 col-sm-4">
                               <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" style="max-width:100%;border: 1px solid #DDD;" />
                             </div>
                           </div>
