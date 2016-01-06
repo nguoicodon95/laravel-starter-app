@@ -1,0 +1,67 @@
+<a ng-click="closeOverlay()" style="float:right;position:absolute;top:15px;right:20px;cursor:pointer">
+	<span class="glyphicon glyphicon-remove" aria-hidden="true" style="font-size:27px"></span>
+</a>
+<div class="row" style="margin-top:65px">
+  <div class="col-md-3 hidden-xs hidden-sm">
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-6">
+    <form action="post/create" method="post" class="post-add-form">
+      <input type="hidden" name="_token" />
+      <div class="post-add-group">
+          <h1>Add Post</h1>
+          <div class="form-group">
+            <input type="text" name="title" placeholder="Title" class="form-control" style="min-width:400px;height:auto;font-size:17px;" />
+          </div>
+          <div class="form-group" style="display:none">
+            <h4 style="font-size:15px">Similar post found</h4>
+            <ul style="font-size:15px">
+              <li>xxx</li>  
+              <li>xxx</li>
+              <li>xxx</li>
+              <li>xxx</li>
+              <li>xxx</li>
+            </ul>  
+          </div>
+          <div class="form-group">
+            <textarea type="text" name="body" placeholder="Body" class="form-control" style="min-width:400px;height:300px;font-size:17px;"></textarea>
+          </div>
+          <div class="form-group get-stream" style="display:none">
+            <div class="stream-err" style="display:none;color:red;font-size:15px;margin-bottom:6px;">Please select a stream name to publish</div>
+            <input type="text" name="stream" placeholder="Stream" ng-model="tagSearchData" ng-change="tagSearch()" class="form-control" style="min-width:400px;height:auto;font-size:17px;" />
+          </div>
+          <div class="form-group tag-results-wrapper" style="display:none">
+            <h4 style="font-size:17px">Suggested Streams</h4>
+            <div class="tag-results" style="font-size:17px;">
+            </div>  
+          </div>
+          <div class="create-new-tag" style="display:none;margin:10px 0 20px 0">
+              <div style="font-size:17px">Stream <a href="#" data-tag="<% tagSearchData %>" ng-click="createNewStream($event)"><% tagSearchData %></a> not found, be the first to <a href="#" data-tag="<% tagSearchData %>" ng-click="createNewStream($event)">create</a> it.</div>
+          </div>
+          <!-- stream selection and hidden input refactored -->
+          <div class="form-group selected-stream" style="display:none">
+            <input type="text" name="displaystream" value="" class="form-control" disabled style="min-width:400px;height:auto;font-size:17px;" />
+            <input type="hidden" name="streamid" value="0" />
+            <input type="hidden" name="streamname" value="0" />
+            <a href="#" style="font-size:15px;display:block;margin-top:8px;" ng-click="changeStream()">Change stream</a> 
+          </div>
+          <div class="form-group text-right">
+            <a href="#" style="font-size:15px" ng-click="addImage()">Add image</a> 
+          </div>
+          <div class="form-group text-right">
+            <button type="button" ng-click="publish()" class="btn edit-button btn-primary" style="height:38px;font-size:16px">Publish</button>
+          </div>
+        </div>
+        <div class="image-add-group" style="display:none;">
+          <h1>Add Image</h1>
+          <div class="form-group">
+            <label>Select an image</label>
+            <input type="file" class="form-control" />  
+          </div> 
+          <div class="form-group text-right" style="margin-top:40px;">
+            <button type="button" class="btn btn-primary" style="height:38px;font-size:16px">Add another</button>
+            <button type="button" class="btn btn-primary" style="height:38px;font-size:16px" ng-click="done()">Done</button>
+          </div>
+        </div>
+      </form>
+  </div>  
+</div>

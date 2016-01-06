@@ -1,0 +1,65 @@
+body {
+  background-color: #F3F3F3; }
+
+body.hide-interface {
+  overflow: hidden; }
+
+.stream.overlay {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 20px;
+  font-size: 20px;
+  display: none; }
+
+.stream.marker {
+  background: #eeeeee;
+  margin-right: 5px;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+  color: #474747; }
+
+.left-photo {
+  padding-right: 0; }
+  .left-photo div {
+    overflow: hidden;
+    width: 100%;
+    height: 182px; }
+    .left-photo div img {
+      height: 182px; }
+
+.right-photo {
+  padding-left: 10px; }
+  .right-photo div {
+    overflow: hidden;
+    width: 100%;
+    height: 182px; }
+    .right-photo div img {
+      max-width: 100%; }
+
+@media (max-width: 768px) {
+  .left-photo {
+    margin-bottom: 20px; }
+  .left-photo, .right-photo {
+    padding-left: 0;
+    padding-right: 0; }
+    .left-photo div, .right-photo div {
+      height: auto;
+      max-height: 240px; }
+      .left-photo div img, .right-photo div img {
+        width: 100%;
+        height: auto; } }
+
+@media screen and (max-width: 767px) {
+  .navbar-form.navbar-left {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 0; } }
+
+/*# sourceMappingURL=app.css.map */

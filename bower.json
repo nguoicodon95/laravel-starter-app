@@ -1,0 +1,24 @@
+{
+  "name": "StreamPackages",
+  "version": "0.1.0",
+  "authors": [
+    "Puff Stream"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap-sass": "~3.3.5",
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "angular-resource": "~1.4.7",
+    "angular-route-segment": "~1.5.0",
+    "angular-bootstrap": "~0.14.3"
+  }
+}

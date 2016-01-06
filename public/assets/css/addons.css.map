@@ -1,0 +1,1 @@
+{"version":3,"sources":["addons.scss"],"names":[],"mappings":"AAAA,8BAA8B;AAC9B;EACC,iBAAgB,EAChB","file":"addons.css","sourcesContent":["/** Bootstrap modifications */\n.navbar {\n\tborder-radius:0;\n}"],"sourceRoot":"/source/"}

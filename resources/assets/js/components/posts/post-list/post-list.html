@@ -1,0 +1,41 @@
+<!-- AngularJS posts -->
+<div class="post ng-cloak" ng-show="page.loaded===true" ng-repeat="post in posts">
+	<h4>
+        <a href="/tag/<% ::post.tags[0].id %>#/list"><span class="stream marker"><% ::post.tags[0].name %></span></a>
+        <span class="stream marker"><% ::post.author.author_prefix %></span>
+        <% ::post.title %>
+    </h4>
+    <p style="padding-bottom:10px">
+    	<% ::post.body | limitTo: 250 %><span>...</span>
+    </p>
+    <div style="padding:0 30px">
+        <div class="row" style="margin-bottom:10px;">
+            <div class="col-xs-12 col-sm-5 left-photo">
+                <div>
+                    <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" />
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 right-photo">
+                <div>
+                    <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" />
+                </div>
+            </div>
+        </div>
+        <div class="row hidden-xs">
+            <div class="col-xs-7" style="padding-right:10px;">
+                <div style="overflow:hidden">
+                    <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" style="height:182px;" />
+                </div>
+            </div>
+            <div class="col-xs-5" style="padding-left:0;">
+                <div style="overflow:hidden">
+                    <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" style="height:182px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-right" style="padding:15px 0 0 0;">
+    	<a href="/post/<% ::post.id %>/#/detail">Details</a>
+    </div>
+    <hr />
+</div>

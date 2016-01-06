@@ -1,0 +1,74 @@
+<a ng-click="closeOverlay()" style="float:right;position:absolute;top:15px;right:20px;cursor:pointer">
+	<span class="glyphicon glyphicon-remove" aria-hidden="true" style="font-size:27px"></span>
+</a>
+<div class="row" style="margin-top:65px">
+  <div class="col-md-3 hidden-xs hidden-sm">
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-6">
+    <form class="post-edit-form" method="put">
+        <div class="post-edit-group">
+          <h1>Edit Post</h1>
+          <div class="form-group">
+            <input type="text" name="title" placeholder="Title" class="form-control" style="min-width:400px;height:auto;font-size:17px;" />
+          </div>
+          <div class="form-group">
+            <textarea type="text" name="body" placeholder="Body" class="form-control" style="min-width:400px;height:300px;font-size:17px;"></textarea>
+          </div>
+          <div class="form-group text-right">
+            <a href="#" style="font-size:15px" ng-click="updateImages()">Update images</a> 
+          </div>
+          <div class="form-group text-right">
+            <button type="button" ng-click="editPost()" class="btn edit-button btn-primary" style="height:38px;font-size:16px">Edit</button>
+          </div>
+        </div>
+        <div class="image-add-group" style="display:none;">
+          <h1>Add Image</h1>
+          <div class="form-group">
+            <label>Select an image</label>
+            <input type="file" class="form-control" />  
+          </div> 
+          <div class="form-group text-right" style="margin-top:40px;">
+            <button type="button" class="btn btn-primary" style="height:38px;font-size:16px">Add another</button>
+            <button type="button" class="btn btn-primary" style="height:38px;font-size:16px" ng-click="done()">Done</button>
+          </div>
+        </div>
+        <div class="image-edit-group" style="display:none;">
+          <h1>Edit Image</h1>
+          <p style="font-size:15px">Remove any images you no longer want or <a href="#">add another image</a> (max 4).</p>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-4">
+                  <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" style="max-width:100%" />
+              </div>
+              <div class="col-xs-4">
+                <button type="button" class="btn btn-danger" style="height:38px;font-size:16px">Remove</button>
+              </div>       
+            </div>
+          </div> 
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-4">
+                  <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" style="max-width:100%" />
+              </div>
+              <div class="col-xs-4">
+                <button type="button" class="btn btn-danger" style="height:38px;font-size:16px">Remove</button>
+              </div>       
+            </div>
+          </div> 
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-4">
+                  <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" style="max-width:100%" />
+              </div>
+              <div class="col-xs-4">
+                <button type="button" class="btn btn-danger" style="height:38px;font-size:16px">Remove</button>
+              </div>       
+            </div>
+          </div> 
+          <div class="form-group text-right" style="margin-top:40px;">
+            <button type="button" class="btn btn-primary" style="height:38px;font-size:16px" ng-click="done()">Done</button>
+          </div>
+        </div>
+      </form>
+  </div>  
+</div>
