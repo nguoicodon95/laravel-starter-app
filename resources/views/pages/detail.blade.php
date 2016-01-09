@@ -75,7 +75,7 @@
 				        @if (Auth::check())
 						<div class="row">
 							<div class="col-xs-12 text-right">
-								@if(Auth::user()->is_admin === 1)
+								@if(intval(Auth::user()->is_admin) === 1)
 								<button type="button" class="btn btn-danger" ng-show="auth===true" ui-sref="edit">Suspend Post</button>
 								@endif
 								@if (Auth::id() === $item->user_id)

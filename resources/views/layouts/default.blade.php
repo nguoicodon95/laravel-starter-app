@@ -18,7 +18,7 @@
     @if (Auth::check())
       <?php
         $isAdmin = "";
-        if(Auth::user()->is_admin === 1) {
+        if(intval(Auth::user()->is_admin) === 1) {
           $isAdmin = "isadmin=\"true\""; 
         }
       ?>
@@ -59,7 +59,7 @@
             <li><a href="/logout" class="signout link">Sign out</a></li>
             <?php 
               if(Auth::check()) {
-                if(Auth::user()->is_admin === 1) {
+                if(intval(Auth::user()->is_admin) === 1) {
                   echo "<li><a style=\"padding-left:0\">|</a></li>";
                   echo "<li><a href=\"/user/\" style=\"padding-left:0\">Manage users</a></li>";
                 }
