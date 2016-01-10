@@ -28,7 +28,7 @@
 
 	    	@if (Auth::check())
 	    	<div ui-sref="add" ng-click="go('/add')">
-		        <input type="text" class="form-control" placeholder="Write something..." onfocus="this.blur()" />
+		        <input type="text" class="form-control" placeholder="Write something..." readonly="true" onfocus="this.blur()" style="background-color:white" />
 		        <hr />
 	        </div>
 	        @endif
