@@ -39,7 +39,7 @@
           <a class="navbar-brand" href="/">Puff Stream</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="box-shadow:none;border:0">
-          <form action="/search/" method="post" class="navbar-form navbar-left" role="search">
+          {!! Form::open(array('url' => 'search', 'class' => 'navbar-form navbar-left')) !!}
             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
             <div class="form-group">
               <input type="text" name="query" class="form-control search-box" placeholder="Posts or photos">
@@ -47,7 +47,7 @@
             <button type="submit" class="form-control btn btn-default">Search</button>
             &nbsp;
             <button type="button" class="btn btn-primary" ui-sref="discover" ng-click="go('/discover')">Discover</button>
-          </form>
+          {!! Form::close() !!}
           <ul class="nav navbar-nav navbar-right"> 
             @if (!Auth::check())
             <li class="hidden-xs hidden-sm"><a href="/page/pricing">Pricing</a></li>
