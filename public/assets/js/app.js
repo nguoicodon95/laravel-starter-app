@@ -109,6 +109,121 @@ angular.module('stream.mains', [])
     }
 
 });
+angular.module('stream.post_listc', [])
+
+.controller('post_listCtrl', function($scope, $rootScope, PostList) {
+        
+ 	// save previous state
+	$rootScope.previousState = "";
+        
+    PostList.getPosts()
+        .success(function(data) {
+            $scope.posts = data;
+            $scope.page.loaded = true;
+            $(".ng-panel").css("height","auto");
+        });
+	
+});
+angular.module('stream.post_list', [])
+
+.factory('PostList', function($http) {
+
+    return {
+        
+        // paginate posts
+        getPosts : function() {
+            return $http.get('/api/v1/post');
+        }
+
+    }
+
+});
+angular.module('stream.post_detailsc', [])
+
+.controller('post_detailsCtrl', function($scope, $rootScope, $sce, PostDetails) {
+
+	$scope.postId = getPostId();
+	$scope.trustAsHtml = $sce.trustAsHtml;
+
+	// reset overlay
+	$('.stream.overlay').hide();
+	$('body').removeClass('hide-interface');
+
+	// save previous state
+	$rootScope.previousState = "detail";
+
+	function getPostId() {
+		var href = location.href;
+		var post = href.split("post")[1];
+		var hash = post.split("#")[0]
+		var id = hash.split("/")[1];
+		return id;
+	}
+
+	function saveDetails(data) {
+		$rootScope.details = data;
+	}
+
+    PostDetails.get($scope.postId)
+        .success(function(data) {
+        	// save to local scope
+            $scope.details = data;
+            $scope.page.loaded = true;
+            $(".ng-panel").css("height","auto");
+            // save to rootScope
+            saveDetails(data);
+        });
+
+});
+angular.module('stream.post_detailsd', [])
+  .directive("editbutton", function($rootScope) {
+
+  	/*
+
+	- show post edit button if logged in user and
+	  post author is the same otherwise hide button
+
+	*/
+
+  	var userId = Number($(".identity-cache").text());
+
+  	if($rootScope.valid && $rootScope.userId === userId) {
+	    return {
+	      restrict: 'E',
+	      template: '<button type="button" class="btn btn-primary" ng-show="auth===true" ui-sref="edit" ng-click="go(\'edit\')">Edit Post</button>'
+		}
+	} else {
+		return {
+			restrict: 'E'
+		}
+	}
+  })
+  .directive("optionalbuttons", function($rootScope) {
+	// ng-click="go(\'suspendpost\')"
+  	if($rootScope.valid && $rootScope.isAdmin === true) {
+	    return {
+	      restrict: 'E',
+	      template: '<button type="button" class="btn btn-danger" ng-show="auth===true" ui-sref="edit">Suspend Post</button>'
+		}
+	} else {
+		return {
+			restrict: 'E'
+		}
+	}
+  });
+angular.module('stream.post_details', [])
+
+.factory('PostDetails', function($http) {
+
+    return {
+    	// get a single post by id
+    	get: function(id) {
+    		return $http.get('/api/v1/post/'+id);
+    	}
+
+    }
+
+});
 
 angular.module('stream.discover', [])
 
@@ -186,6 +301,78 @@ angular.module('stream.discover', [])
 		var firstFrag = href.split("#")[0];
 		location.href = firstFrag + "#/" + $rootScope.previousState;	
 	}
+
+});
+angular.module('stream.tag_listc', [])
+
+.controller('tag_listCtrl', function($scope, $rootScope, TagList, $state, $stateParams, $sce) {
+
+	$scope.state = $state.current.name;
+	$scope.trustAsHtml = $sce.trustAsHtml;
+	
+    $('.stream.overlay').hide();
+    $('body').removeClass('hide-interface');
+
+    var tagId = "", tagName = "";
+
+	function getTagId() {
+		var href = location.href;
+		var post = href.split("tag")[1];
+		var hash = post.split("#")[0]
+		var id = hash.split("/")[1];
+		return id;
+	}
+     
+	if($scope.state === "list") {
+		
+		$rootScope.previousState = "list";
+		
+		tagId = getTagId();
+		
+		TagList.getTags(tagId)
+			.success(function(data) {
+				
+				$scope.tags = data;
+				$scope.page.loaded = true;
+				$(".ng-panel").css("height","auto");
+			});
+		
+	} else if($scope.state === "name") {	
+		
+		$rootScope.previousState = "name";
+		
+		var url = location.href;
+		var start = url.indexOf("/s/") + 3;
+		var end = url.indexOf("#");
+		
+		tagName = url.substring(start, end);
+		
+		TagList.getLikeName(tagName)
+			.success(function(data) {
+				var parse = data.tags;		
+				$scope.tags = parse;
+				$scope.page.loaded = true;
+				$(".ng-panel").css("height","auto");
+			});
+		
+	}
+	
+});
+angular.module('stream.tag_list', [])
+
+.factory('TagList', function($rootScope, $http) {
+
+    return {
+        
+        getTags : function(id) {
+            return $http.get('/api/v1/tag/'+id);
+        },
+        
+        getLikeName : function(tagname) {
+            return $http.get('/api/v1/tagssearch?q='+tagname);
+        }
+
+    }
 
 });
 angular.module('stream.post_addc', [])
@@ -450,193 +637,6 @@ angular.module('stream.post-edits', [])
 			});
 		     
     	}
-
-    }
-
-});
-angular.module('stream.tag_listc', [])
-
-.controller('tag_listCtrl', function($scope, $rootScope, TagList, $state, $stateParams, $sce) {
-
-	$scope.state = $state.current.name;
-	$scope.trustAsHtml = $sce.trustAsHtml;
-	
-    $('.stream.overlay').hide();
-    $('body').removeClass('hide-interface');
-
-    var tagId = "", tagName = "";
-
-	function getTagId() {
-		var href = location.href;
-		var post = href.split("tag")[1];
-		var hash = post.split("#")[0]
-		var id = hash.split("/")[1];
-		return id;
-	}
-     
-	if($scope.state === "list") {
-		
-		$rootScope.previousState = "list";
-		
-		tagId = getTagId();
-		
-		TagList.getTags(tagId)
-			.success(function(data) {
-				
-				$scope.tags = data;
-				$scope.page.loaded = true;
-				$(".ng-panel").css("height","auto");
-			});
-		
-	} else if($scope.state === "name") {	
-		
-		$rootScope.previousState = "name";
-		
-		var url = location.href;
-		var start = url.indexOf("/s/") + 3;
-		var end = url.indexOf("#");
-		
-		tagName = url.substring(start, end);
-		
-		TagList.getLikeName(tagName)
-			.success(function(data) {
-				var parse = data.tags;		
-				$scope.tags = parse;
-				$scope.page.loaded = true;
-				$(".ng-panel").css("height","auto");
-			});
-		
-	}
-	
-});
-angular.module('stream.tag_list', [])
-
-.factory('TagList', function($rootScope, $http) {
-
-    return {
-        
-        getTags : function(id) {
-            return $http.get('/api/v1/tag/'+id);
-        },
-        
-        getLikeName : function(tagname) {
-            return $http.get('/api/v1/tagssearch?q='+tagname);
-        }
-
-    }
-
-});
-angular.module('stream.post_detailsc', [])
-
-.controller('post_detailsCtrl', function($scope, $rootScope, $sce, PostDetails) {
-
-	$scope.postId = getPostId();
-	$scope.trustAsHtml = $sce.trustAsHtml;
-
-	// reset overlay
-	$('.stream.overlay').hide();
-	$('body').removeClass('hide-interface');
-
-	// save previous state
-	$rootScope.previousState = "detail";
-
-	function getPostId() {
-		var href = location.href;
-		var post = href.split("post")[1];
-		var hash = post.split("#")[0]
-		var id = hash.split("/")[1];
-		return id;
-	}
-
-	function saveDetails(data) {
-		$rootScope.details = data;
-	}
-
-    PostDetails.get($scope.postId)
-        .success(function(data) {
-        	// save to local scope
-            $scope.details = data;
-            $scope.page.loaded = true;
-            $(".ng-panel").css("height","auto");
-            // save to rootScope
-            saveDetails(data);
-        });
-
-});
-angular.module('stream.post_detailsd', [])
-  .directive("editbutton", function($rootScope) {
-
-  	/*
-
-	- show post edit button if logged in user and
-	  post author is the same otherwise hide button
-
-	*/
-
-  	var userId = Number($(".identity-cache").text());
-
-  	if($rootScope.valid && $rootScope.userId === userId) {
-	    return {
-	      restrict: 'E',
-	      template: '<button type="button" class="btn btn-primary" ng-show="auth===true" ui-sref="edit" ng-click="go(\'edit\')">Edit Post</button>'
-		}
-	} else {
-		return {
-			restrict: 'E'
-		}
-	}
-  })
-  .directive("optionalbuttons", function($rootScope) {
-	// ng-click="go(\'suspendpost\')"
-  	if($rootScope.valid && $rootScope.isAdmin === true) {
-	    return {
-	      restrict: 'E',
-	      template: '<button type="button" class="btn btn-danger" ng-show="auth===true" ui-sref="edit">Suspend Post</button>'
-		}
-	} else {
-		return {
-			restrict: 'E'
-		}
-	}
-  });
-angular.module('stream.post_details', [])
-
-.factory('PostDetails', function($http) {
-
-    return {
-    	// get a single post by id
-    	get: function(id) {
-    		return $http.get('/api/v1/post/'+id);
-    	}
-
-    }
-
-});
-angular.module('stream.post_listc', [])
-
-.controller('post_listCtrl', function($scope, $rootScope, PostList) {
-        
- 	// save previous state
-	$rootScope.previousState = "";
-        
-    PostList.getPosts()
-        .success(function(data) {
-            $scope.posts = data;
-            $scope.page.loaded = true;
-            $(".ng-panel").css("height","auto");
-        });
-	
-});
-angular.module('stream.post_list', [])
-
-.factory('PostList', function($http) {
-
-    return {
-        
-        // paginate posts
-        getPosts : function() {
-            return $http.get('/api/v1/post');
-        }
 
     }
 
