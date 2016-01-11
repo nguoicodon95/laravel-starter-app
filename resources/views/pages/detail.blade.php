@@ -43,7 +43,7 @@
 				            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">{{$item->author->author_prefix}}</span>
 				            {{$item->title}}
 				        </h4>
-				        <p style="padding-bottom:10px">
+				        <p style="padding-bottom:10px;font-size:17px;">
 				        	{!! nl2br(e($item->body)) !!}
 				        </p>
 				        <div style="padding:0 30px 30px">
