@@ -39,32 +39,24 @@
 				        <p style="padding-bottom:10px">
 				        {{substr($post->body, 0, 250)}}<span>...</span>
 				        </p>
-				        <div style="padding:0 30px">
-				            <div class="row" style="margin-bottom:10px;">
-				                <div class="col-xs-12 col-sm-5 left-photo">
-				                    <div>
-				                        <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" />
-				                    </div>
-				                </div>
-				                <div class="col-xs-12 col-sm-7 right-photo">
-				                    <div>
-				                        <img src="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" />
-				                    </div>
-				                </div>
-				            </div>
-				            <div class="row hidden-xs">
-				                <div class="col-xs-7" style="padding-right:10px;">
-				                    <div style="overflow:hidden">
-				                        <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" style="height:182px;" />
-				                    </div>
-				                </div>
-				                <div class="col-xs-5" style="padding-left:0;">
-				                    <div style="overflow:hidden">
-				                        <img src="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" style="height:182px;" />
-				                    </div>
-				                </div>
-				            </div>
-				        </div>
+						<div class="photo-grid">
+							<div class="row first-row">
+								<div class="col box-1 box-padding">
+									<div class="image-holder" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></div>
+								</div>
+								<div class="col box-2">
+									<div class="image-holder" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></div>
+								</div>
+							</div>
+							<div class="row second-row hidden-xs">
+								<div class="col box-2 box-padding">
+									<div class="image-holder" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></div>
+								</div>
+								<div class="col box-1">
+									<div class="image-holder" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></div>
+								</div>
+							</div>
+						</div>
 						<div class="text-right" style="padding:15px 0 0 0;">
 							<a href="/post/{{$post->id}}/detail">Details</a>
 						</div>

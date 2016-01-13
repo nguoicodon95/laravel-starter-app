@@ -25,41 +25,56 @@ body.hide-interface {
   padding: 5px;
   color: #474747; }
 
-.left-photo {
-  padding-right: 0; }
-  .left-photo div {
-    overflow: hidden;
-    width: 100%;
-    height: 182px; }
-    .left-photo div img {
-      height: 182px; }
-
-.right-photo {
-  padding-left: 10px; }
-  .right-photo div {
-    overflow: hidden;
-    width: 100%;
-    height: 182px; }
-    .right-photo div img {
+.photo-grid {
+  padding: 0 30px; }
+  .photo-grid.details {
+    padding-bottom: 30px; }
+  .photo-grid .row {
+    margin-left: 0;
+    margin-right: 0; }
+    .photo-grid .row.first-row {
+      margin-bottom: 10px; }
+    .photo-grid .row .col {
+      float: left;
       max-width: 100%; }
+      .photo-grid .row .col.box-1 {
+        width: 45%; }
+      .photo-grid .row .col.box-2 {
+        width: 55%; }
+      .photo-grid .row .col.box-padding {
+        padding-right: 10px; }
+      .photo-grid .row .col .image-holder {
+        padding: 2px;
+        position: relative;
+        overflow: hidden;
+        height: 180px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%; }
 
 @media (max-width: 768px) {
-  .left-photo {
-    margin-bottom: 20px; }
-  .left-photo, .right-photo {
-    padding-left: 0;
-    padding-right: 0; }
-    .left-photo div, .right-photo div {
-      height: auto;
-      max-height: 240px; }
-      .left-photo div img, .right-photo div img {
-        width: 100%;
-        height: auto; } }
+  .photo-grid {
+    padding: 0; }
+    .photo-grid .row.second-row.hidden-xs {
+      display: none; }
+    .photo-grid .row .col.box-1 {
+      margin-bottom: 10px; }
+    .photo-grid .row .col.box-1, .photo-grid .row .col.box-2 {
+      width: 100%;
+      float: none; }
+    .photo-grid .row .col.box-padding {
+      padding-right: 0; }
+    .photo-grid .row .col .image-holder {
+      height: 210px; } }
 
 @media screen and (max-width: 767px) {
   .navbar-form.navbar-left {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 0; } }
+
+@media (max-width: 400px) {
+  .photo-grid .row .col .image-holder {
+    height: 180px; } }
 
 /*# sourceMappingURL=app.css.map */

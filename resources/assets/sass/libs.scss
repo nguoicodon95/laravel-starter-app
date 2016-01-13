@@ -1,5 +1,11 @@
 @import "../../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
+// bootstrap modifications
+.navbar {
+	border-radius:0;
+}
+
+// angularjs ng-cloak
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 	display: none !important;
 }
