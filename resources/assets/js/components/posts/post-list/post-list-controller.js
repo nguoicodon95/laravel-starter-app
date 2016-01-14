@@ -1,9 +1,15 @@
 angular.module('stream.post_listc', [])
 
 .controller('post_listCtrl', function($scope, $rootScope, PostList) {
-        
+	
+  	// reset overlay
+	$('.stream.overlay').hide();
+	$('body').removeClass('hide-interface');
+	      
  	// save previous state
-	$rootScope.previousState = "";
+	$rootScope.previousState = "i";
+    
+    $scope.page.loaded = false;
         
     PostList.getPosts()
         .success(function(data) {

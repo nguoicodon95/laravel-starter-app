@@ -12,6 +12,8 @@ angular.module('stream.post_detailsc', [])
 	// save previous state
 	$rootScope.previousState = "detail";
 
+	$scope.page.loaded = false;
+
 	function getPostId() {
 		var href = location.href;
 		var post = href.split("post")[1];

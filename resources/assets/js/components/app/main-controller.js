@@ -8,13 +8,13 @@ angular.module('stream.main', [])
 		$scope.isAdmin = getAuth.isAdmin;
 	});
 
-	$scope.page = {
-		loaded: false
-	}
-
 	$scope.go = function (path) {
 	 	$location.path(path);
 	};
+	
+	$scope.page = {
+		loaded: false
+	}
 	
 	// get status
 	Main.getStatus()
