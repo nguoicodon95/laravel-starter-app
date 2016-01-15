@@ -27,16 +27,13 @@ body.hide-interface {
 
 .photo-grid {
   padding: 0 30px; }
-  .photo-grid.details {
-    padding-bottom: 30px; }
   .photo-grid .row {
     margin-left: 0;
     margin-right: 0; }
     .photo-grid .row.first-row {
       margin-bottom: 10px; }
     .photo-grid .row .col {
-      float: left;
-      max-width: 100%; }
+      float: left; }
       .photo-grid .row .col.box-1 {
         width: 45%; }
       .photo-grid .row .col.box-2 {
@@ -44,10 +41,65 @@ body.hide-interface {
       .photo-grid .row .col.box-padding {
         padding-right: 10px; }
       .photo-grid .row .col .image-holder {
-        padding: 2px;
         position: relative;
         overflow: hidden;
-        height: 180px;
+        height: 181px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%; }
+
+.feature-image.details {
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+  height: 321px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%; }
+
+.photo-grid.details {
+  padding: 0; }
+  .photo-grid.details .row {
+    margin-left: 0;
+    margin-right: 0; }
+    .photo-grid.details .row.first-row {
+      width: 100%; }
+    .photo-grid.details .row.second-row {
+      margin-bottom: 12px; }
+    .photo-grid.details .row .col {
+      float: left;
+      width: 50%; }
+      .photo-grid.details .row .col.box-1 {
+        width: 50%;
+        padding-right: 10px; }
+      .photo-grid.details .row .col.box-2 {
+        width: 50%; }
+      .photo-grid.details .row .col.box-3 {
+        width: 50%;
+        padding-right: 10px; }
+        .photo-grid.details .row .col.box-3 .image-holder {
+          height: 181px; }
+      .photo-grid.details .row .col.box-4 .text-box {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 181px;
+        padding: 20px; }
+        .photo-grid.details .row .col.box-4 .text-box p {
+          font-size: 15px; }
+      .photo-grid.details .row .col.box-padding {
+        padding-right: 10px; }
+      .photo-grid.details .row .col .text-box {
+        padding: 15px 20px 20px 20px; }
+        .photo-grid.details .row .col .text-box p {
+          font-size: 17px; }
+      .photo-grid.details .row .col .image-holder {
+        position: relative;
+        overflow: hidden;
+        height: 225px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50% 50%; }
@@ -55,8 +107,6 @@ body.hide-interface {
 @media (max-width: 768px) {
   .photo-grid {
     padding: 0; }
-    .photo-grid .row.second-row.hidden-xs {
-      display: none; }
     .photo-grid .row .col.box-1 {
       margin-bottom: 10px; }
     .photo-grid .row .col.box-1, .photo-grid .row .col.box-2 {
@@ -65,7 +115,38 @@ body.hide-interface {
     .photo-grid .row .col.box-padding {
       padding-right: 0; }
     .photo-grid .row .col .image-holder {
-      height: 210px; } }
+      height: 210px; }
+    .photo-grid .row.second-row .col.box-1, .photo-grid .row.second-row .col.box-2 {
+      width: 50%;
+      float: left; }
+      .photo-grid .row.second-row .col.box-1 .image-holder, .photo-grid .row.second-row .col.box-2 .image-holder {
+        height: 132px; }
+    .photo-grid .row.second-row .col.box-padding {
+      padding-right: 10px; }
+  .photo-grid.details {
+    padding: 0; }
+    .photo-grid.details .row {
+      margin-bottom: 0; }
+      .photo-grid.details .row.second-row {
+        margin-bottom: 0; }
+      .photo-grid.details .row .col.box-1 {
+        margin-bottom: 0; }
+      .photo-grid.details .row .col.box-1, .photo-grid.details .row .col.box-2 {
+        width: 50%;
+        float: left; }
+      .photo-grid.details .row .col.box-3, .photo-grid.details .row .col.box-4 {
+        width: 100%;
+        float: none; }
+      .photo-grid.details .row .col.box-3 .image-holder {
+        height: 185px; }
+      .photo-grid.details .row .col.box-4 .text-box {
+        display: block;
+        height: auto;
+        padding: 20px; }
+      .photo-grid.details .row .col .text-box {
+        padding: 20px; }
+        .photo-grid.details .row .col .text-box p {
+          margin: 0; } }
 
 @media screen and (max-width: 767px) {
   .navbar-form.navbar-left {
@@ -75,6 +156,10 @@ body.hide-interface {
 
 @media (max-width: 400px) {
   .photo-grid .row .col .image-holder {
-    height: 180px; } }
+    height: 181px; }
+  .photo-grid.details .row .col.box-3 .image-holder {
+    height: 181px; }
+  .photo-grid.details .row .col .image-holder {
+    height: 225px; } }
 
 /*# sourceMappingURL=app.css.map */

@@ -43,24 +43,36 @@
 				            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">{{$item->author->author_prefix}}</span>
 				            {{$item->title}}
 				        </h4>
-				        <p style="padding-bottom:10px;font-size:17px;">
+						
+						<div class="feature-image details" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></div>
+				        
+						<p style="padding-bottom:40px;font-size:17px;">
 				        	{!! nl2br(e($item->body)) !!}
 				        </p>
+						
 						<div class="photo-grid details">
 							<div class="row first-row">
-								<div class="col box-1 box-padding">
-									<div class="image-holder" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></div>
+								<div class="col box-1">
+										<div class="image-holder" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></div>
+									<div class="text-box">
+										<p>Use Gimp asdfdsafadsf asdf sdf dsfsdf dfsfdsf</p>  
+									</div>
 								</div>
 								<div class="col box-2">
 									<div class="image-holder" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></div>
+									<div class="text-box">
+										<p>Use Gimp asdfdsafadsf asdf sdf dsfsdf dfsfdsf</p>  
+									</div>
 								</div>
-							</div>
-							<div class="row second-row hidden-xs">
-								<div class="col box-2 box-padding">
-									<div class="image-holder" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></div>
-								</div>
-								<div class="col box-1">
+							</div> 
+							<div class="row second-row">
+								<div class="col box-3">
 									<div class="image-holder" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></div>
+								</div>
+								<div class="col box-4">
+									<div class="text-box">
+										<p>Use Gimp asdfdsafadsf asdf sdf dsfsdf dfsfdsf</p>  
+									</div>
 								</div>
 							</div>
 						</div>

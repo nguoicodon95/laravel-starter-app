@@ -30,9 +30,6 @@ body.hide-interface {
 // photo grid
 .photo-grid {
 	padding:0 30px;
-	&.details {
-		padding-bottom:30px;
-	}
 	.row {
 		margin-left:0;
 		margin-right:0;
@@ -41,7 +38,6 @@ body.hide-interface {
 		}
 		.col {
 			float:left;
-			max-width:100%;
 			&.box-1 {
 				width:45%;
 			}
@@ -52,10 +48,78 @@ body.hide-interface {
 				padding-right:10px;
 			}
 			.image-holder {
-				padding:2px;
 				position:relative;
 				overflow:hidden;
-				height:180px;
+				height:181px;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+			}
+		}
+	}
+}
+// photo grid detail page
+.feature-image.details {
+	margin-bottom:18px;
+	position:relative;
+	overflow:hidden;
+	height:321px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+.photo-grid.details {
+	padding:0;
+	.row {
+		margin-left:0;
+		margin-right:0;
+		&.first-row {
+			width:100%;
+		}
+		&.second-row {
+			margin-bottom:12px;
+		}
+		.col {
+			float:left;
+			width:50%;
+			&.box-1 {
+				width:50%;
+				padding-right:10px;
+			}
+			&.box-2 {
+				width:50%;
+			}
+			&.box-3 {
+				width:50%;
+				padding-right:10px;
+				.image-holder {
+					height:181px;
+				}
+			}
+			&.box-4 {
+				.text-box {
+					display: flex;
+					align-items: center;
+					height:181px;
+					padding:20px;
+					p {
+						font-size:15px;
+					}
+				}
+			}
+			&.box-padding {
+				padding-right:10px;
+			}
+			.text-box {
+				padding:15px 20px 20px 20px;
+				p {
+					font-size:17px;
+				}
+			}
+			.image-holder {
+				position:relative;
+				overflow:hidden;
+				height:225px;
 				background-size: cover;
 				background-repeat: no-repeat;
 				background-position: 50% 50%;
@@ -68,9 +132,6 @@ body.hide-interface {
 	.photo-grid {
 		padding:0;
 		.row {
-			&.second-row.hidden-xs {
-				display:none;
-			}
 			.col {		
 				&.box-1 {
 					margin-bottom:10px;
@@ -84,6 +145,60 @@ body.hide-interface {
 				}
 				.image-holder {
 					height:210px;
+				}
+			}
+			&.second-row {
+				.col {
+					&.box-1, &.box-2 {
+						width:50%;
+						float:left;
+						.image-holder {
+							height:132px;
+						}
+					}	
+					&.box-padding {
+						padding-right:10px;
+					}
+				}
+			}
+		}
+	}
+	.photo-grid.details {
+		padding:0;
+		.row {
+			margin-bottom:0;
+			&.second-row {
+				margin-bottom:0;
+			}
+			.col {		
+				&.box-1 {
+					margin-bottom:0;
+				}
+				&.box-1, &.box-2 {
+					width:50%;
+					float:left;
+				}
+				&.box-3, &.box-4 {
+					width:100%;
+					float:none;
+				}
+				&.box-3 {
+					.image-holder {
+						height:185px;
+					}
+				}
+				&.box-4 {
+					.text-box {
+						display: block;
+						height:auto;
+						padding:20px;
+					}
+				}
+				.text-box {
+					padding:20px;
+					p {
+						margin:0;
+					}
 				}
 			}
 		}
@@ -101,7 +216,21 @@ body.hide-interface {
 		.row {
 			.col {
 				.image-holder {
-					height:180px;
+					height:181px;
+				}
+			}
+		}
+	}
+	.photo-grid.details {
+		.row {
+			.col {
+				&.box-3 {
+					.image-holder {
+						height:181px;
+					}
+				}
+				.image-holder {
+					height:225px;
 				}
 			}
 		}
