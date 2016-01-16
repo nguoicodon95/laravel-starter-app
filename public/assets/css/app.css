@@ -43,6 +43,7 @@ body.hide-interface {
       .photo-grid .row .col .image-holder {
         position: relative;
         overflow: hidden;
+        display: block;
         height: 181px;
         background-size: cover;
         background-repeat: no-repeat;
@@ -99,6 +100,7 @@ body.hide-interface {
       .photo-grid.details .row .col .image-holder {
         position: relative;
         overflow: hidden;
+        display: block;
         height: 225px;
         background-size: cover;
         background-repeat: no-repeat;

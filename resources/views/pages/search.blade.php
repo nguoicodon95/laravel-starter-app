@@ -39,24 +39,24 @@
 				        <p style="padding-bottom:10px">
 				        {{substr($post->body, 0, 250)}}<span>...</span>
 				        </p>
-						<div class="photo-grid">
-							<div class="row first-row">
-								<div class="col box-1 box-padding">
-									<div class="image-holder" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></div>
-								</div>
-								<div class="col box-2">
-									<div class="image-holder" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></div>
-								</div>
-							</div>
-							<div class="row second-row hidden-xs">
-								<div class="col box-2 box-padding">
-									<div class="image-holder" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></div>
-								</div>
-								<div class="col box-1">
-									<div class="image-holder" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></div>
-								</div>
-							</div>
-						</div>
+                        <div class="photo-grid">
+                            <div class="row first-row">
+                                <div class="col box-1 box-padding">
+                                    <a href="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" class="image-holder" data-lightbox="photogrid_l5{{$post->id}}" data-title="<div style='margin-top:2px;'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div style='font-weight:normal;margin:1px 0 1px 0;line-height:19px;min-height:2px;'>A very fast car photo</div>" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></a>
+                                </div>
+                                <div class="col box-2">
+                                    <a href="http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg" class="image-holder" data-lightbox="photogrid_l5{{$post->id}}" data-title="<div style='margin-top:2px;'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div style='font-weight:normal;margin:1px 0 1px 0;line-height:19px;min-height:2px;'>A very fast car photo</div>" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></a>
+                                </div>
+                            </div>
+                            <div class="row second-row">
+                                <div class="col box-2 box-padding">
+                                    <a href="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" class="image-holder" data-lightbox="photogrid_l5{{$post->id}}" data-title="<div style='margin-top:2px;'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div style='font-weight:normal;margin:1px 0 1px 0;line-height:19px;min-height:2px;'>A very fast car photo</div>" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></a>
+                                </div>
+                                <div class="col box-1">
+                                    <a href="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" class="image-holder" data-lightbox="photogrid_l5{{$post->id}}" data-title="<div style='margin-top:2px;'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div style='font-weight:normal;margin:1px 0 1px 0;line-height:19px;min-height:2px;'>A very fast car photo</div>" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></a>
+                                </div>
+                            </div>
+                        </div>
 						<div class="text-right" style="padding:15px 0 0 0;">
 							<a href="/post/{{$post->id}}/detail">Details</a>
 						</div>

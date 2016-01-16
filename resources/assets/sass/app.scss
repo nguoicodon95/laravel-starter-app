@@ -50,6 +50,7 @@ body.hide-interface {
 			.image-holder {
 				position:relative;
 				overflow:hidden;
+                display:block;
 				height:181px;
 				background-size: cover;
 				background-repeat: no-repeat;
@@ -119,6 +120,7 @@ body.hide-interface {
 			.image-holder {
 				position:relative;
 				overflow:hidden;
+                display:block;
 				height:225px;
 				background-size: cover;
 				background-repeat: no-repeat;

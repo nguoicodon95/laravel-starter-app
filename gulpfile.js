@@ -33,7 +33,8 @@ elixir(function (mix) {
 			'./bower_components/angular-resource/angular-resource.js',
 			'./bower_components/angular-route/angular-route.js',
 			'./bower_components/angular-ui-router/release/angular-ui-router.min.js',
-			'./bower_components/angular-bootstrap/ui-bootstrap-tpls.js'
+			'./bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+            './bower_components/lightbox2/dist/js/lightbox.js'
 		], 	'public/assets/js/libs.js')
 		.scripts([
 			'app.js',
