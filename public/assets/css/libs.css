@@ -5756,6 +5756,12 @@ button.close {
 .navbar {
   border-radius: 0; }
 
+@media screen and (max-width: 767px) {
+  .navbar-form.navbar-left {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 0; } }
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
 

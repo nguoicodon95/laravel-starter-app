@@ -150,12 +150,6 @@ body.hide-interface {
         .photo-grid.details .row .col .text-box p {
           margin: 0; } }
 
-@media screen and (max-width: 767px) {
-  .navbar-form.navbar-left {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 0; } }
-
 @media (max-width: 400px) {
   .photo-grid .row .col .image-holder {
     height: 181px; }

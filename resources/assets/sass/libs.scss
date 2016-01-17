@@ -5,12 +5,20 @@
 	border-radius:0;
 }
 
+@media screen and (max-width: 767px) {
+	.navbar-form.navbar-left {
+	  margin-top:0;
+	  margin-bottom:0;
+	  line-height:0;
+	}
+}
+
 // angularjs ng-cloak
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 	display: none !important;
 }
 
-// lightbox
+// lightbox2
 body:after {
   content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
   display: none;
