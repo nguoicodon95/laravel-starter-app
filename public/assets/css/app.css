@@ -106,6 +106,18 @@ body.hide-interface {
         background-repeat: no-repeat;
         background-position: 50% 50%; }
 
+@media (min-width: 1366px) {
+  .container {
+    width: 1280px; } }
+
+@media (min-width: 1400px) {
+  .container {
+    width: 1370px; } }
+
+@media (min-width: 1500px) {
+  .container {
+    width: 1440px; } }
+
 @media (max-width: 768px) {
   .photo-grid {
     padding: 0; }
