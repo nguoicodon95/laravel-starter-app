@@ -17,6 +17,7 @@ elixir(function (mix) {
 	mix
 		.sass([
 		  	'./bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss',
+            './bower_components/rrssb/scss/rrssb.scss',
 		  	'libs.scss',
 			], 'public/assets/css/libs.css')
 		.sass([
@@ -34,7 +35,8 @@ elixir(function (mix) {
 			'./bower_components/angular-route/angular-route.js',
 			'./bower_components/angular-ui-router/release/angular-ui-router.min.js',
 			'./bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-            './bower_components/lightbox2/dist/js/lightbox.js'
+            './bower_components/lightbox2/dist/js/lightbox.js',
+            './bower_components/rrssb/js/rrssb.js'
 		], 	'public/assets/js/libs.js')
 		.scripts([
 			'app.js',
@@ -49,5 +51,9 @@ elixir(function (mix) {
 		.copy(
 			'./resources/assets/js/components/**/*.html',
 			'public/assets/views'
+		)
+		.copy(
+			'./bower_components/rrssb/icons/*.svg',
+			'public/assets/icons'
 		)
 	});
