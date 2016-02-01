@@ -1,6 +1,6 @@
 angular.module('stream.post_addc', [])
 
-.controller('post_addCtrl', function($scope, $rootScope, $http, PostAdd, CSRF_TOKEN, $compile) {
+.controller('post_addCtrl', function($scope, $rootScope, $http, PostAdd, CSRF_TOKEN, $compile, Upload, $timeout) {
 
 	var userId = $rootScope.userId, tagResult = "";
 	
@@ -28,6 +28,10 @@ angular.module('stream.post_addc', [])
 	var bodyEl = $(".post-add-form").find("textarea[name='body']");
 	var streamNameEl = $(".post-add-form").find("input[name='streamname']");
 	var streamIdEl = $(".post-add-form").find("input[name='streamid']");
+    
+    $(".entry").keypress(function() {
+        $(".alert").hide();
+    });
 	
 	// pass token
 	tokenEl.val(CSRF_TOKEN);
@@ -51,6 +55,7 @@ angular.module('stream.post_addc', [])
 	}
 	
 	$scope.changeStream = function() {
+        $(".stream-err").hide();
 		$(".selected-stream").hide();
 		$("input[name='streamid']").val("0");
 		$("input[name='streamname']").val("0");
@@ -64,6 +69,7 @@ angular.module('stream.post_addc', [])
 			var term = $scope.tagSearchData.replace(/ /g,'');
 			return $http.get('/api/v1/tagssearch?q='+term)
 			.then(function(response) {
+                console.log(response);
 				tagResult = response.data.tags;
 				if(tagResult.length === 0) {
 					$(".create-new-tag").show();
@@ -77,6 +83,7 @@ angular.module('stream.post_addc', [])
 					var compiled = $compile(parseResult)($scope);
 					$(".create-new-tag").hide();
 					$(".tag-results-wrapper").show();
+                    $(".tag-results").show();
 					$(".tag-results").html(compiled);
 				}
 			});
@@ -85,27 +92,62 @@ angular.module('stream.post_addc', [])
 			$(".tag-results").html("");
 		}	
 	}
-	
-	$scope.publish = function() {
-		var post = {
-			"_token": tokenEl.val(),
-			"userId": userId,
-			"title": titleEl.val(),
-			"body": bodyEl.val(),
-			"streamid": streamIdEl.val(),
-			"streamname": streamNameEl.val()
-		}
-
-        PostAdd.create(post)
-        	.success(function(data) {
-				$(".stream-err").hide();
-				if(data.success === false) {
-					$(".stream-err").show();
-				} else {
-					$scope.closeOverlay();
-				}	
-        	});
-    };
+    
+    $scope.publish = function(file) {
+        // publish title and body or
+        // title, body and pics
+        // refactor err message to notification box / top * * *
+        if(titleEl.val() === "" || bodyEl.val() === "") {
+            $(".stream-post-err").show();
+            return false;
+        }
+        // use upload method
+        if(file != undefined) {
+            file.upload = Upload.upload({
+                url: '/api/v1/post',
+                // data: {file: file, username: $scope.username},
+                data: {file: file},
+            });
+            file.upload.then(function (response) {
+                console.log(response);
+                $timeout(function () {
+                    // file.result = response.data;
+                });
+            },
+            function (response) {
+                if (response.status > 0)
+                $scope.errorMsg = response.status + ': ' + response.data;
+            },
+            function (evt) {
+                // Math.min is to fix IE which reports 200% sometimes
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        } else {
+            // else use standard post method without upload
+            var post = {
+                "_token": tokenEl.val(),
+                "userId": userId,
+                "title": titleEl.val(),
+                "body": bodyEl.val(),
+                "streamid": streamIdEl.val(),
+                "streamname": streamNameEl.val()
+            }
+            PostAdd.create(post)
+            .success(function(data) {
+                $(".stream-err").hide();
+                if(data.success === false) {
+                    $(".stream-err").show();
+                } else {
+                    $scope.closeOverlay();
+                }	
+            });    
+        }
+    }
+    
+    $scope.checkErrs = function() {
+        // including info
+        
+    }
 
 	// add image
 	$scope.addImage = function() {
@@ -113,8 +155,8 @@ angular.module('stream.post_addc', [])
 		$(".post-add-group").hide();
 	} 
 	
-	// done
-	$scope.done = function() {
+	// go back
+	$scope.goBack = function() {
 		$(".image-add-group").hide();
 		$(".post-add-group").show();
 	} 

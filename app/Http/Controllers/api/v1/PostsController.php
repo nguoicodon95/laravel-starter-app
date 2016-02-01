@@ -7,7 +7,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Photo;
 use Auth;
+use Image;
 
 class PostsController extends Controller {
 
@@ -21,6 +23,7 @@ class PostsController extends Controller {
 	{	
 		$data = \Request::json()->all();
 		$result = "";
+        /*
 		$saveid = "";
 		if($data["streamname"] === "0" && $data["streamid"] === "0") {	
 			$result = false;
@@ -48,10 +51,50 @@ class PostsController extends Controller {
 			$post->save();
 			$post->tags()->sync([$saveid]);
 		}
-		
+        */
+        
+        /*
+        $msg = Config::get('settings.messages.successfulPost');
+        $sp = new StreamPost;
+		$sp->title = Input::get('title');
+        $sp->post = Input::get('post');
+        $sp->save();
+        $fileAvail = Input::hasFile('file');
+        if($fileAvail) {
+	        $file = Input::file('file');
+        	FileHelper::saveFile($file); 
+        }   
+        Session::flash('message', $msg);
+        return Redirect::to('stream');
+        */
+        
+        $photo = new Photo;
+        
+        $file = \Input::file('file');
+        
+        $fileName = "media/photos/large/" . $file->getClientOriginalName();
+        
+        $makeFile = Image::make($file);
+        
+		$makeFile->resize(600, null, function ($constraint) {
+			$constraint->aspectRatio();
+		});
+        
+        $makeFile->save($fileName);
+        
+        $photo->url = $fileName;
+        $photo->save();
+        
+        $result = "success";
+        
         // redirect
         return \Response::json(array("success"=>$result));
 	}
+    
+    // store + upload files
+    public function upload() {
+        
+    }
 	
 	public function show($id)
 	{

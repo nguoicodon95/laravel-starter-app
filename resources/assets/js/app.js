@@ -17,6 +17,7 @@ var app = angular.module('stream', [
     'stream.tag_list',
     'ngResource',
     'ui.router',
+    'ngFileUpload',
     'ui.bootstrap'
 ]);
 

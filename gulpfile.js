@@ -34,6 +34,8 @@ elixir(function (mix) {
 			'./bower_components/angular-resource/angular-resource.js',
 			'./bower_components/angular-route/angular-route.js',
 			'./bower_components/angular-ui-router/release/angular-ui-router.min.js',
+            './bower_components/ng-file-upload-shim/ng-file-upload-shim.js',
+            './bower_components/ng-file-upload/ng-file-upload.js',
 			'./bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
             './bower_components/lightbox2/dist/js/lightbox.js',
             './bower_components/rrssb/js/rrssb.js'
