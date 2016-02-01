@@ -358,9 +358,9 @@ angular.module('stream.post_addc', [])
     
     $scope.readyToPublish = function() {
         if(titleEl.val() != "" && bodyEl.val() != "" && (streamNameEl.val() != "0" || streamIdEl.val() != "0")) {
-            $(".alert-success").show();
+            $(".alert-info").show();
         } else {
-            $(".alert-success").hide();
+            $(".alert-info").hide();
         }
     }
 
@@ -521,6 +521,41 @@ angular.module('stream.post-edits', [])
     }
 
 });
+angular.module('stream.post_listc', [])
+
+.controller('post_listCtrl', function($scope, $rootScope, PostList) {
+	
+  	// reset overlay
+	$('.stream.overlay').hide();
+	$('body').removeClass('hide-interface');
+	      
+ 	// save previous state
+	$rootScope.previousState = "i";
+    
+    $scope.page.loaded = false;
+        
+    PostList.getPosts()
+        .success(function(data) {
+            $scope.posts = data;
+            $scope.page.loaded = true;
+            $(".ng-panel").css("height","auto");
+        });
+	
+});
+angular.module('stream.post_list', [])
+
+.factory('PostList', function($http) {
+
+    return {
+        
+        // paginate posts
+        getPosts : function() {
+            return $http.get('/api/v1/post');
+        }
+
+    }
+
+});
 angular.module('stream.post_detailsc', [])
 
 .controller('post_detailsCtrl', function($scope, $rootScope, $sce, PostDetails) {
@@ -605,41 +640,6 @@ angular.module('stream.post_details', [])
     	get: function(id) {
     		return $http.get('/api/v1/post/'+id);
     	}
-
-    }
-
-});
-angular.module('stream.post_listc', [])
-
-.controller('post_listCtrl', function($scope, $rootScope, PostList) {
-	
-  	// reset overlay
-	$('.stream.overlay').hide();
-	$('body').removeClass('hide-interface');
-	      
- 	// save previous state
-	$rootScope.previousState = "i";
-    
-    $scope.page.loaded = false;
-        
-    PostList.getPosts()
-        .success(function(data) {
-            $scope.posts = data;
-            $scope.page.loaded = true;
-            $(".ng-panel").css("height","auto");
-        });
-	
-});
-angular.module('stream.post_list', [])
-
-.factory('PostList', function($http) {
-
-    return {
-        
-        // paginate posts
-        getPosts : function() {
-            return $http.get('/api/v1/post');
-        }
 
     }
 

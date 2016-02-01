@@ -167,9 +167,9 @@ angular.module('stream.post_addc', [])
     
     $scope.readyToPublish = function() {
         if(titleEl.val() != "" && bodyEl.val() != "" && (streamNameEl.val() != "0" || streamIdEl.val() != "0")) {
-            $(".alert-success").show();
+            $(".alert-info").show();
         } else {
-            $(".alert-success").hide();
+            $(".alert-info").hide();
         }
     }
 
