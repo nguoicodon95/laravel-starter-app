@@ -9,11 +9,13 @@
       <input type="hidden" name="_token" />
       <div class="post-add-group">
           <h1>Add Post</h1>
-          <div class="alert alert-danger" role="alert" style="margin-bottom:10px;">
+          <div class="alert alert-danger" role="alert" style="margin-bottom:10px;display:none">
               <ul style="font-size:15px;">
-                <li>Add a title and body</li>
-                <li>Find and select a stream name</li>
+                  <!-- to be populated -->
               </ul>
+          </div>
+          <div class="alert alert-success" role="alert" style="margin-bottom:10px;font-size:15px;display:none;">
+              Ready to publish.
           </div>
           <div class="form-group">
             <input type="text" name="title" placeholder="Title" class="form-control entry" style="min-width:400px;height:auto;font-size:17px;" />
@@ -32,11 +34,10 @@
             <textarea type="text" name="body" placeholder="Body" class="form-control entry" style="min-width:400px;height:300px;font-size:17px;"></textarea>
           </div>
           <div class="form-group get-stream" style="display:none">
-            <div class="stream-err" style="display:none;color:red;font-size:15px;margin-bottom:6px;">Find and select a stream name</div>
-            <input type="text" name="stream" placeholder="Stream" ng-model="tagSearchData" ng-change="tagSearch()" class="form-control" style="min-width:400px;height:auto;font-size:17px;" />
+            <input type="text" name="stream" placeholder="Stream" ng-model="tagSearchData" ng-change="tagSearch()" class="form-control entry" style="min-width:400px;height:auto;font-size:17px;" />
           </div>
           <div class="form-group tag-results-wrapper" style="display:none">
-            <h4 style="font-size:17px">Suggested Streams</h4>
+            <h4 style="font-size:17px">Select a stream</h4>
             <div class="tag-results" style="font-size:17px;">
             </div>  
           </div>
@@ -64,7 +65,6 @@
           <!-- image preloader end -->
           <div class="form-group text-right">
             <!-- ng-disabled="!postAddForm.$valid" -->
-            <div class="stream-post-err" style="display:none;color:red;font-size:15px;margin-bottom:6px;">Add a title and body to publish</div>
             <button type="button" ng-click="publish(picFile)" class="btn edit-button btn-primary" style="height:38px;font-size:16px">Publish</button>
           </div>
         </div>
@@ -75,7 +75,6 @@
             <label>Select an image</label> 
             <!-- select an image -->
             <input type="file" class="form-control" ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFiles">
-            <i ng-show="postAddForm.file.$error.required">*required</i>
             <i ng-show="postAddForm.file.$error.maxSize">File too large <% errorFiles[0].size / 1000000|number:1%>MB: max 2M</i>
             <img ng-show="postAddForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">Remove</button>       
           </div> 

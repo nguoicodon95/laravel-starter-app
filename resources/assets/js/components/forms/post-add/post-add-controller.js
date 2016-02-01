@@ -29,20 +29,26 @@ angular.module('stream.post_addc', [])
 	var streamNameEl = $(".post-add-form").find("input[name='streamname']");
 	var streamIdEl = $(".post-add-form").find("input[name='streamid']");
     
-    $(".entry").keypress(function() {
-        $(".alert").hide();
+    $(".entry").keyup(function() {
+        // hide err notification
+        $(".alert-danger").hide();
+        // show ready to publish
+        $scope.readyToPublish();
     });
 	
 	// pass token
 	tokenEl.val(CSRF_TOKEN);
 	
 	$scope.selectCurrentStream = function(e) {
+        $(".alert-danger").hide();
 		$(".selected-stream").show();
 		$("input[name='displaystream']").val($(e.target).data("tag"));
 		$("input[name='streamid']").val($(e.target).data("id"));
 		$(".tag-results-wrapper").hide();
 		$(".get-stream").hide();
 		$(".create-new-tag").hide();
+        // show ready to publish
+        $scope.readyToPublish();
 	}
 	
 	$scope.createNewStream = function(e) {
@@ -52,16 +58,18 @@ angular.module('stream.post_addc', [])
 		$(".tag-results-wrapper").hide();
 		$(".get-stream").hide();
 		$(".create-new-tag").hide();
+        // show ready to publish
+        $scope.readyToPublish();
 	}
 	
 	$scope.changeStream = function() {
-        $(".stream-err").hide();
 		$(".selected-stream").hide();
 		$("input[name='streamid']").val("0");
 		$("input[name='streamname']").val("0");
 		$(".get-stream").show();
 		// empty all input values
 		$(".get-stream input[name='stream']").val("");
+        $scope.readyToPublish();
 	}
 	
 	$scope.tagSearch = function() {
@@ -69,7 +77,6 @@ angular.module('stream.post_addc', [])
 			var term = $scope.tagSearchData.replace(/ /g,'');
 			return $http.get('/api/v1/tagssearch?q='+term)
 			.then(function(response) {
-                console.log(response);
 				tagResult = response.data.tags;
 				if(tagResult.length === 0) {
 					$(".create-new-tag").show();
@@ -88,7 +95,7 @@ angular.module('stream.post_addc', [])
 				}
 			});
 		} else {
-			$(".tag-results, .create-new-tag").hide();
+			$(".tag-results-wrapper, .tag-results, .create-new-tag").hide();
 			$(".tag-results").html("");
 		}	
 	}
@@ -96,9 +103,7 @@ angular.module('stream.post_addc', [])
     $scope.publish = function(file) {
         // publish title and body or
         // title, body and pics
-        // refactor err message to notification box / top * * *
-        if(titleEl.val() === "" || bodyEl.val() === "") {
-            $(".stream-post-err").show();
+        if(!$scope.checkErrs()) {
             return false;
         }
         // use upload method
@@ -134,10 +139,7 @@ angular.module('stream.post_addc', [])
             }
             PostAdd.create(post)
             .success(function(data) {
-                $(".stream-err").hide();
-                if(data.success === false) {
-                    $(".stream-err").show();
-                } else {
+                if(data.success === true) {
                     $scope.closeOverlay();
                 }	
             });    
@@ -145,8 +147,30 @@ angular.module('stream.post_addc', [])
     }
     
     $scope.checkErrs = function() {
-        // including info
-        
+        var validate = true;
+        // reset
+        $(".alert-danger").find("ul").html("");
+        // validates title and body
+        if(titleEl.val() === "" || bodyEl.val() === "") {
+            $(".alert-danger").show();
+            $(".alert-danger").find("ul").append("<li>Add a title and body</li>");
+            validate = false;
+        }
+        // validates stream name
+        if(streamNameEl.val() === "0" || streamIdEl.val() != "0") {
+            $(".alert-danger").show();
+            $(".alert-danger").find("ul").append("<li>Find a stream name</li>");
+            validate = false;   
+        }
+        return validate;
+    }
+    
+    $scope.readyToPublish = function() {
+        if(titleEl.val() != "" && bodyEl.val() != "" && (streamNameEl.val() != "0" || streamIdEl.val() != "0")) {
+            $(".alert-success").show();
+        } else {
+            $(".alert-success").hide();
+        }
     }
 
 	// add image
