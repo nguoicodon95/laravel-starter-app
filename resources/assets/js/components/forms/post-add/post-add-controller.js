@@ -1,6 +1,6 @@
 angular.module('stream.post_addc', [])
 
-.controller('post_addCtrl', function($scope, $rootScope, $http, PostAdd, CSRF_TOKEN, $compile, Upload, $timeout) {
+.controller('post_addCtrl', function($scope, $rootScope, $http, PostAdd, CSRF_TOKEN, $compile) {
 
 	var userId = $rootScope.userId, tagResult = "";
 	
@@ -101,43 +101,30 @@ angular.module('stream.post_addc', [])
 	}
     
     $scope.publish = function(file) {
-        // publish title and body or
-        // title, body and pics
         if(!$scope.checkErrs()) {
             return false;
         }
+        // post data
+        var post = {
+            "_token": tokenEl.val(),
+            "userId": userId,
+            "title": titleEl.val(),
+            "body": bodyEl.val(),
+            "streamid": streamIdEl.val(),
+            "streamname": streamNameEl.val()
+        }
         // use upload method
         if(file != undefined) {
-            file.upload = Upload.upload({
-                url: '/api/v1/post',
-                // data: {file: file, username: $scope.username},
-                data: {file: file},
-            });
-            file.upload.then(function (response) {
-                console.log(response);
-                $timeout(function () {
-                    // file.result = response.data;
-                });
-            },
-            function (response) {
-                if (response.status > 0)
-                $scope.errorMsg = response.status + ': ' + response.data;
-            },
-            function (evt) {
-                // Math.min is to fix IE which reports 200% sometimes
-                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            post.file = file;
+            PostAdd.upload(post)
+            .success(function(data) {
+                if(data.success === true) {
+                    $scope.closeOverlay();
+                }	
             });
         } else {
-            // else use standard post method without upload
-            var post = {
-                "_token": tokenEl.val(),
-                "userId": userId,
-                "title": titleEl.val(),
-                "body": bodyEl.val(),
-                "streamid": streamIdEl.val(),
-                "streamname": streamNameEl.val()
-            }
-            PostAdd.create(post)
+            // use standard post method
+            PostAdd.add(post)
             .success(function(data) {
                 if(data.success === true) {
                     $scope.closeOverlay();
@@ -157,7 +144,7 @@ angular.module('stream.post_addc', [])
             validate = false;
         }
         // validates stream name
-        if(streamNameEl.val() === "0" || streamIdEl.val() != "0") {
+        if(streamNameEl.val() === "0" && streamIdEl.val() === "0") {
             $(".alert-danger").show();
             $(".alert-danger").find("ul").append("<li>Find a stream name</li>");
             validate = false;   

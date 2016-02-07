@@ -23,7 +23,6 @@ class PostsController extends Controller {
 	{	
 		$data = \Request::json()->all();
 		$result = "";
-        /*
 		$saveid = "";
 		if($data["streamname"] === "0" && $data["streamid"] === "0") {	
 			$result = false;
@@ -50,50 +49,28 @@ class PostsController extends Controller {
 			$post->user_id = $data["userId"];
 			$post->save();
 			$post->tags()->sync([$saveid]);
-		}
-        */
-        
-        /*
-        $msg = Config::get('settings.messages.successfulPost');
-        $sp = new StreamPost;
-		$sp->title = Input::get('title');
-        $sp->post = Input::get('post');
-        $sp->save();
-        $fileAvail = Input::hasFile('file');
-        if($fileAvail) {
-	        $file = Input::file('file');
-        	FileHelper::saveFile($file); 
-        }   
-        Session::flash('message', $msg);
-        return Redirect::to('stream');
-        */
-        
-        $photo = new Photo;
-        
-        $file = \Input::file('file');
-        
-        $fileName = "media/photos/large/" . $file->getClientOriginalName();
-        
-        $makeFile = Image::make($file);
-        
-		$makeFile->resize(600, null, function ($constraint) {
-			$constraint->aspectRatio();
-		});
-        
-        $makeFile->save($fileName);
-        
-        $photo->url = $fileName;
-        $photo->save();
-        
-        $result = "success";
-        
+		} 
         // redirect
         return \Response::json(array("success"=>$result));
 	}
     
     // store + upload files
     public function upload() {
-        
+		$result = "";
+        $photo = new Photo;
+        $file = \Input::file('file');
+        $fileName = "media/photos/large/" . $file->getClientOriginalName();
+        $makeFile = Image::make($file);
+		$makeFile->resize(600, null, function ($constraint) {
+			$constraint->aspectRatio();
+		});
+        $makeFile->save($fileName);
+        $photo->url = $fileName;
+        $photo->save();
+        $photo->tags()->sync([$photo->id]);
+        $result = true;
+        // redirect
+        return \Response::json(array("success"=>$result));
     }
 	
 	public function show($id)
