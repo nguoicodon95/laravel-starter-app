@@ -241,6 +241,23 @@ angular.module('stream.post_addc', [])
         // show ready to publish
         $scope.readyToPublish();
 	}
+    
+    $scope.selectStream = function(e) {
+        // loop through to find stream
+        $.each($(".tag-results").find("a"), function(i, e) {
+            if($(e).text() === $("input[name='stream']").val()) {
+                $(".alert-danger").hide();
+                $(".selected-stream").show();
+                $("input[name='displaystream']").val($(e).data("tag"));
+                $("input[name='streamid']").val($(e).data("id"));
+                $(".tag-results-wrapper").hide();
+                $(".get-stream").hide();
+                $(".create-new-tag").hide();
+            }
+        })
+        $scope.checkErrs();
+        $scope.readyToPublish();
+    }
 	
 	$scope.createNewStream = function(e) {
 		$(".selected-stream").show();
@@ -254,6 +271,8 @@ angular.module('stream.post_addc', [])
 	}
 	
 	$scope.changeStream = function() {
+        $(".create-button").hide();
+        $(".select-button").show();
 		$(".selected-stream").hide();
 		$("input[name='streamid']").val("0");
 		$("input[name='streamname']").val("0");
@@ -271,6 +290,8 @@ angular.module('stream.post_addc', [])
 				tagResult = response.data.tags;
 				if(tagResult.length === 0) {
 					$(".create-new-tag").show();
+                    $(".create-button").show();
+                    $(".select-button").hide();
 					$(".tag-results-wrapper").hide();
 					$(".tag-results").html("");
 				} else {
@@ -280,13 +301,15 @@ angular.module('stream.post_addc', [])
 					var parseResult = tagResult.join("");
 					var compiled = $compile(parseResult)($scope);
 					$(".create-new-tag").hide();
+                    $(".create-button").hide();
+                    $(".select-button").show();
 					$(".tag-results-wrapper").show();
                     $(".tag-results").show();
 					$(".tag-results").html(compiled);
 				}
 			});
 		} else {
-			$(".tag-results-wrapper, .tag-results, .create-new-tag").hide();
+			$(".tag-results-wrapper, .tag-results, .create-new-tag, .create-button").hide();
 			$(".tag-results").html("");
 		}	
 	}
@@ -506,78 +529,6 @@ angular.module('stream.post-edits', [])
     }
 
 });
-angular.module('stream.tag_listc', [])
-
-.controller('tag_listCtrl', function($scope, $rootScope, TagList, $state, $stateParams, $sce) {
-
-	$scope.state = $state.current.name;
-	$scope.trustAsHtml = $sce.trustAsHtml;
-	
-    $('.stream.overlay').hide();
-    $('body').removeClass('hide-interface');
-
-    var tagId = "", tagName = "";
-
-	function getTagId() {
-		var href = location.href;
-		var post = href.split("tag")[1];
-		var hash = post.split("#")[0]
-		var id = hash.split("/")[1];
-		return id;
-	}
-     
-	if($scope.state === "list") {
-		
-		$rootScope.previousState = "list";
-		
-		tagId = getTagId();
-		
-		TagList.getTags(tagId)
-			.success(function(data) {
-				
-				$scope.tags = data;
-				$scope.page.loaded = true;
-				$(".ng-panel").css("height","auto");
-			});
-		
-	} else if($scope.state === "name") {	
-		
-		$rootScope.previousState = "name";
-		
-		var url = location.href;
-		var start = url.indexOf("/s/") + 3;
-		var end = url.indexOf("#");
-		
-		tagName = url.substring(start, end);
-		
-		TagList.getLikeName(tagName)
-			.success(function(data) {
-				var parse = data.tags;		
-				$scope.tags = parse;
-				$scope.page.loaded = true;
-				$(".ng-panel").css("height","auto");
-			});
-		
-	}
-	
-});
-angular.module('stream.tag_list', [])
-
-.factory('TagList', function($rootScope, $http) {
-
-    return {
-        
-        getTags : function(id) {
-            return $http.get('/api/v1/tag/'+id);
-        },
-        
-        getLikeName : function(tagname) {
-            return $http.get('/api/v1/tagssearch?q='+tagname);
-        }
-
-    }
-
-});
 angular.module('stream.post_detailsc', [])
 
 .controller('post_detailsCtrl', function($scope, $rootScope, $sce, PostDetails) {
@@ -696,6 +647,78 @@ angular.module('stream.post_list', [])
         // paginate posts
         getPosts : function() {
             return $http.get('/api/v1/post');
+        }
+
+    }
+
+});
+angular.module('stream.tag_listc', [])
+
+.controller('tag_listCtrl', function($scope, $rootScope, TagList, $state, $stateParams, $sce) {
+
+	$scope.state = $state.current.name;
+	$scope.trustAsHtml = $sce.trustAsHtml;
+	
+    $('.stream.overlay').hide();
+    $('body').removeClass('hide-interface');
+
+    var tagId = "", tagName = "";
+
+	function getTagId() {
+		var href = location.href;
+		var post = href.split("tag")[1];
+		var hash = post.split("#")[0]
+		var id = hash.split("/")[1];
+		return id;
+	}
+     
+	if($scope.state === "list") {
+		
+		$rootScope.previousState = "list";
+		
+		tagId = getTagId();
+		
+		TagList.getTags(tagId)
+			.success(function(data) {
+				
+				$scope.tags = data;
+				$scope.page.loaded = true;
+				$(".ng-panel").css("height","auto");
+			});
+		
+	} else if($scope.state === "name") {	
+		
+		$rootScope.previousState = "name";
+		
+		var url = location.href;
+		var start = url.indexOf("/s/") + 3;
+		var end = url.indexOf("#");
+		
+		tagName = url.substring(start, end);
+		
+		TagList.getLikeName(tagName)
+			.success(function(data) {
+				var parse = data.tags;		
+				$scope.tags = parse;
+				$scope.page.loaded = true;
+				$(".ng-panel").css("height","auto");
+			});
+		
+	}
+	
+});
+angular.module('stream.tag_list', [])
+
+.factory('TagList', function($rootScope, $http) {
+
+    return {
+        
+        getTags : function(id) {
+            return $http.get('/api/v1/tag/'+id);
+        },
+        
+        getLikeName : function(tagname) {
+            return $http.get('/api/v1/tagssearch?q='+tagname);
         }
 
     }

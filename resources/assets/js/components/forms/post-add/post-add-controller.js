@@ -50,6 +50,23 @@ angular.module('stream.post_addc', [])
         // show ready to publish
         $scope.readyToPublish();
 	}
+    
+    $scope.selectStream = function(e) {
+        // loop through to find stream
+        $.each($(".tag-results").find("a"), function(i, e) {
+            if($(e).text() === $("input[name='stream']").val()) {
+                $(".alert-danger").hide();
+                $(".selected-stream").show();
+                $("input[name='displaystream']").val($(e).data("tag"));
+                $("input[name='streamid']").val($(e).data("id"));
+                $(".tag-results-wrapper").hide();
+                $(".get-stream").hide();
+                $(".create-new-tag").hide();
+            }
+        })
+        $scope.checkErrs();
+        $scope.readyToPublish();
+    }
 	
 	$scope.createNewStream = function(e) {
 		$(".selected-stream").show();
@@ -63,6 +80,8 @@ angular.module('stream.post_addc', [])
 	}
 	
 	$scope.changeStream = function() {
+        $(".create-button").hide();
+        $(".select-button").show();
 		$(".selected-stream").hide();
 		$("input[name='streamid']").val("0");
 		$("input[name='streamname']").val("0");
@@ -80,6 +99,8 @@ angular.module('stream.post_addc', [])
 				tagResult = response.data.tags;
 				if(tagResult.length === 0) {
 					$(".create-new-tag").show();
+                    $(".create-button").show();
+                    $(".select-button").hide();
 					$(".tag-results-wrapper").hide();
 					$(".tag-results").html("");
 				} else {
@@ -89,13 +110,15 @@ angular.module('stream.post_addc', [])
 					var parseResult = tagResult.join("");
 					var compiled = $compile(parseResult)($scope);
 					$(".create-new-tag").hide();
+                    $(".create-button").hide();
+                    $(".select-button").show();
 					$(".tag-results-wrapper").show();
                     $(".tag-results").show();
 					$(".tag-results").html(compiled);
 				}
 			});
 		} else {
-			$(".tag-results-wrapper, .tag-results, .create-new-tag").hide();
+			$(".tag-results-wrapper, .tag-results, .create-new-tag, .create-button").hide();
 			$(".tag-results").html("");
 		}	
 	}
