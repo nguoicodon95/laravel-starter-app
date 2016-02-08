@@ -32,7 +32,7 @@ angular.module('stream.main', [])
 	Main.getRecentTags()
 		.success(function(data) {
 			for(var i = 0; i < data.length; i++) {
-				$(".recent-tags").append("<a href='/tag/"+data[i].id+"#/list' style='margin-right:7px;'>"+data[i].name+"</a>");
+				$(".recent-tags").append("<a href='/tag/"+data[i].id+"#/list' style='margin-right:7px;display:inline-block'>"+data[i].name+"</a>");
 			}
 		});
 		

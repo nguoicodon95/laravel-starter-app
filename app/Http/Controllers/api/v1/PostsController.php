@@ -56,19 +56,54 @@ class PostsController extends Controller {
     
     // store + upload files
     public function upload() {
-		$result = "";
-        $photo = new Photo;
-        $file = \Input::file('file');
-        $fileName = "media/photos/large/" . $file->getClientOriginalName();
-        $makeFile = Image::make($file);
-		$makeFile->resize(600, null, function ($constraint) {
-			$constraint->aspectRatio();
-		});
-        $makeFile->save($fileName);
-        $photo->url = $fileName;
-        $photo->save();
-        $photo->tags()->sync([$photo->id]);
-        $result = true;
+		$result = ""; 
+		$saveid = "";
+        // get all input fields
+        $streamName = \Input::get('streamname');
+        $streamID = \Input::get('streamid');
+        $title = \Input::get('title');
+        $body = \Input::get('body');
+        $userID = \Input::get('userId');
+        $file = \Input::get('file');
+        $file = \Input::file('file');       
+        // do a server validation check for stream name and stream id
+		if($streamName === "0" && $streamID === "0") {	
+			$result = false;
+		} else {
+			// no stream id
+			if($streamID === "0") {
+				// create new tag
+				$tag = new Tag;
+				$tag->name = $streamName;
+				$tag->user_id = $userID;
+				$tag->save();
+				$tag->tags()->sync([$tag->id]);
+				$saveid = $tag->id;
+			}
+			// pass right tag id
+			if($streamID != "0") {
+				$saveid = $streamID;
+			}
+			// create new post
+			$post = new Post;
+			$post->title = $title;
+			$post->body = $body;
+			$post->user_id = $userID;
+			$post->save();
+			$post->tags()->sync([$saveid]);
+            // photo upload
+            $photo = new Photo;
+            $fileName = "media/photos/large/" . $file->getClientOriginalName();
+            $makeFile = Image::make($file);
+            $makeFile->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            $makeFile->save($fileName);
+            $photo->url = $fileName;
+            $photo->save();
+            $photo->tags()->sync([$post->id]);
+            $result = true;
+        }
         // redirect
         return \Response::json(array("success"=>$result));
     }

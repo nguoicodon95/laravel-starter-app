@@ -34,10 +34,20 @@
             <textarea type="text" name="body" placeholder="Body" class="form-control entry" style="min-width:400px;height:300px;font-size:17px;"></textarea>
           </div>
           <div class="form-group get-stream" style="display:none">
-            <input type="text" name="stream" placeholder="Stream" ng-model="tagSearchData" ng-change="tagSearch()" class="form-control entry" style="min-width:400px;height:auto;font-size:17px;" />
+            <div class="input-group">
+                <input type="text" name="stream" placeholder="Stream" ng-model="tagSearchData" ng-change="tagSearch()" class="form-control entry" style="min-width:400px;height:auto;font-size:17px;" />
+                <div class="input-group-btn">
+                    <!--
+                    <button type="button" class="btn btn-primary" style="height:38px;font-size:16px">Select</button>
+                    -->
+                    <button type="button" class="btn btn-primary" style="height:38px;font-size:16px">Create</button>
+                </div>
+            </div>
           </div>
+    
+          
           <div class="form-group tag-results-wrapper" style="display:none">
-            <h4 style="font-size:17px">Select a stream</h4>
+            <h4 style="font-size:17px">Recommended streams</h4>
             <div class="tag-results" style="font-size:17px;">
             </div>  
           </div>
@@ -51,7 +61,7 @@
             <input type="hidden" name="streamname" value="0" />
             <a href="javascript:void(0)" style="font-size:15px;display:block;margin-top:8px;" ng-click="changeStream()">Change stream</a> 
           </div>
-          <div class="form-group text-right">
+          <div class="form-group text-center">
             <div style="display:none;"><span style="font-size:15px;">Added 4 images | </span><a href="javascript:void(0)" style="font-size:15px" ng-click="addImage()">update</a></div>
             <a href="javascript:void(0)" style="font-size:15px" ng-click="addImage()">Add image (optional)</a> 
           </div>
@@ -63,9 +73,9 @@
           <span ng-show="picFile.result">Upload Successful</span>
           <span class="err" ng-show="errorMsg"><%errorMsg%></span>
           <!-- image preloader end -->
-          <div class="form-group text-right">
+          <div class="form-group text-center">
             <!-- ng-disabled="!postAddForm.$valid" -->
-            <button type="button" ng-click="publish(picFile)" class="btn edit-button btn-primary" style="height:38px;font-size:16px">Publish</button>
+            <button type="button" ng-click="publish(picFile)" class="btn edit-button btn-primary" style="height:38px;font-size:16px;width:100%;">Publish</button>
           </div>
         </div>
         <!-- image section -->
@@ -83,7 +93,7 @@
           </div>
           <div class="form-group text-right">
             <button type="button" class="btn btn-primary" style="height:38px;font-size:16px">Add another</button>
-            <button type="button" class="btn btn-primary" style="height:38px;font-size:16px" ng-click="goBack()">Go back</button>
+            <button type="button" class="btn btn-primary" style="height:38px;font-size:16px" ng-click="finishPost()">Finish post</button>
           </div>
         </div>
       </form>

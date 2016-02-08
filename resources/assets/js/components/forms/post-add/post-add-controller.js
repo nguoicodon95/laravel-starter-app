@@ -167,7 +167,7 @@ angular.module('stream.post_addc', [])
 	} 
 	
 	// go back
-	$scope.goBack = function() {
+	$scope.finishPost = function() {
 		$(".image-add-group").hide();
 		$(".post-add-group").show();
 	} 
