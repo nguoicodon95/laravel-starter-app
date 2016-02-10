@@ -18,9 +18,4 @@ class Tag extends Model {
         return $this->morphedByMany('App\Models\Post', 'taggable')->with('author')->orderBy('created_at','DESC');
     }
 
-	public function photos()
-    {
-        return $this->morphedByMany('App\Models\Photo', 'taggable');
-    }
-
 }

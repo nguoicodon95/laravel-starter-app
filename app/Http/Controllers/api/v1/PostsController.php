@@ -15,8 +15,8 @@ class PostsController extends Controller {
 
 	public function index()
 	{
-		$posts = Post::orderBy('id', 'DESC')->with('tags')->with('author')->take(7)->get();
-        return \Response::json($posts);	
+		$posts = Post::orderBy('id', 'DESC')->with('photos')->with('tags')->with('author')->take(7)->get();
+        return \Response::json($posts);
 	}
 	
 	public function store()
@@ -101,7 +101,8 @@ class PostsController extends Controller {
             $makeFile->save($fileName);
             $photo->url = $fileName;
             $photo->save();
-            $photo->tags()->sync([$post->id]);
+            $photo->tags()->sync([$saveid]);
+            $photo->posts()->sync([$post->id]);
             $result = true;
         }
         // redirect

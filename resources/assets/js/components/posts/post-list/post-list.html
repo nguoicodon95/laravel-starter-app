@@ -1,5 +1,8 @@
 <!-- AngularJS posts -->
 <div class="post ng-cloak" ng-show="page.loaded===true" ng-repeat="post in posts">
+    <div>
+        <% ::post %>
+    </div>
 	<h4>
         <a href="/tag/<% ::post.tags[0].id %>#/list"><span class="stream marker"><% ::post.tags[0].name %></span></a>
         <span class="stream marker"><% ::post.author.author_prefix %></span>

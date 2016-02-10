@@ -11,10 +11,14 @@ class Post extends Model {
 	public function author() {
 		return $this->hasOne('App\\Models\\User', 'id', 'user_id')->select('id', 'author_prefix');
 	}
+    
+	public function photos()
+    {
+        return $this->morphedByMany('App\\Models\\Photo', 'postable');
+    }
 
 	public function tags()
     {
         return $this->morphToMany('App\\Models\\Tag', 'taggable');
     }
-
 }
