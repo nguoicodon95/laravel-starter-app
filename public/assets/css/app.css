@@ -129,7 +129,7 @@ body.hide-interface {
     .photo-grid .row .col.box-padding {
       padding-right: 0; }
     .photo-grid .row .col .image-holder {
-      height: 210px; }
+      height: 73px; }
     .photo-grid .row.second-row .col.box-1, .photo-grid .row.second-row .col.box-2 {
       width: 50%;
       float: left; }
@@ -164,7 +164,7 @@ body.hide-interface {
 
 @media (max-width: 400px) {
   .photo-grid .row .col .image-holder {
-    height: 181px; }
+    height: 73px; }
   .photo-grid.details .row .col.box-3 .image-holder {
     height: 181px; }
   .photo-grid.details .row .col .image-holder {
