@@ -78,7 +78,7 @@
                                 @endif
                                 @if($post->photos->count() > 2)
                                 <div class="row second-row">
-                                    @if($index === 2) 
+                                    @if($index === 2)
                                     <div class="col box-2 box-padding">
                                         <a href="{{$photos->url}}" class="image-holder" data-lightbox="photogrid_ng{{$post->id}}" data-title="<div class='view-post'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div class='caption'></div>" style="background-image: url('{{$photos->url}}');"></a>  
                                     </div>
@@ -90,13 +90,13 @@
                                     @endif
                                 </div>
                                 @endif
-                            @endforeach 
+                            @endforeach
                         </div>
                         <div style="height:15px;">&nbsp;</div>
                         <div class="text-right" style="padding:0;">
                             <?php
                             if($post->photos->count() === 0) {
-                                echo '<span><a href="/signin">Add a photo</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>';
+                                echo '<span><a href="/signin">Recommend a photo</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>';
                             }
                             ?><a href="/post/{{$post->id}}/#/detail">Details</a>
                         </div>

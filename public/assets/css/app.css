@@ -106,13 +106,17 @@ body.hide-interface {
         background-repeat: no-repeat;
         background-position: 50% 50%; }
 
-@media (min-width: 1366px) {
+@media (min-width: 1200px) {
   .container {
-    width: 1280px; } }
+    width: 100%; } }
 
-@media (min-width: 1400px) {
+@media (min-width: 992px) {
   .container {
-    width: 1370px; } }
+    width: 100%; } }
+
+@media (min-width: 768px) {
+  .container {
+    width: 100%; } }
 
 @media (min-width: 1500px) {
   .container {

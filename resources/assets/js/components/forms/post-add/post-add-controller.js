@@ -156,6 +156,36 @@ angular.module('stream.post_addc', [])
         }
     }
     
+    $scope.uploadFiles = function (files, errFiles) {
+        $scope.files = files;
+        $scope.errFiles = errFiles;
+        /*
+        if (files && files.length) {
+            Upload.upload({
+                url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+                data: {
+                    files: files
+                }
+            }).then(function (response) {
+                $timeout(function () {
+                    $scope.result = response.data;
+                });
+            }, function (response) {
+                if (response.status > 0) {
+                    $scope.errorMsg = response.status + ': ' + response.data;
+                }
+            }, function (evt) {
+                $scope.progress = 
+                    Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
+        }
+        */
+    };
+    
+    $scope.deleteFile = function(index) {
+        $scope.files.splice(index, 1);
+    }
+    
     $scope.checkErrs = function() {
         var validate = true;
         // reset

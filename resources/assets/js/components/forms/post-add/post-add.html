@@ -77,17 +77,31 @@
         <div class="image-add-group" style="display:none;">
           <h1>Add Image</h1>
           <div class="form-group">
-            <label>Select an image</label> 
-            <!-- select an image -->
+            <!-- select an image -->  
+            <div class="well text-center">  
+                <button ngf-select="uploadFiles($files, $invalidFiles)" class="btn btn-default" multiple accept="image/*" ngf-max-height="1000" ngf-max-size="2MB" style="height:38px;font-size:16px">Select Photos</button>
+            </div>
+            <ul>
+                <li ng-repeat="f in files" style="font:smaller">
+                    <img ng-show="postAddForm.file.$valid" ngf-thumbnail="f" class="thumb" style="width:100px;">
+                    <button ng-click="deleteFile($index)">Remove</button>       
+                </li>
+                <li ng-repeat="f in errFiles" style="font:smaller"><%f.name%> <%f.$error%> <%f.$errorParam%></li>
+            </ul>
+            <span class="progress" ng-show="progress >= 0">
+                <div style="width:<%progress%>%" ng-bind="progress + '%'"></div>
+            </span>
+            <!--
             <input type="file" class="form-control" ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFiles">
+            -->
             <i ng-show="postAddForm.file.$error.maxSize">File too large <% errorFiles[0].size / 1000000|number:1%>MB: max 2M</i>
-            <img ng-show="postAddForm.file.$valid" ngf-thumbnail="picFile" class="thumb" style="width:100px;"> <button ng-click="picFile = null" ng-show="picFile">Remove</button>       
-          </div> 
-          <div class="form-group text-right">
-            <span style="font-size:15px;" class="text-muted">* Max of 4 images.</span>
+            <img ng-show="postAddForm.file.$valid" ngf-thumbnail="picFile" class="thumb" style="width:100px;">
+            <button ng-click="picFile = null" ng-show="picFile">Remove</button>       
           </div>
           <div class="form-group text-right">
-            <button type="button" class="btn btn-primary" style="height:38px;font-size:16px">Add another</button>
+            <span style="font-size:15px;" class="text-muted">Select up to 4 photos.</span>
+          </div>
+          <div class="form-group text-right">
             <button type="button" class="btn btn-primary" style="height:38px;font-size:16px" ng-click="finishPost()">Finish post</button>
           </div>
         </div>
