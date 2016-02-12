@@ -36,8 +36,8 @@
             <div class="input-group">
                 <input type="text" name="stream" placeholder="Stream" ng-model="tagSearchData" ng-change="tagSearch()" class="form-control entry" style="min-width:400px;height:auto;font-size:17px;" />
                 <div class="input-group-btn">
-                    <button type="button" class="btn btn-primary select-button" style="height:38px;font-size:16px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;" ng-click="selectStream($event)">Select</button>
-                    <button type="button" class="btn btn-primary create-button" style="height:38px;font-size:16px;display:none" data-tag="<% tagSearchData %>" ng-click="createNewStream($event)">Create</button>
+                    <button type="button" class="btn btn-default select-button" style="height:38px;font-size:16px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;" ng-click="selectStream($event)">Select</button>
+                    <button type="button" class="btn btn-default create-button" style="height:38px;font-size:16px;display:none" data-tag="<% tagSearchData %>" ng-click="createNewStream($event)">Create</button>
                 </div>
             </div>
           </div>       
@@ -58,7 +58,7 @@
           </div>
           <div class="form-group text-right">
             <div style="display:none;"><span style="font-size:15px;">Added 4 images | </span><a href="javascript:void(0)" style="font-size:15px" ng-click="addImage()">update</a></div>
-            <a href="javascript:void(0)" style="font-size:15px" ng-click="addImage()">Add image (optional)</a> 
+            <a href="javascript:void(0)" style="font-size:15px" ng-click="addImage()">Add images</a> 
           </div>
           <!-- image preloader -/->
           <span class="progress" ng-show="picFile.progress >= 0">
@@ -68,9 +68,9 @@
           <span ng-show="picFile.result">Upload Successful</span>
           <span class="err" ng-show="errorMsg"><%errorMsg%></span>
           <!-/- image preloader end -->
-          <div class="form-group text-center">
+          <div class="form-group text-right">
             <!-- ng-disabled="!postAddForm.$valid" -->
-            <button type="button" ng-click="publish(picFile)" class="btn edit-button btn-primary" style="height:38px;font-size:16px;width:100%;">Publish</button>
+            <button type="button" ng-click="publish(picFile)" class="btn edit-button btn-primary" style="height:38px;font-size:16px;padding:6px 19px;">Publish</button>
           </div>
         </div>
         <!-- image section -->
