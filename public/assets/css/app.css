@@ -38,6 +38,8 @@ body.hide-interface {
         width: 45%; }
       .photo-grid .row .col.box-2 {
         width: 55%; }
+      .photo-grid .row .col.box-optional {
+        width: 100%; }
       .photo-grid .row .col.box-padding {
         padding-right: 10px; }
       .photo-grid .row .col .image-holder {

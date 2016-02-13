@@ -64,8 +64,7 @@ class PostsController extends Controller {
         $title = \Input::get('title');
         $body = \Input::get('body');
         $userID = \Input::get('userId');
-        $file = \Input::get('file');
-        $file = \Input::file('file');       
+        $files = \Input::file('files');       
         // do a server validation check for stream name and stream id
 		if($streamName === "0" && $streamID === "0") {	
 			$result = false;
@@ -92,17 +91,19 @@ class PostsController extends Controller {
 			$post->save();
 			$post->tags()->sync([$saveid]);
             // photo upload
-            $photo = new Photo;
-            $fileName = "media/photos/large/" . $file->getClientOriginalName();
-            $makeFile = Image::make($file);
-            $makeFile->resize(600, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            $makeFile->save($fileName);
-            $photo->url = $fileName;
-            $photo->save();
-            $photo->tags()->sync([$saveid]);
-            $photo->posts()->sync([$post->id]);
+            foreach($files as $file) {
+                $photo = new Photo;
+                $fileName = "media/photos/large/" . $file->getClientOriginalName();
+                $makeFile = Image::make($file);
+                $makeFile->resize(600, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $makeFile->save($fileName);
+                $photo->url = $fileName;
+                $photo->save();
+                $photo->tags()->sync([$saveid]);
+                $photo->posts()->sync([$post->id]);
+            }
             $result = true;
         }
         // redirect

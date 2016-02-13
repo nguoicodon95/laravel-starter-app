@@ -12,8 +12,7 @@ angular.module('stream.post-adds', [])
                     });  
     	},
     	upload: function(data) {
-            var file = data.file;  
-            return file.upload = Upload.upload({
+            return Upload.upload({
                         url: '/api/v1/upload',
                         data: data,
                     });

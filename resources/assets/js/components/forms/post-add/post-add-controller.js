@@ -123,7 +123,7 @@ angular.module('stream.post_addc', [])
 		}	
 	}
     
-    $scope.publish = function(file) {
+    $scope.publish = function() {
         if(!$scope.checkErrs()) {
             return false;
         }
@@ -137,8 +137,8 @@ angular.module('stream.post_addc', [])
             "streamname": streamNameEl.val()
         }
         // use upload method
-        if(file != undefined) {
-            post.file = file;
+        if($scope.files != undefined) {
+            post.files = $scope.files;
             PostAdd.upload(post)
             .success(function(data) {
                 if(data.success === true) {
@@ -159,27 +159,6 @@ angular.module('stream.post_addc', [])
     $scope.uploadFiles = function (files, errFiles) {
         $scope.files = files;
         $scope.errFiles = errFiles;
-        /*
-        if (files && files.length) {
-            Upload.upload({
-                url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
-                data: {
-                    files: files
-                }
-            }).then(function (response) {
-                $timeout(function () {
-                    $scope.result = response.data;
-                });
-            }, function (response) {
-                if (response.status > 0) {
-                    $scope.errorMsg = response.status + ': ' + response.data;
-                }
-            }, function (evt) {
-                $scope.progress = 
-                    Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-            });
-        }
-        */
     };
     
     $scope.deleteFile = function(index) {

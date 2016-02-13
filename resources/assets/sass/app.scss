@@ -44,6 +44,9 @@ body.hide-interface {
 			&.box-2 {
 				width:55%;
 			}
+            &.box-optional {
+                width:100%;
+            }
 			&.box-padding {
 				padding-right:10px;
 			}

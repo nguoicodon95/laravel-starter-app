@@ -49,23 +49,19 @@
                         <div style="height:20px;">&nbsp;</div>
                         @endif
                         <div class="photo-grid">
-                            @foreach($post->photos as $index=>$photos)
-                                @if($post->photos->count() > 0)
-                                <div class="row first-row">       
-                                    <!-- photo -->
-                                    @if($index === 0)                            
-                                    <div class="col box-1 box-padding">  
-                                        <a href="{{$photos->url}}" class="image-holder" data-lightbox="photogrid_ng{{$post->id}}" data-title="<div class='view-post'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div class='caption'>A very fast car photo</div>" style="background-image: url('{{$photos->url}}');"></a>                
-                                    </div>
+                            <div class="row first-row">
+                                @foreach($post->photos as $index=>$photos)
+                                    @if($post->photos->count() > 0)
+                                        <?php $boxClass = ($index === 0) ? 'col box-1 box-padding' : 'col box-2'; ?>
+                                        <div class="<?php echo $boxClass ?>">
+                                            @if($index === 0 || $index == 1) 
+                                                <a href="{{$photos->url}}" class="image-holder" data-lightbox="photogrid_ng{{$post->id}}" data-title="<div class='view-post'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div class='caption'>A very fast car photo</div>" style="background-image: url('{{$photos->url}}');"></a>  
+                                            @endif
+                                        </div>
                                     @endif
-                                    @if($index === 1) 
-                                    <div class="col box-2">
-                                        <a href="{{$photos->url}}" class="image-holder" data-lightbox="photogrid_ng{{$post->id}}" data-title="<div class='view-post'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div class='caption'></div>" style="background-image: url('{{$photos->url}}');"></a>
-                                    </div>
-                                    @endif
-                                    <!-- placeholders -->
-                                    <!-- need some kind of placeholder image here? -->
-                                    @if($post->photos->count() === 1)
+                                @endforeach
+                                <!-- recommend button -->
+                                @if($post->photos->count() === 1)
                                     <div class="col box-2">
                                         <a href="/signin" class="image-holder color-swatch gray-lighter" style="position:relative;background-color:white;color:#7D7D7D;">
                                             <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
@@ -73,24 +69,41 @@
                                             </p>
                                         </a>
                                     </div>
-                                    @endif
-                                </div>
                                 @endif
-                                @if($post->photos->count() > 2)
-                                <div class="row second-row">
-                                    @if($index === 2)
-                                    <div class="col box-2 box-padding">
-                                        <a href="{{$photos->url}}" class="image-holder" data-lightbox="photogrid_ng{{$post->id}}" data-title="<div class='view-post'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div class='caption'></div>" style="background-image: url('{{$photos->url}}');"></a>  
-                                    </div>
+                            </div>
+                            <div class="row second-row">
+                                @foreach($post->photos as $index=>$photos)
+                                    @if($post->photos->count() > 0)
+                                        @if($post->photos->count() > 2)
+                                            <?php $boxClass = ($index === 2) ? 'col box-2 box-padding' : 'col box-1'; ?>
+                                            <div class="<?php echo $boxClass ?>">
+                                                @if($index === 2 || $index == 3) 
+                                                    <a href="{{$photos->url}}" class="image-holder" data-lightbox="photogrid_ng{{$post->id}}" data-title="<div class='view-post'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div class='caption'>A very fast car photo</div>" style="background-image: url('{{$photos->url}}');"></a>
+                                                @endif
+                                            </div>
+                                        @endif
                                     @endif
-                                    @if($index === 3) 
-                                    <div class="col box-1">
-                                        <a href="{{$photos->url}}" class="image-holder" data-lightbox="photogrid_ng{{$post->id}}" data-title="<div class='view-post'><a href='/post/{{$post->id}}/#/detail'>View post</a></div><div class='caption'></div>" style="background-image: url('{{$photos->url}}');"></a> 
+                                @endforeach
+                                <!-- recommend buttons -->
+                                @if($post->photos->count() === 2)
+                                    <div class="col box-optional">
+                                        <a href="/signin" class="image-holder color-swatch gray-lighter" style="position:relative;background-color:white;color:#7D7D7D;height:73px;overflow:visible;">
+                                            <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
+                                                <button type="button" class="btn btn-default" style="width:75%">Recommend a photo</button>
+                                            </p>
+                                        </a>
                                     </div>
-                                    @endif
-                                </div>
                                 @endif
-                            @endforeach
+                                @if($post->photos->count() === 3)
+                                <div class="col box-1">
+                                    <a href="/signin" class="image-holder color-swatch gray-lighter" style="position:relative;background-color:white;color:#7D7D7D;">
+                                        <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
+                                            <button type="button" class="btn btn-default" style="width:75%">Recommend a photo</button>
+                                        </p>
+                                    </a>
+                                </div>
+                                @endif  
+                            </div>                     
                         </div>
                         <div style="height:15px;">&nbsp;</div>
                         <div class="text-right" style="padding:0;">
