@@ -40,6 +40,13 @@ body.hide-interface {
         width: 55%; }
       .photo-grid .row .col.box-optional {
         width: 100%; }
+        .photo-grid .row .col.box-optional .image-holder.recommend {
+          height: 73px;
+          overflow: visible; }
+          .photo-grid .row .col.box-optional .image-holder.recommend button {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; }
       .photo-grid .row .col.box-padding {
         padding-right: 10px; }
       .photo-grid .row .col .image-holder {
@@ -50,6 +57,10 @@ body.hide-interface {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50% 50%; }
+        .photo-grid .row .col .image-holder.recommend button {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
 
 .feature-image.details {
   margin-bottom: 18px;
@@ -135,7 +146,14 @@ body.hide-interface {
     .photo-grid .row .col.box-padding {
       padding-right: 0; }
     .photo-grid .row .col .image-holder {
-      height: 73px; }
+      height: 210px; }
+      .photo-grid .row .col .image-holder.recommend {
+        height: 73px;
+        overflow: visible; }
+        .photo-grid .row .col .image-holder.recommend button {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis; }
     .photo-grid .row.second-row .col.box-1, .photo-grid .row.second-row .col.box-2 {
       width: 50%;
       float: left; }
@@ -170,7 +188,14 @@ body.hide-interface {
 
 @media (max-width: 400px) {
   .photo-grid .row .col .image-holder {
-    height: 73px; }
+    height: 181px; }
+    .photo-grid .row .col .image-holder.recommend {
+      height: 73px;
+      overflow: visible; }
+      .photo-grid .row .col .image-holder.recommend button {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
   .photo-grid.details .row .col.box-3 .image-holder {
     height: 181px; }
   .photo-grid.details .row .col .image-holder {

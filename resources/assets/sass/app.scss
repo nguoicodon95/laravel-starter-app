@@ -46,6 +46,17 @@ body.hide-interface {
 			}
             &.box-optional {
                 width:100%;
+                .image-holder {
+                    &.recommend {
+                        height:73px;
+                        overflow:visible;
+                        button {
+                            overflow:hidden;
+                            white-space:nowrap;
+                            text-overflow:ellipsis;
+                        }
+                    } 
+                }
             }
 			&.box-padding {
 				padding-right:10px;
@@ -58,6 +69,13 @@ body.hide-interface {
 				background-size: cover;
 				background-repeat: no-repeat;
 				background-position: 50% 50%;
+                &.recommend {
+                    button {
+                        overflow:hidden;
+                        white-space:nowrap;
+                        text-overflow:ellipsis;
+                    }
+                } 
 			}
 		}
 	}
@@ -176,8 +194,16 @@ body.hide-interface {
 					padding-right:0;
 				}
 				.image-holder {
-					// height:210px;
-                    height:73px;
+					height:210px;
+                    &.recommend {
+                        height:73px;
+                        overflow:visible;
+                        button {
+                            overflow:hidden;
+                            white-space:nowrap;
+                            text-overflow:ellipsis;
+                        } 
+                    }
 				}
 			}
 			&.second-row {
@@ -242,8 +268,16 @@ body.hide-interface {
 		.row {
 			.col {
 				.image-holder {
-					// height:181px;
-                    height:73px;
+					height:181px;
+                    &.recommend {
+                        height:73px;
+                        overflow:visible;
+                        button {
+                            overflow:hidden;
+                            white-space:nowrap;
+                            text-overflow:ellipsis;
+                        } 
+                    }
 				}
 			}
 		}
