@@ -93,7 +93,7 @@ class PostsController extends Controller {
             // photo upload
             foreach($files as $file) {
                 $photo = new Photo;
-                $fileName = "media/photos/large/" . $file->getClientOriginalName();
+                $fileName = "/media/photos/large/" . $file->getClientOriginalName();
                 $makeFile = Image::make($file);
                 $makeFile->resize(600, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -112,7 +112,7 @@ class PostsController extends Controller {
 	
 	public function show($id)
 	{
-		$posts = Post::with('tags')->where('id', '=', $id)->with('author')->get();
+		$posts = Post::with('photos')->with('tags')->where('id', '=', $id)->with('author')->get();
         return \Response::json($posts);
 	}
 	

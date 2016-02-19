@@ -44,37 +44,48 @@
 				            {{$item->title}}
 				        </h4>
 						
-						<div class="feature-image details" style="background-image: url('http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg');"></div>
-				        
+						@foreach($item->photos as $index=>$photos)
+							@if($index === 0)
+								<div class="feature-image details" style="background-image: url('{{$photos->url}}');"></div>
+					        @endif
+				        @endforeach
+
 						<p style="padding-bottom:40px;font-size:17px;">
 				        	{!! nl2br(e($item->body)) !!}
 				        </p>
 						
 						<div class="photo-grid details">
+							@if($item->photos->count() > 1)
 							<div class="row first-row">
-								<div class="col box-1">
-										<div class="image-holder" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></div>
-									<div class="text-box">
-										<p>Use Gimp asdfdsafadsf asdf sdf dsfsdf dfsfdsf</p>  
-									</div>
-								</div>
-								<div class="col box-2">
-									<div class="image-holder" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></div>
-									<div class="text-box">
-										<p>Use Gimp asdfdsafadsf asdf sdf dsfsdf dfsfdsf</p>  
-									</div>
-								</div>
+								@foreach($item->photos as $index=>$photos)
+									@if($index === 1 || $index === 2)
+										<?php $boxClass = ($index === 1) ? 'col box-1' : 'col box-2'; ?>
+										<div class="<?php echo $boxClass ?>">
+												<div class="image-holder" style="background-image: url('{{$photos->url}}');"></div>
+											<div class="text-box">
+												<p>Use Gimp asdfdsafadsf asdf sdf dsfsdf dfsfdsf</p>  
+											</div>
+										</div>
+									@endif
+								@endforeach
 							</div> 
+							@endif
+							@if($item->photos->count() > 3)
 							<div class="row second-row">
-								<div class="col box-3">
-									<div class="image-holder" style="background-image: url('http://wallpapershdfine.com/wp-content/gallery/images-of-sports-car/ferrari-california-sports-car-2.jpg');"></div>
-								</div>
-								<div class="col box-4">
-									<div class="text-box">
-										<p>Use Gimp asdfdsafadsf asdf sdf dsfsdf dfsfdsf</p>  
-									</div>
-								</div>
+								@foreach($item->photos as $index=>$photos)
+									@if($index === 3)
+										<div class="col box-3">
+											<div class="image-holder" style="background-image: url('{{$photos->url}}');"></div>
+										</div>
+										<div class="col box-4">
+											<div class="text-box">
+												<p>Use Gimp asdfdsafadsf asdf sdf dsfsdf dfsfdsf</p>  
+											</div>
+										</div>
+									@endif
+								@endforeach
 							</div>
+							@endif
 						</div>
 				        @if (Auth::check())
 						<div class="row">
