@@ -12,10 +12,10 @@ class Tag extends Model {
     {
         return $this->morphToMany('App\Models\Tag', 'taggable');
     }
-    
+
 	public function posts()
     {
-        return $this->morphedByMany('App\Models\Post', 'taggable')->with('author')->orderBy('created_at','DESC');
+        return $this->morphedByMany('App\Models\Post', 'taggable')->with('author')->with('photos')->orderBy('created_at','DESC');
     }
 
 }

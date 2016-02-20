@@ -452,6 +452,7 @@ angular.module('stream.post_editc', [])
 	var postId = "", title = "", body = "";
 	var titleEl = $(".post-edit-form").find("input[name='title']");
 	var bodyEl = $(".post-edit-form").find("textarea[name='body']");
+	var photoEl = $(".post-edit-form").find(".photo-list");
 
 	function getPostId() {
 		var href = location.href;
@@ -462,19 +463,29 @@ angular.module('stream.post_editc', [])
 	}
 
 	if($rootScope["details"] != undefined) {
+		console.log($rootScope["details"][0].photos);
 		postId = $rootScope.details[0].id;
 		userId = $rootScope.details[0].user_id;
 		title = $rootScope.details[0].title;
 		body = $rootScope.details[0].body;
+		photos = $rootScope["details"][0].photos;
 	} else {
 		postId = getPostId();
 		userId = $(".identity-cache").text();
 		title = $(".title-cache").text();
 		body = $(".body-cache").text();
+		photos = JSON.parse($(".photos-cache").text());
 	}
 
 	titleEl.val(title);
 	bodyEl.text(body);
+    for(var p = 0; p < photos.length; p++) {
+    	var formStyle = (photos.length-1 === p) ? "margin-bottom:0px" : "";
+    	var startFrag = "<div class='form-group' style='"+formStyle+"'><div class='row'><div class='col-xs-4'>";
+    	var endFrag = "</div><div class='col-xs-4'><button type='button' class='btn btn-danger' style='height:38px;font-size:16px'>Remove</button></div></div></div>";
+		var photo = photos[p].url;
+		photoEl.append(startFrag + "<img src='"+photo+"' style='max-width:100%' />" + endFrag);
+    }
 
 	$scope.editPost = function() {
 		var post = {

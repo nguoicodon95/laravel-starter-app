@@ -38,6 +38,7 @@
 						<span class="identity-cache" style="display:none">{{$item->user_id}}</span>
 						<span class="title-cache" style="display:none">{{$item->title}}</span>
 						<span class="body-cache" style="display:none">{{$item->body}}</span>
+						<span class="photos-cache" style="display:none">{{$item->photos}}</span>
 				        <h4 style="font-size:32px;line-height:1.2;padding-bottom:10px;margin-bottom:15px;border-bottom:1px solid #eaeaea">
 				            <a href="/tag/{{$tag->id}}#/list"><span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">{{$tag->name}}</span></a>
 				            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">{{$item->author->author_prefix}}</span>

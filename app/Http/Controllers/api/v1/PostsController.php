@@ -93,13 +93,13 @@ class PostsController extends Controller {
             // photo upload
             foreach($files as $file) {
                 $photo = new Photo;
-                $fileName = "/media/photos/large/" . $file->getClientOriginalName();
+                $fileName = "media/photos/large/" . $file->getClientOriginalName();
                 $makeFile = Image::make($file);
                 $makeFile->resize(600, null, function ($constraint) {
                     $constraint->aspectRatio();
                 });
                 $makeFile->save($fileName);
-                $photo->url = $fileName;
+                $photo->url = "/".$fileName;
                 $photo->save();
                 $photo->tags()->sync([$saveid]);
                 $photo->posts()->sync([$post->id]);
