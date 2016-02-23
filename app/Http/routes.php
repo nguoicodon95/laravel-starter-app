@@ -55,6 +55,7 @@ Route::group(array('middleware'=>'auth'), function() {
 	Route::group(['prefix' => 'api/v1'], function() {
 		Route::resource('post', '\\App\\Http\\Controllers\\api\\v1\\PostsController');
         Route::post('upload', '\\App\\Http\\Controllers\\api\\v1\\PostsController@upload');
+        Route::post('editimages', '\\App\\Http\\Controllers\\api\\v1\\PostsController@editimages');
 	});
 });
 

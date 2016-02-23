@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use \DB;
 
 class Post extends Model {
 	
@@ -21,4 +22,11 @@ class Post extends Model {
     {
         return $this->morphToMany('App\\Models\\Tag', 'taggable');
     }
+    
+    // get tag id
+	public function getTagID($postID)
+    {
+        return DB::table('taggables')->where('taggable_id', $postID)->where('taggable_type','App\Models\Post')->first();
+    }
+    
 }

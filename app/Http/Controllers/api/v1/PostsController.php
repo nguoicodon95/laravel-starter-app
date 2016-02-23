@@ -116,8 +116,7 @@ class PostsController extends Controller {
         return \Response::json($posts);
 	}
 	
-	public function update($id)
-	{
+	public function update($id) {    
 		$data = \Request::json()->all();	
 		$result = "false";	
 		$post = Post::find($id);
@@ -129,5 +128,32 @@ class PostsController extends Controller {
 		}	
 		return \Response::json(array("success"=>$result));
 	}
+    
+    public function editimages() {
+		$result = "false";
+        $post = Post::find(\Input::get('id'));
+		$post->title = \Input::get('title');
+        $post->body = \Input::get('body');
+        $files = \Input::file('files');
+		if(Auth::id() === \Input::get('userId')) {
+			$post->save();
+            // photo upload
+            foreach($files as $file) {
+                $photo = new Photo;
+                $fileName = "media/photos/large/" . $file->getClientOriginalName();
+                $makeFile = Image::make($file);
+                $makeFile->resize(600, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                $makeFile->save($fileName);
+                $photo->url = "/".$fileName;
+                $photo->save();
+                $photo->tags()->sync([$post->getTagID($post->id)->tag_id]);
+                $photo->posts()->sync([$post->id]);
+            } 
+			$result = "true";
+		}	
+		return \Response::json(array("success"=>$result));   
+    }
 
 }

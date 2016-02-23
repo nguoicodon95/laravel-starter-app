@@ -39,7 +39,7 @@
 		    <!-- Laravel 5 posts -->
 		    <!-- post preloader -->
 		    <div ng-show="page.loaded===false">
-				@foreach($posts as $post)
+				@foreach($posts as $post) 
 					@foreach($post->tags as $tag)
 						<h4><a href="/tag/{{$tag->id}}#/list"><span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">{{$tag->name}}</span></a>
 			            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">{{$post->author->author_prefix}}</span>

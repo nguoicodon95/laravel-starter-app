@@ -1,6 +1,6 @@
 angular.module('stream.post-edits', [])
 
-.factory('PostEdit', function($http) {
+.factory('PostEdit', function($http, Upload, $timeout) {
 
     return {
     	save: function(data) {
@@ -18,6 +18,12 @@ angular.module('stream.post-edits', [])
 				//
 			});
 		     
+    	},
+    	upload: function(data) {
+            return Upload.upload({
+                        url: '/api/v1/editimages',
+                        data: data,
+                    });
     	}
 
     }
