@@ -135,7 +135,7 @@ class PostsController extends Controller {
 		$post->title = \Input::get('title');
         $post->body = \Input::get('body');
         $files = \Input::file('files');
-		if(Auth::id() === \Input::get('userId')) {
+		if((string)Auth::id() === (string)\Input::get('userId')) {
 			$post->save();
             // photo upload
             foreach($files as $file) {
@@ -152,7 +152,7 @@ class PostsController extends Controller {
                 $photo->posts()->sync([$post->id]);
             } 
 			$result = "true";
-		}	
+		}
 		return \Response::json(array("success"=>$result));   
     }
 

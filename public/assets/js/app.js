@@ -110,78 +110,6 @@ angular.module('stream.mains', [])
     }
 
 });
-angular.module('stream.tag_listc', [])
-
-.controller('tag_listCtrl', function($scope, $rootScope, TagList, $state, $stateParams, $sce) {
-
-	$scope.state = $state.current.name;
-	$scope.trustAsHtml = $sce.trustAsHtml;
-	
-    $('.stream.overlay').hide();
-    $('body').removeClass('hide-interface');
-
-    var tagId = "", tagName = "";
-
-	function getTagId() {
-		var href = location.href;
-		var post = href.split("tag")[1];
-		var hash = post.split("#")[0]
-		var id = hash.split("/")[1];
-		return id;
-	}
-     
-	if($scope.state === "list") {
-		
-		$rootScope.previousState = "list";
-		
-		tagId = getTagId();
-		
-		TagList.getTags(tagId)
-			.success(function(data) {
-				
-				$scope.tags = data;
-				$scope.page.loaded = true;
-				$(".ng-panel").css("height","auto");
-			});
-		
-	} else if($scope.state === "name") {	
-		
-		$rootScope.previousState = "name";
-		
-		var url = location.href;
-		var start = url.indexOf("/s/") + 3;
-		var end = url.indexOf("#");
-		
-		tagName = url.substring(start, end);
-		
-		TagList.getLikeName(tagName)
-			.success(function(data) {
-				var parse = data.tags;		
-				$scope.tags = parse;
-				$scope.page.loaded = true;
-				$(".ng-panel").css("height","auto");
-			});
-		
-	}
-	
-});
-angular.module('stream.tag_list', [])
-
-.factory('TagList', function($rootScope, $http) {
-
-    return {
-        
-        getTags : function(id) {
-            return $http.get('/api/v1/tag/'+id);
-        },
-        
-        getLikeName : function(tagname) {
-            return $http.get('/api/v1/tagssearch?q='+tagname);
-        }
-
-    }
-
-});
 
 angular.module('stream.discover', [])
 
@@ -500,7 +428,7 @@ angular.module('stream.post-adds', [])
 });
 angular.module('stream.post_editc', [])
 
-.controller('post_editCtrl', function($scope, $rootScope, PostEdit) {
+.controller('post_editCtrl', function($scope, $rootScope, PostEdit, $compile) {
 
 	/**
 
@@ -513,6 +441,8 @@ angular.module('stream.post_editc', [])
   	var userId = Number($(".identity-cache").text());
       
     $scope.imagesMax = 4;
+    $scope.filesToDelete = [];
+    $scope.files = [];
 
   	if($rootScope.valid && $rootScope.userId === userId) {
 		$('.stream.overlay').show();
@@ -554,9 +484,10 @@ angular.module('stream.post_editc', [])
 	bodyEl.text(body);
     for(var p = 0; p < photos.length; p++) {
     	var startFrag = "<div style='margin-bottom:5px;'>";
-    	var endFrag = "<button class='btn btn-danger' style='height:38px;font-size:16px' ng-click='deleteSavedFile("+p+")'>Remove</button></div>";
+    	var endFrag = "<button class='btn btn-danger' style='height:38px;font-size:16px' ng-click='deleteSavedFile($event, "+p+")'>Remove</button></div>";
 		var photo = photos[p].url;
-		photoEl.append(startFrag + "<img src='"+photo+"' style='width:100px;margin-right:12px' />" + endFrag);
+		var compiled = $compile(startFrag + "<img src='"+photo+"' style='width:100px;margin-right:12px' />" + endFrag)($scope);
+		photoEl.append(compiled);
         $scope.imagesMax--;
     }
 
@@ -570,7 +501,7 @@ angular.module('stream.post_editc', [])
    
         if($scope.files != undefined) {
             post.files = $scope.files;
-            console.log("post", post);
+            post.filesToDelete = $scope.filesToDelete;
             PostEdit.upload(post)
             .success(function(data) {
                 if(data.success === "true") {
@@ -579,6 +510,7 @@ angular.module('stream.post_editc', [])
             });
         } else {
             // use standard post method
+            post.filesToDelete = $scope.filesToDelete;
             PostEdit.save(post)
             .success(function(data) {
                 $scope.closeOverlay();
@@ -590,6 +522,16 @@ angular.module('stream.post_editc', [])
         $scope.files = files;
         $scope.errFiles = errFiles;
     };
+
+    $scope.deleteSavedFile = function(event, index) {
+    	$(event.target).parent().remove();
+    	$scope.imagesMax++;
+    	$scope.filesToDelete.push(index);
+    };
+
+    $scope.deleteFile = function(index) {
+        $scope.files.splice(index, 1);
+    }
     
 	// add image
 	$scope.updateImages = function() {
@@ -728,6 +670,78 @@ angular.module('stream.post_details', [])
     	get: function(id) {
     		return $http.get('/api/v1/post/'+id);
     	}
+
+    }
+
+});
+angular.module('stream.tag_listc', [])
+
+.controller('tag_listCtrl', function($scope, $rootScope, TagList, $state, $stateParams, $sce) {
+
+	$scope.state = $state.current.name;
+	$scope.trustAsHtml = $sce.trustAsHtml;
+	
+    $('.stream.overlay').hide();
+    $('body').removeClass('hide-interface');
+
+    var tagId = "", tagName = "";
+
+	function getTagId() {
+		var href = location.href;
+		var post = href.split("tag")[1];
+		var hash = post.split("#")[0]
+		var id = hash.split("/")[1];
+		return id;
+	}
+     
+	if($scope.state === "list") {
+		
+		$rootScope.previousState = "list";
+		
+		tagId = getTagId();
+		
+		TagList.getTags(tagId)
+			.success(function(data) {
+				
+				$scope.tags = data;
+				$scope.page.loaded = true;
+				$(".ng-panel").css("height","auto");
+			});
+		
+	} else if($scope.state === "name") {	
+		
+		$rootScope.previousState = "name";
+		
+		var url = location.href;
+		var start = url.indexOf("/s/") + 3;
+		var end = url.indexOf("#");
+		
+		tagName = url.substring(start, end);
+		
+		TagList.getLikeName(tagName)
+			.success(function(data) {
+				var parse = data.tags;		
+				$scope.tags = parse;
+				$scope.page.loaded = true;
+				$(".ng-panel").css("height","auto");
+			});
+		
+	}
+	
+});
+angular.module('stream.tag_list', [])
+
+.factory('TagList', function($rootScope, $http) {
+
+    return {
+        
+        getTags : function(id) {
+            return $http.get('/api/v1/tag/'+id);
+        },
+        
+        getLikeName : function(tagname) {
+            return $http.get('/api/v1/tagssearch?q='+tagname);
+        }
 
     }
 

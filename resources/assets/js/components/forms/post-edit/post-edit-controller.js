@@ -1,6 +1,6 @@
 angular.module('stream.post_editc', [])
 
-.controller('post_editCtrl', function($scope, $rootScope, PostEdit) {
+.controller('post_editCtrl', function($scope, $rootScope, PostEdit, $compile) {
 
 	/**
 
@@ -13,6 +13,8 @@ angular.module('stream.post_editc', [])
   	var userId = Number($(".identity-cache").text());
       
     $scope.imagesMax = 4;
+    $scope.filesToDelete = [];
+    $scope.files = [];
 
   	if($rootScope.valid && $rootScope.userId === userId) {
 		$('.stream.overlay').show();
@@ -54,9 +56,10 @@ angular.module('stream.post_editc', [])
 	bodyEl.text(body);
     for(var p = 0; p < photos.length; p++) {
     	var startFrag = "<div style='margin-bottom:5px;'>";
-    	var endFrag = "<button class='btn btn-danger' style='height:38px;font-size:16px' ng-click='deleteSavedFile("+p+")'>Remove</button></div>";
+    	var endFrag = "<button class='btn btn-danger' style='height:38px;font-size:16px' ng-click='deleteSavedFile($event, "+p+")'>Remove</button></div>";
 		var photo = photos[p].url;
-		photoEl.append(startFrag + "<img src='"+photo+"' style='width:100px;margin-right:12px' />" + endFrag);
+		var compiled = $compile(startFrag + "<img src='"+photo+"' style='width:100px;margin-right:12px' />" + endFrag)($scope);
+		photoEl.append(compiled);
         $scope.imagesMax--;
     }
 
@@ -70,7 +73,7 @@ angular.module('stream.post_editc', [])
    
         if($scope.files != undefined) {
             post.files = $scope.files;
-            console.log("post", post);
+            post.filesToDelete = $scope.filesToDelete;
             PostEdit.upload(post)
             .success(function(data) {
                 if(data.success === "true") {
@@ -79,6 +82,7 @@ angular.module('stream.post_editc', [])
             });
         } else {
             // use standard post method
+            post.filesToDelete = $scope.filesToDelete;
             PostEdit.save(post)
             .success(function(data) {
                 $scope.closeOverlay();
@@ -90,6 +94,16 @@ angular.module('stream.post_editc', [])
         $scope.files = files;
         $scope.errFiles = errFiles;
     };
+
+    $scope.deleteSavedFile = function(event, index) {
+    	$(event.target).parent().remove();
+    	$scope.imagesMax++;
+    	$scope.filesToDelete.push(index);
+    };
+
+    $scope.deleteFile = function(index) {
+        $scope.files.splice(index, 1);
+    }
     
 	// add image
 	$scope.updateImages = function() {
