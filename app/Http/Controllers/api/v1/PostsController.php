@@ -95,7 +95,7 @@ class PostsController extends Controller {
             // photo upload
             foreach($files as $file) {
                 $photo = new Photo;
-                $fileName = "media/photos/large/" . $file->getClientOriginalName();
+                $fileName = "media/photos/large/" . uniqid() . "_" . $file->getClientOriginalName();
                 $makeFile = Image::make($file);
                 $makeFile->resize(600, null, function ($constraint) {
                     $constraint->aspectRatio();
@@ -138,6 +138,7 @@ class PostsController extends Controller {
         $post->body = \Input::get('body');
         $files = \Input::file('files');
         $filesToDelete = json_decode(\Input::get('filesToDelete'));
+        // add random string to file name
 		if((string)Auth::id() === (string)\Input::get('userId')) {
 			$post->save();
 			// delete photos
@@ -156,7 +157,7 @@ class PostsController extends Controller {
 	            // photo upload
 	            foreach($files as $file) {
 	                $photo = new Photo;
-	                $fileName = "media/photos/large/" . $file->getClientOriginalName();
+	                $fileName = "media/photos/large/" . uniqid() . "_" . $file->getClientOriginalName();
 	                $makeFile = Image::make($file);
 	                $makeFile->resize(600, null, function ($constraint) {
 	                    $constraint->aspectRatio();

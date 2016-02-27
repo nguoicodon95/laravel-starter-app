@@ -138,6 +138,7 @@ angular.module('stream.post_addc', [])
         }
         // use upload method
         if($scope.files != undefined) {
+            $(".text-preloader").show();
             post.files = $scope.files;
             PostAdd.upload(post)
             .success(function(data) {
@@ -154,6 +155,7 @@ angular.module('stream.post_addc', [])
                 }	
             });    
         }
+        $(".edit-button").prop("disabled", "disabled");
     }
     
     $scope.uploadFiles = function (files, errFiles) {

@@ -72,6 +72,7 @@ angular.module('stream.post_editc', [])
 		}
    
         if($scope.files != undefined) {
+        	$(".text-preloader").show();
             post.files = $scope.files;
             post.filesToDelete = JSON.stringify($scope.filesToDelete);
             PostEdit.upload(post)
@@ -88,6 +89,7 @@ angular.module('stream.post_editc', [])
                 $scope.closeOverlay();
             });   
         }    
+        $(".edit-button").prop("disabled", "disabled");
     };
 	
     $scope.uploadFiles = function (files, errFiles) {
