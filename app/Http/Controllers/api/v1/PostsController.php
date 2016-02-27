@@ -10,6 +10,8 @@ use App\Models\Post;
 use App\Models\Photo;
 use Auth;
 use Image;
+use File;
+use \DB;
 
 class PostsController extends Controller {
 
@@ -135,22 +137,37 @@ class PostsController extends Controller {
 		$post->title = \Input::get('title');
         $post->body = \Input::get('body');
         $files = \Input::file('files');
+        $filesToDelete = json_decode(\Input::get('filesToDelete'));
 		if((string)Auth::id() === (string)\Input::get('userId')) {
 			$post->save();
-            // photo upload
-            foreach($files as $file) {
-                $photo = new Photo;
-                $fileName = "media/photos/large/" . $file->getClientOriginalName();
-                $makeFile = Image::make($file);
-                $makeFile->resize(600, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-                $makeFile->save($fileName);
-                $photo->url = "/".$fileName;
-                $photo->save();
-                $photo->tags()->sync([$post->getTagID($post->id)->tag_id]);
-                $photo->posts()->sync([$post->id]);
-            } 
+			// delete photos
+			if(count($filesToDelete) > 0) {
+				foreach($filesToDelete as $file_id) {
+					$photoToDelete = Photo::find($file_id);
+					if(count($photoToDelete) > 0) {
+					    File::delete(public_path()."/".$photoToDelete->url);
+					    $photoToDelete->delete();
+		                DB::table('taggables')->where('taggable_id', $file_id)->where('taggable_type','App\Models\Photo')->delete();
+		                DB::table('postables')->where('postable_id', $file_id)->where('postable_type','App\Models\Photo')->delete();
+					}				
+				}
+			}
+			if(count($files) > 0) {
+	            // photo upload
+	            foreach($files as $file) {
+	                $photo = new Photo;
+	                $fileName = "media/photos/large/" . $file->getClientOriginalName();
+	                $makeFile = Image::make($file);
+	                $makeFile->resize(600, null, function ($constraint) {
+	                    $constraint->aspectRatio();
+	                });
+	                $makeFile->save($fileName);
+	                $photo->url = "/".$fileName;
+	                $photo->save();
+	                $photo->tags()->sync([$post->getTagID($post->id)->tag_id]);
+	                $photo->posts()->sync([$post->id]);
+	            } 
+        	}
 			$result = "true";
 		}
 		return \Response::json(array("success"=>$result));   

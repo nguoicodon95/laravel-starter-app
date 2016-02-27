@@ -484,7 +484,7 @@ angular.module('stream.post_editc', [])
 	bodyEl.text(body);
     for(var p = 0; p < photos.length; p++) {
     	var startFrag = "<div style='margin-bottom:5px;'>";
-    	var endFrag = "<button class='btn btn-danger' style='height:38px;font-size:16px' ng-click='deleteSavedFile($event, "+p+")'>Remove</button></div>";
+    	var endFrag = "<button class='btn btn-danger' style='height:38px;font-size:16px' ng-click='deleteSavedFile($event, "+photos[p].id+")'>Remove</button></div>";
 		var photo = photos[p].url;
 		var compiled = $compile(startFrag + "<img src='"+photo+"' style='width:100px;margin-right:12px' />" + endFrag)($scope);
 		photoEl.append(compiled);
@@ -501,7 +501,7 @@ angular.module('stream.post_editc', [])
    
         if($scope.files != undefined) {
             post.files = $scope.files;
-            post.filesToDelete = $scope.filesToDelete;
+            post.filesToDelete = JSON.stringify($scope.filesToDelete);
             PostEdit.upload(post)
             .success(function(data) {
                 if(data.success === "true") {
@@ -510,7 +510,7 @@ angular.module('stream.post_editc', [])
             });
         } else {
             // use standard post method
-            post.filesToDelete = $scope.filesToDelete;
+            post.filesToDelete = JSON.stringify($scope.filesToDelete);
             PostEdit.save(post)
             .success(function(data) {
                 $scope.closeOverlay();
@@ -674,6 +674,41 @@ angular.module('stream.post_details', [])
     }
 
 });
+angular.module('stream.post_listc', [])
+
+.controller('post_listCtrl', function($scope, $rootScope, PostList) {
+	
+  	// reset overlay
+	$('.stream.overlay').hide();
+	$('body').removeClass('hide-interface');
+	      
+ 	// save previous state
+	$rootScope.previousState = "i";
+    
+    $scope.page.loaded = false;
+        
+    PostList.getPosts()
+        .success(function(data) {
+            $scope.posts = data;
+            $scope.page.loaded = true;
+            $(".ng-panel").css("height","auto");
+        });
+	
+});
+angular.module('stream.post_list', [])
+
+.factory('PostList', function($http) {
+
+    return {
+        
+        // paginate posts
+        getPosts : function() {
+            return $http.get('/api/v1/post');
+        }
+
+    }
+
+});
 angular.module('stream.tag_listc', [])
 
 .controller('tag_listCtrl', function($scope, $rootScope, TagList, $state, $stateParams, $sce) {
@@ -741,41 +776,6 @@ angular.module('stream.tag_list', [])
         
         getLikeName : function(tagname) {
             return $http.get('/api/v1/tagssearch?q='+tagname);
-        }
-
-    }
-
-});
-angular.module('stream.post_listc', [])
-
-.controller('post_listCtrl', function($scope, $rootScope, PostList) {
-	
-  	// reset overlay
-	$('.stream.overlay').hide();
-	$('body').removeClass('hide-interface');
-	      
- 	// save previous state
-	$rootScope.previousState = "i";
-    
-    $scope.page.loaded = false;
-        
-    PostList.getPosts()
-        .success(function(data) {
-            $scope.posts = data;
-            $scope.page.loaded = true;
-            $(".ng-panel").css("height","auto");
-        });
-	
-});
-angular.module('stream.post_list', [])
-
-.factory('PostList', function($http) {
-
-    return {
-        
-        // paginate posts
-        getPosts : function() {
-            return $http.get('/api/v1/post');
         }
 
     }
