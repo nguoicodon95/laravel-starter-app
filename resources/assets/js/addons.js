@@ -1,18 +1,24 @@
 (function() {
 
 	$(".features.link").on("click", function() {
-    	 $(".features-modal").modal("show");	    		
+    $(".features-modal").modal("show");	    		
 	});
 
 	$(".edit-user").on("click", function(e) {
-            var userId = $(e.target).data("userid");  
-            var username = $(e.target).data("username");
-            var authorPrefix = $(e.target).data("authorprefix");
-            $(".update-user").attr("action", "/user/"+userId);
-            $(".update-user input[name='username']").val(username);
-            $(".update-user input[name='authorprefix']").val(authorPrefix);
-            $(".user-modal").modal("show");
+    var userId = $(e.target).data("userid");  
+    var username = $(e.target).data("username");
+    var authorPrefix = $(e.target).data("authorprefix");
+    $(".update-user").attr("action", "/user/"+userId);
+    $(".update-user input[name='username']").val(username);
+    $(".update-user input[name='authorprefix']").val(authorPrefix);
+    $(".user-modal").modal("show");
 	});
+
+  $(".plans-link").on("click", function(e) {
+    $(".invite, .cloud, .standalone").hide();
+    var option = $(e.target).data("option");
+    $("."+option).show();
+  })
 
 })();
 
