@@ -62,6 +62,7 @@ Route::group(array('middleware'=>'auth'), function() {
 // User route accessible after authentication and admin login
 Route::group(['middleware' => ['auth', 'App\Http\Middleware\AdminMiddleware']], function()
 {
+	Route::resource('tag', 'TagsController');
 	Route::resource('user', 'UsersController');
 });
 

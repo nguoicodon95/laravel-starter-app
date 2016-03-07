@@ -14,6 +14,15 @@ class TagsController extends Controller {
 		$tags = Tag::where("id","=",$id)->orderBy('id', 'DESC')->with('posts')->get();		
 		return view('pages.tags')->with('tags', $tags);
 	}
+
+	public function update($id)
+	{
+		// store
+		$tag = Tag::find($id);
+		$tag->name = \Request::input('tagname');
+		$tag->save();	
+		return redirect('/tag/e/edit/');
+	}
 	
 	public function editTags() {
 		$tags = Tag::orderBy('id', 'DESC')->with('posts')->get();	

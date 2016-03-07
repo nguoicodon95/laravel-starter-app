@@ -39,26 +39,20 @@
     <div class="modal fade tag-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-md">
         <div class="modal-content">
-			<form class="update-user" action="user/id" method="post">
+			<form class="update-tag" action="tag/id" method="post">
 				<input name="_method" type="hidden" value="PUT">
 				<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Update user</h4>
+					<h4 class="modal-title">Update Tag</h4>
 				</div>
 				<div class="modal-body">
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-xs-12">
-							<div class="form-group">
-								<input type="text" name="username" class="form-control" value="admin@domain.com" />
-							</div>
-							<div class="form-group">
-								<input type="text" name="authorprefix" class="form-control" value="JS" />
-							</div>
-							<div class="form-group">
-								<input type="password" name="newpassword" class="form-control" placeholder="New password" />
-							</div>
+								<div class="form-group">
+									<input type="text" name="tagname" class="form-control" value="stream" />
+								</div>
 							</div>
 						</div>
 					</div>
