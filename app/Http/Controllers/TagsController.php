@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Tag as Tag;
+use \DB;
 
 class TagsController extends Controller {
 
@@ -17,11 +18,30 @@ class TagsController extends Controller {
 
 	public function update($id)
 	{
+		$tagName = \Request::input('tagname');
+		// look up tagname
+		$findTag = Tag::where("name","=",$tagName)->first();
+
+		if($findTag != null) {
+			if($findTag->count() > 0) {
+				if($findTag->id != $id) {
+					// different tags
+					// update id in taggable
+					// delete tag from tag table
+					DB::table('tags')->where('id',$id)->delete();
+					DB::table('taggables')->where('tag_id',$id)->update(['tag_id' => $findTag->id]);
+				}
+			}
+		} else {
+			// update tag
+			$tag = Tag::find($id);
+			$tag->name = $tagName;
+			$tag->save();
+		}
+
 		// store
-		$tag = Tag::find($id);
-		$tag->name = \Request::input('tagname');
-		$tag->save();	
 		return redirect('/tag/e/edit/');
+		
 	}
 	
 	public function editTags() {
