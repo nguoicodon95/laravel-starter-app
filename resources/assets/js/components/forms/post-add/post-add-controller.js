@@ -134,7 +134,7 @@ angular.module('stream.post_addc', [])
             "title": titleEl.val(),
             "body": bodyEl.val(),
             "streamid": streamIdEl.val(),
-            "streamname": streamNameEl.val()
+            "streamname": streamNameEl.val().toLowerCase()
         }
         // use upload method
         if($scope.files != undefined) {

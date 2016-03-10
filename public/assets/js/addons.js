@@ -10,7 +10,7 @@
     var tagName = $(e.target).data("name");
     $(".update-tag").attr("action", "/tag/"+tagId);
     $(".update-tag input[name='tagname']").val(tagName);
-    $(".tag-modal").modal("show");         
+    $(".tag-modal").modal("show");
   });
 
 	$(".edit-user").on("click", function(e) {

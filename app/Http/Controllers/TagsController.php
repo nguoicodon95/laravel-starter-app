@@ -18,7 +18,7 @@ class TagsController extends Controller {
 
 	public function update($id)
 	{
-		$tagName = \Request::input('tagname');
+		$tagName = strtolower(\Request::input('tagname'));
 		// look up tagname
 		$findTag = Tag::where("name","=",$tagName)->first();
 
