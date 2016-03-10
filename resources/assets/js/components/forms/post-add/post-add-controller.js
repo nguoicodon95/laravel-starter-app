@@ -127,6 +127,10 @@ angular.module('stream.post_addc', [])
         if(!$scope.checkErrs()) {
             return false;
         }
+
+        // make sure stream name is lowercase
+        var streamName = streamNameEl.val().toLowerCase();
+
         // post data
         var post = {
             "_token": tokenEl.val(),
@@ -134,7 +138,7 @@ angular.module('stream.post_addc', [])
             "title": titleEl.val(),
             "body": bodyEl.val(),
             "streamid": streamIdEl.val(),
-            "streamname": streamNameEl.val().toLowerCase()
+            "streamname": streamName
         }
         // use upload method
         if($scope.files != undefined) {
