@@ -44,7 +44,9 @@
 						<h4><a href="/tag/{{$tag->id}}#/list"><span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">{{$tag->name}}</span></a>
 			            <span style="background:rgb(238, 238, 238);margin-right:5px;display:inline-block;border-radius:5px;padding:5px;color:#474747">{{$post->author->author_prefix}}</span>
 			            {{$post->title}}</h4>
-				        <p style="margin-bottom:0;">{{trim(substr($post->body, 0, 250))}}<span>...</span></p>
+				        <p style="margin-bottom:0;">
+				        	<?php echo PostHelper::shorten($post)."<span>...</span>"; ?>
+						</p>
                         @if($post->photos->count() > 0)
                         <div style="height:20px;">&nbsp;</div>
                         @endif

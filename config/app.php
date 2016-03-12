@@ -197,7 +197,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => 'Illuminate\Html\FormFacade', 
         'HTML'      => 'Illuminate\Html\HtmlFacade',
-        'Image'     => Intervention\Image\Facades\Image::class
+        'Image'     => Intervention\Image\Facades\Image::class,
+        'PostHelper' => App\Helpers\PostHelper::class
 
     ],
 

@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html ng-app="stream" lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Puff Stream</title>
-    <meta property="og:url"           content="http://www.puffstream.com/stream" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Puff Stream" />
-    <meta property="og:description"   content="With Stream you can write something, then watch the web come to you." />
-    <meta property="og:image"         content="http://i.dailymail.co.uk/i/pix/2013/10/02/article-2441512-02650200000005DC-411_634x380.jpg" />
-    <link href="/assets/css/libs.css" rel="stylesheet" />
-    <link href="/assets/css/app.css" rel="stylesheet" />
-    <link href="/assets/css/addons.css" rel="stylesheet" />
-  </head>
+@include('partials.header')
   <body ng-controller="mainCtrl">
     @if (Auth::check())
       <?php
