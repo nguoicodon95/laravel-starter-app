@@ -56,32 +56,9 @@
         </div>
       </div>
     </nav>
-
-    <div >
-      <md-content class="md-padding" layout-xs="column" layout="row">
-        <div flex-xs flex-gt-xs="50" layout="column">
-          <md-card>
-            1
-          </md-card>
-          <md-card>
-            2
-          </md-card>
-        </div>
-        <div flex-xs flex-gt-xs="50" layout="column">
-          <md-card>
-            3
-          </md-card>
-          <md-card>
-            4
-          </md-card>
-        </div>
-      </md-content>
-    </div>
-
-
     <div layout="row" layout-align="center start" style="background:#F3F3F3">
       <div layout="row" flex class="layout-max-width">
-        <div flex>
+        <div flex-gt-xs="60" >
           @yield('center')
         </div>
         <div flex-gt-xs="40">
