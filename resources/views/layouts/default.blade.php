@@ -11,7 +11,7 @@
     @endif
     <!-- Facebook SDK -->
     <div id="fb-root"></div>
-    <nav class="navbar navbar-inverse" style="margin-bottom:7px;background:white;border:0;border-bottom:#ddd 1px solid">
+    <nav class="navbar navbar-default" style="margin-bottom:4px;border:0;border-bottom:#ddd 1px solid">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -56,91 +56,36 @@
         </div>
       </div>
     </nav>
-    <div layout="row" layout-align="center start" style="background:#F3F3F3">
-      <div layout="row" flex class="layout-max-width">
-        <div flex>@yield('center')</div>
-        <div flex="40">
-          @yield('left')
-          @yield('right')
+
+    <div >
+      <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="50" layout="column">
+          <md-card>
+            1
+          </md-card>
+          <md-card>
+            2
+          </md-card>
         </div>
-      </div>
+        <div flex-xs flex-gt-xs="50" layout="column">
+          <md-card>
+            3
+          </md-card>
+          <md-card>
+            4
+          </md-card>
+        </div>
+      </md-content>
     </div>
 
-    <!-- available and upcoming features -->
-    <div class="modal fade features-modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-md">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-xs-12">
-                  <div style="width:100%;height:300px;overflow:auto">
-                    <h3 style="margin-bottom:15px">Available and upcoming features</h3>
-                    <h4>Membership</h4>
-                    <ul>
-                      <li>
-                        <span class="glyphicon glyphicon-ok-sign text-primary" aria-hidden="true"></span>
-                        Sign in/out
-                      </li>
-                      <li>
-                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
-                        Register form
-                      </li>
-                    </ul>
-                    <h4>Administration</h4>
-                    <ul>
-                      <li>
-                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
-                        Manage members
-                      </li>
-                    </ul> 
-                    <h4>Streams and posts</h4>
-                    <ul>
-                      <li>
-                        <span class="glyphicon glyphicon-ok-sign text-primary" aria-hidden="true"></span>
-                        Create streams
-                      </li>
-                      <li>
-                        <span class="glyphicon glyphicon-ok-sign text-primary" aria-hidden="true"></span>
-                        Add posts
-                      </li>
-                    </ul>
-                     <h4>Photos, videos and tags</h4>
-                    <ul>
-                      <li>
-                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
-                        Add photos
-                      </li>
-                      <li>
-                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
-                        Add videos
-                      </li> 
-                      <li>
-                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
-                        Add tags
-                      </li>
-                    </ul>                   
-                    <h4>Responsive Design</h4>
-                    <ul>
-                      <li>
-                        <span class="glyphicon glyphicon-ok-sign text-primary" aria-hidden="true"></span>
-                        Layout
-                      </li>
-                      <li>
-                        <span class="glyphicon glyphicon-ok-sign" style="color:#acacac" aria-hidden="true"></span>
-                        Photos
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="row" style="margin-top:15px;">
-                <div class="col-xs-12 text-right">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
+
+    <div layout="row" layout-align="center start" style="background:#F3F3F3">
+      <div layout="row" flex class="layout-max-width">
+        <div flex>
+          @yield('center')
+        </div>
+        <div flex-gt-xs="40">
+          @yield('right')
         </div>
       </div>
     </div>
