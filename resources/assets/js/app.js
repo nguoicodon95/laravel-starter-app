@@ -18,7 +18,8 @@ var app = angular.module('stream', [
     'ngResource',
     'ui.router',
     'ngFileUpload',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngMaterial'
 ]);
 
 // rootscope variables

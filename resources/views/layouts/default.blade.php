@@ -11,7 +11,7 @@
     @endif
     <!-- Facebook SDK -->
     <div id="fb-root"></div>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" style="margin-bottom:7px;background:white;border:0;border-bottom:#ddd 1px solid">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -56,20 +56,16 @@
         </div>
       </div>
     </nav>
-    <!-- main container -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 hidden-xs hidden-sm">
-                @yield('left')
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6">
-                @yield('center')
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-3">
-                @yield('right')
-            </div>      
+    <div layout="row" layout-align="center start" style="background:#F3F3F3">
+      <div layout="row" flex class="layout-max-width">
+        <div flex>@yield('center')</div>
+        <div flex="40">
+          @yield('left')
+          @yield('right')
         </div>
+      </div>
     </div>
+
     <!-- available and upcoming features -->
     <div class="modal fade features-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-md">

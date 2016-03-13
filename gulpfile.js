@@ -16,8 +16,9 @@ var elixir = require('laravel-elixir');
 elixir(function (mix) {
 	mix
 		.sass([
-		  	'./bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss',
+		  	// './bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss',
             './bower_components/rrssb/scss/rrssb.scss',
+            './bower_components/angular-material/angular-material.scss',
 		  	'libs.scss',
 			], 'public/assets/css/libs.css')
 		.sass([
@@ -38,7 +39,10 @@ elixir(function (mix) {
             './bower_components/ng-file-upload/ng-file-upload.js',
 			'./bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
             './bower_components/lightbox2/dist/js/lightbox.js',
-            './bower_components/rrssb/js/rrssb.js'
+            './bower_components/rrssb/js/rrssb.js',
+            './bower_components/angular-aria/angular-aria.js',
+            './bower_components/angular-animate/angular-animate.js',
+            './bower_components/angular-material/angular-material.js'
 		], 	'public/assets/js/libs.js')
 		.scripts([
 			'app.js',

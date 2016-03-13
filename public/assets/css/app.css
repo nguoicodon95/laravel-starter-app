@@ -4,6 +4,9 @@ body {
 body.hide-interface {
   overflow: hidden; }
 
+.layout-max-width {
+  max-width: 940px; }
+
 .stream.overlay {
   position: fixed;
   z-index: 10;

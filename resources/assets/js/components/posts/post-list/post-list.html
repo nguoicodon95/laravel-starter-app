@@ -1,52 +1,69 @@
 <!-- AngularJS posts -->
 <div class="post ng-cloak" ng-show="page.loaded===true" ng-repeat="post in posts">
-	<h4>
-        <a href="/tag/<% ::post.tags[0].id %>#/list"><span class="stream marker"><% ::post.tags[0].name %></span></a>
-        <span class="stream marker"><% ::post.author.author_prefix %></span>
-        <% ::post.title %>
-    </h4>
-    <p style="margin-bottom:0;"><% ::post.body.trim() | limitTo: 250 %><span>...</span></p>
-    <div style="height:20px;" ng-if="post.photos.length > 0">&nbsp;</div>
-    <div class="photo-grid">
-        <div class="row first-row">   
-            <div ng-class="($index==0) ? 'col box-1 box-padding' : 'col box-2'" ng-repeat="photo in post.photos" ng-if="post.photos.length > 0 && ($index === 0 || $index === 1)">
-                <span ng-if="$index === 0 || $index === 1">
-                    <a href="<% ::photo.url %>" class="image-holder" data-lightbox="photogrid_ng<% ::post.id %>" data-title="<div class='view-post'><a href='/post/<% ::post.id %>/#/detail'>View post</a></div><div class='caption'>A very fast car photo</div>" style="background-image: url('<% ::photo.url %>');"></a>
+    <md-content class="md-padding" layout-xs="column" layout="row" style="background:none;padding:0">
+        <div flex-xs flex-gt-xs="100" layout="column">
+          <md-card>     
+            <div ng-repeat="photo in post.photos" ng-if="post.photos.length > 0 && $index === 0">
+                <img ng-src="<% ::photo.url %>" class="md-card-image" alt="Washed Out">
+            </div>      
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">
+                    <a href="/tag/<% ::post.tags[0].id %>#/list"><span class="stream marker"><% ::post.tags[0].name %></span></a>
+                    <span class="stream marker"><% ::post.author.author_prefix %></span>
+                    <% ::post.title %>
                 </span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              <p>
+                <% ::post.body.trim() | limitTo: 250 %><span>...</span>
+              </p>
+            </md-card-content>
+            <!--
+            <div class="photo-grid">
+                <div class="row first-row">   
+                    <div ng-class="($index==0) ? 'col box-1 box-padding' : 'col box-2'" ng-repeat="photo in post.photos" ng-if="post.photos.length > 0 && ($index === 0 || $index === 1)">
+                        <span ng-if="$index === 0 || $index === 1">
+                            <a href="<% ::photo.url %>" class="image-holder" data-lightbox="photogrid_ng<% ::post.id %>" data-title="<div class='view-post'><a href='/post/<% ::post.id %>/#/detail'>View post</a></div><div class='caption'>A very fast car photo</div>" style="background-image: url('<% ::photo.url %>');"></a>
+                        </span>
+                    </div>
+                    <div class="col box-2" ng-if="post.photos.length === 1">
+                        <a href="/signin" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;">
+                            <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
+                                <button type="button" class="btn btn-default" style="width:85%">Recommend a photo</button>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="row second-row">
+                    <div ng-class="($index==2) ? 'col box-2 box-padding' : 'col box-1'" ng-repeat="photo in post.photos" ng-if="post.photos.length > 2 && ($index === 2 || $index === 3)">
+                        <span ng-if="$index === 2 || $index === 3">
+                            <a href="<% ::photo.url %>" class="image-holder" data-lightbox="photogrid_ng<% ::post.id %>" data-title="<div class='view-post'><a href='/post/<% ::post.id %>/#/detail'>View post</a></div><div class='caption'></div>" style="background-image: url('<% ::photo.url %>');"></a>
+                        </span>
+                    </div>
+                    <div class="col box-optional" ng-if="post.photos.length === 2">
+                        <a href="/signin" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;">
+                            <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
+                                <button type="button" class="btn btn-default" style="width:75%">Recommend a photo</button>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col box-1" ng-if="post.photos.length === 3">
+                        <a href="/signin" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;">
+                            <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
+                                <button type="button" class="btn btn-default" style="width:75%">Recommend a photo</button>
+                            </p>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="col box-2" ng-if="post.photos.length === 1">
-                <a href="/signin" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;">
-                    <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
-                        <button type="button" class="btn btn-default" style="width:85%">Recommend a photo</button>
-                    </p>
-                </a>
-            </div>
+            -->
+            <md-card-actions layout="row" layout-align="end center">
+                <!--<span ng-if="post.photos.length === 0"><a href="/signin" style="color:black"><sm-button>Recommend a photo</sm-button></a></span>-->
+                <a href="/post/<% ::post.id %>/#/detail" style="color:black"><md-button>Details</md-button></a>
+            </md-card-actions>
+          </md-card>
         </div>
-        <div class="row second-row">
-            <div ng-class="($index==2) ? 'col box-2 box-padding' : 'col box-1'" ng-repeat="photo in post.photos" ng-if="post.photos.length > 2 && ($index === 2 || $index === 3)">
-                <span ng-if="$index === 2 || $index === 3">
-                    <a href="<% ::photo.url %>" class="image-holder" data-lightbox="photogrid_ng<% ::post.id %>" data-title="<div class='view-post'><a href='/post/<% ::post.id %>/#/detail'>View post</a></div><div class='caption'></div>" style="background-image: url('<% ::photo.url %>');"></a>
-                </span>
-            </div>
-            <div class="col box-optional" ng-if="post.photos.length === 2">
-                <a href="/signin" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;">
-                    <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
-                        <button type="button" class="btn btn-default" style="width:75%">Recommend a photo</button>
-                    </p>
-                </a>
-            </div>
-            <div class="col box-1" ng-if="post.photos.length === 3">
-                <a href="/signin" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;">
-                    <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
-                        <button type="button" class="btn btn-default" style="width:75%">Recommend a photo</button>
-                    </p>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div style="height:15px;">&nbsp;</div>
-    <div class="text-right" style="padding:0;">
-        <span ng-if="post.photos.length === 0"><a href="/signin">Recommend a photo</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span><a href="/post/<% ::post.id %>/#/detail">Details</a>
-    </div>
-    <hr />
+    </md-content>
 </div>

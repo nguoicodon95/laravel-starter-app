@@ -18,7 +18,8 @@ var app = angular.module('stream', [
     'ngResource',
     'ui.router',
     'ngFileUpload',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngMaterial'
 ]);
 
 // rootscope variables
@@ -682,41 +683,6 @@ angular.module('stream.post_details', [])
     }
 
 });
-angular.module('stream.post_listc', [])
-
-.controller('post_listCtrl', function($scope, $rootScope, PostList) {
-	
-  	// reset overlay
-	$('.stream.overlay').hide();
-	$('body').removeClass('hide-interface');
-	      
- 	// save previous state
-	$rootScope.previousState = "i";
-    
-    $scope.page.loaded = false;
-        
-    PostList.getPosts()
-        .success(function(data) {
-            $scope.posts = data;
-            $scope.page.loaded = true;
-            $(".ng-panel").css("height","auto");
-        });
-	
-});
-angular.module('stream.post_list', [])
-
-.factory('PostList', function($http) {
-
-    return {
-        
-        // paginate posts
-        getPosts : function() {
-            return $http.get('/api/v1/post');
-        }
-
-    }
-
-});
 angular.module('stream.tag_listc', [])
 
 .controller('tag_listCtrl', function($scope, $rootScope, TagList, $state, $stateParams, $sce) {
@@ -784,6 +750,41 @@ angular.module('stream.tag_list', [])
         
         getLikeName : function(tagname) {
             return $http.get('/api/v1/tagssearch?q='+tagname);
+        }
+
+    }
+
+});
+angular.module('stream.post_listc', [])
+
+.controller('post_listCtrl', function($scope, $rootScope, PostList) {
+	
+  	// reset overlay
+	$('.stream.overlay').hide();
+	$('body').removeClass('hide-interface');
+	      
+ 	// save previous state
+	$rootScope.previousState = "i";
+    
+    $scope.page.loaded = false;
+        
+    PostList.getPosts()
+        .success(function(data) {
+            $scope.posts = data;
+            $scope.page.loaded = true;
+            $(".ng-panel").css("height","auto");
+        });
+	
+});
+angular.module('stream.post_list', [])
+
+.factory('PostList', function($http) {
+
+    return {
+        
+        // paginate posts
+        getPosts : function() {
+            return $http.get('/api/v1/post');
         }
 
     }
