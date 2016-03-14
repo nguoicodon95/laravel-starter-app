@@ -15,7 +15,7 @@
   		<md-card> 
   			<div style="padding:15px">
 			  	<div class="row">
-				  	<div class="col-xs-12 text-center">
+				  	<div class="col-xs-12 col-sm-10 text-center">
 		                <ul class="rrssb-buttons clearfix">
 		                    <li class="rrssb-facebook">
 		                        <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.puffstream.com/stream" class="popup">
