@@ -58,10 +58,10 @@
     </nav>
     <div layout="row" layout-xs="column" layout-align="center start" style="background:#F3F3F3">
       <div layout="row" layout-xs="column" flex class="layout-max-width">
-        <div flex-xs="100" flex="60" >
+        <div class="flex-100" flex="60" >
           @yield('center')
         </div>
-        <div flex-xs="100" flex="40">
+        <div class="flex-100" flex="40">
           @yield('right')
         </div>
       </div>

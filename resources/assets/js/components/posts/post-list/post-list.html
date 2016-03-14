@@ -31,7 +31,7 @@
                 md-gutter="12px" md-gutter-gt-sm="8px" >
                     <md-grid-tile ng-repeat="photo in post.photos" ng-if="post.photos.length > 0" md-rowspan="1" md-colspan="1" md-colspan-sm="1" style="border:#ddd 1px solid">
                         <a href="<% ::photo.url %>" class="image-holder" data-lightbox="photogrid_ng<% ::post.id %>" data-title="<div class='view-post'><a href='/post/<% ::post.id %>/#/detail'>View post</a></div><div class='caption'></div>">
-                            <img ng-src="<% ::photo.url %>" class="md-card-image" alt="" style="max-width:100%;">
+                            <img ng-src="<% ::photo.url %>" class="md-card-image" alt="" style="width:100%;">
                         </a>    
                     </md-grid-tile>
                 </md-grid-list>

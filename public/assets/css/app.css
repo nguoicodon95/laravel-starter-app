@@ -10,7 +10,12 @@ body.hide-interface {
 @media (max-width: 599px) {
   .layout-max-width {
     max-width: none;
-    width: 100%; } }
+    width: 100%; }
+    .layout-max-width .flex-100 {
+      display: block;
+      -webkit-flex: initial;
+      -ms-flex: initial;
+      flex: initial; } }
 
 .stream.overlay {
   position: fixed;
