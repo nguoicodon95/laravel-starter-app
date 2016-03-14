@@ -190,6 +190,168 @@ angular.module('stream.discover', [])
 	}
 
 });
+angular.module('stream.post_editc', [])
+
+.controller('post_editCtrl', function($scope, $rootScope, PostEdit, $compile) {
+
+	/**
+
+	- show post edit overlay if logged in user and
+	  post author is the same otherwise remove template
+	- CRUD edit / get and update / put
+
+	*/
+
+  	var userId = Number($(".identity-cache").text());
+      
+    $scope.imagesMax = 4;
+    $scope.filesToDelete = [];
+    $scope.files = [];
+
+  	if($rootScope.valid && $rootScope.userId === userId) {
+		$('.stream.overlay').show();
+		$('body').addClass('hide-interface');
+	} else {
+		// empty template
+		$(".overlay-wrapper").html("");
+		$('.stream.overlay').show();
+	}
+
+	var postId = "", title = "", body = "";
+	var titleEl = $(".post-edit-form").find("input[name='title']");
+	var bodyEl = $(".post-edit-form").find("textarea[name='body']");
+	var photoEl = $(".post-edit-form").find(".photo-list");
+
+	function getPostId() {
+		var href = location.href;
+		var post = href.split("post")[1];
+		var hash = post.split("#")[0]
+		var id = hash.split("/")[1];
+		return id;
+	}
+    
+	if($rootScope["details"] != undefined) {
+		postId = $rootScope.details[0].id;
+		userId = $rootScope.details[0].user_id;
+		title = $rootScope.details[0].title;
+		body = $rootScope.details[0].body;
+		photos = $rootScope["details"][0].photos;
+	} else {
+		postId = getPostId();
+		userId = $(".identity-cache").text();
+		title = $(".title-cache").text();
+		body = $(".body-cache").text();
+		photos = JSON.parse($(".photos-cache").text());
+	}
+
+	titleEl.val(title);
+	bodyEl.text(body);
+    for(var p = 0; p < photos.length; p++) {
+    	var startFrag = "<div style='margin-bottom:5px;'>";
+    	var endFrag = "<button class='btn btn-danger' style='height:38px;font-size:16px' ng-click='deleteSavedFile($event, "+photos[p].id+")'>Remove</button></div>";
+		var photo = photos[p].url;
+		var compiled = $compile(startFrag + "<img src='"+photo+"' style='width:100px;margin-right:12px' />" + endFrag)($scope);
+		photoEl.append(compiled);
+        $scope.imagesMax--;
+    }
+
+	$scope.editPost = function() {
+		var post = {
+			"id": postId,
+			"userId": userId,
+			"title": titleEl.val(),
+			"body": bodyEl.val(),
+		}
+   
+        if($scope.files != undefined) {
+        	$(".text-preloader").show();
+            post.files = $scope.files;
+            post.filesToDelete = JSON.stringify($scope.filesToDelete);
+            PostEdit.upload(post)
+            .success(function(data) {
+                if(data.success === "true") {
+                    $scope.closeOverlay();
+                }	
+            });
+        } else {
+            // use standard post method
+            post.filesToDelete = JSON.stringify($scope.filesToDelete);
+            PostEdit.save(post)
+            .success(function(data) {
+                $scope.closeOverlay();
+            });   
+        }    
+        $(".edit-button").prop("disabled", "disabled");
+    };
+	
+    $scope.uploadFiles = function (files, errFiles) {
+        $scope.files = files;
+        $scope.errFiles = errFiles;
+    };
+
+    $scope.deleteSavedFile = function(event, index) {
+    	$(event.target).parent().remove();
+    	$scope.imagesMax++;
+    	$scope.filesToDelete.push(index);
+    };
+
+    $scope.deleteFile = function(index) {
+        $scope.files.splice(index, 1);
+    }
+    
+	// add image
+	$scope.updateImages = function() {
+		$(".image-edit-group").show();
+		$(".post-edit-group").hide();
+	} 
+	
+	// done
+	$scope.done = function() {
+		$(".image-edit-group").hide();
+		$(".image-add-group").hide();
+		$(".post-edit-group").show();
+	} 
+	
+	$scope.closeOverlay = function() {
+		$('.stream.overlay').hide();
+		$('body').removeClass('hide-interface');
+		var href = location.href;
+		var firstFrag = href.split("#")[0];
+		location.href = firstFrag + "#/" + $rootScope.previousState;	
+	}
+
+});
+angular.module('stream.post-edits', [])
+
+.factory('PostEdit', function($http, Upload, $timeout) {
+
+    return {
+    	save: function(data) {
+
+		    return $http({
+		    	method: 'PUT',
+		    	url: '/api/v1/post/'+data.id, 
+		    	data: data,
+		    	headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8' }
+		    })
+			.success(function(data, status, headers, config) {
+				//
+			})
+			.error(function(data, status, headers, config) {
+				//
+			});
+		     
+    	},
+    	upload: function(data) {
+            return Upload.upload({
+                        url: '/api/v1/editimages',
+                        data: data,
+                    });
+    	}
+
+    }
+
+});
 angular.module('stream.post_addc', [])
 
 .controller('post_addCtrl', function($scope, $rootScope, $http, PostAdd, CSRF_TOKEN, $compile) {
@@ -433,164 +595,74 @@ angular.module('stream.post-adds', [])
     }
 
 });
-angular.module('stream.post_editc', [])
+angular.module('stream.tag_listc', [])
 
-.controller('post_editCtrl', function($scope, $rootScope, PostEdit, $compile) {
+.controller('tag_listCtrl', function($scope, $rootScope, TagList, $state, $stateParams, $sce) {
 
-	/**
+	$scope.state = $state.current.name;
+	$scope.trustAsHtml = $sce.trustAsHtml;
+	
+    $('.stream.overlay').hide();
+    $('body').removeClass('hide-interface');
 
-	- show post edit overlay if logged in user and
-	  post author is the same otherwise remove template
-	- CRUD edit / get and update / put
+    var tagId = "", tagName = "";
 
-	*/
-
-  	var userId = Number($(".identity-cache").text());
-      
-    $scope.imagesMax = 4;
-    $scope.filesToDelete = [];
-    $scope.files = [];
-
-  	if($rootScope.valid && $rootScope.userId === userId) {
-		$('.stream.overlay').show();
-		$('body').addClass('hide-interface');
-	} else {
-		// empty template
-		$(".overlay-wrapper").html("");
-		$('.stream.overlay').show();
-	}
-
-	var postId = "", title = "", body = "";
-	var titleEl = $(".post-edit-form").find("input[name='title']");
-	var bodyEl = $(".post-edit-form").find("textarea[name='body']");
-	var photoEl = $(".post-edit-form").find(".photo-list");
-
-	function getPostId() {
+	function getTagId() {
 		var href = location.href;
-		var post = href.split("post")[1];
+		var post = href.split("tag")[1];
 		var hash = post.split("#")[0]
 		var id = hash.split("/")[1];
 		return id;
 	}
-    
-	if($rootScope["details"] != undefined) {
-		postId = $rootScope.details[0].id;
-		userId = $rootScope.details[0].user_id;
-		title = $rootScope.details[0].title;
-		body = $rootScope.details[0].body;
-		photos = $rootScope["details"][0].photos;
-	} else {
-		postId = getPostId();
-		userId = $(".identity-cache").text();
-		title = $(".title-cache").text();
-		body = $(".body-cache").text();
-		photos = JSON.parse($(".photos-cache").text());
+     
+	if($scope.state === "list") {
+		
+		$rootScope.previousState = "list";
+		
+		tagId = getTagId();
+		
+		TagList.getTags(tagId)
+			.success(function(data) {
+				
+				$scope.tags = data;
+				$scope.page.loaded = true;
+				$(".ng-panel").css("height","auto");
+			});
+		
+	} else if($scope.state === "name") {	
+		
+		$rootScope.previousState = "name";
+		
+		var url = location.href;
+		var start = url.indexOf("/s/") + 3;
+		var end = url.indexOf("#");
+		
+		tagName = url.substring(start, end);
+		
+		TagList.getLikeName(tagName)
+			.success(function(data) {
+				var parse = data.tags;		
+				$scope.tags = parse;
+				$scope.page.loaded = true;
+				$(".ng-panel").css("height","auto");
+			});
+		
 	}
-
-	titleEl.val(title);
-	bodyEl.text(body);
-    for(var p = 0; p < photos.length; p++) {
-    	var startFrag = "<div style='margin-bottom:5px;'>";
-    	var endFrag = "<button class='btn btn-danger' style='height:38px;font-size:16px' ng-click='deleteSavedFile($event, "+photos[p].id+")'>Remove</button></div>";
-		var photo = photos[p].url;
-		var compiled = $compile(startFrag + "<img src='"+photo+"' style='width:100px;margin-right:12px' />" + endFrag)($scope);
-		photoEl.append(compiled);
-        $scope.imagesMax--;
-    }
-
-	$scope.editPost = function() {
-		var post = {
-			"id": postId,
-			"userId": userId,
-			"title": titleEl.val(),
-			"body": bodyEl.val(),
-		}
-   
-        if($scope.files != undefined) {
-        	$(".text-preloader").show();
-            post.files = $scope.files;
-            post.filesToDelete = JSON.stringify($scope.filesToDelete);
-            PostEdit.upload(post)
-            .success(function(data) {
-                if(data.success === "true") {
-                    $scope.closeOverlay();
-                }	
-            });
-        } else {
-            // use standard post method
-            post.filesToDelete = JSON.stringify($scope.filesToDelete);
-            PostEdit.save(post)
-            .success(function(data) {
-                $scope.closeOverlay();
-            });   
-        }    
-        $(".edit-button").prop("disabled", "disabled");
-    };
 	
-    $scope.uploadFiles = function (files, errFiles) {
-        $scope.files = files;
-        $scope.errFiles = errFiles;
-    };
-
-    $scope.deleteSavedFile = function(event, index) {
-    	$(event.target).parent().remove();
-    	$scope.imagesMax++;
-    	$scope.filesToDelete.push(index);
-    };
-
-    $scope.deleteFile = function(index) {
-        $scope.files.splice(index, 1);
-    }
-    
-	// add image
-	$scope.updateImages = function() {
-		$(".image-edit-group").show();
-		$(".post-edit-group").hide();
-	} 
-	
-	// done
-	$scope.done = function() {
-		$(".image-edit-group").hide();
-		$(".image-add-group").hide();
-		$(".post-edit-group").show();
-	} 
-	
-	$scope.closeOverlay = function() {
-		$('.stream.overlay').hide();
-		$('body').removeClass('hide-interface');
-		var href = location.href;
-		var firstFrag = href.split("#")[0];
-		location.href = firstFrag + "#/" + $rootScope.previousState;	
-	}
-
 });
-angular.module('stream.post-edits', [])
+angular.module('stream.tag_list', [])
 
-.factory('PostEdit', function($http, Upload, $timeout) {
+.factory('TagList', function($rootScope, $http) {
 
     return {
-    	save: function(data) {
-
-		    return $http({
-		    	method: 'PUT',
-		    	url: '/api/v1/post/'+data.id, 
-		    	data: data,
-		    	headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8' }
-		    })
-			.success(function(data, status, headers, config) {
-				//
-			})
-			.error(function(data, status, headers, config) {
-				//
-			});
-		     
-    	},
-    	upload: function(data) {
-            return Upload.upload({
-                        url: '/api/v1/editimages',
-                        data: data,
-                    });
-    	}
+        
+        getTags : function(id) {
+            return $http.get('/api/v1/tag/'+id);
+        },
+        
+        getLikeName : function(tagname) {
+            return $http.get('/api/v1/tagssearch?q='+tagname);
+        }
 
     }
 
@@ -713,78 +785,6 @@ angular.module('stream.post_list', [])
         // paginate posts
         getPosts : function() {
             return $http.get('/api/v1/post');
-        }
-
-    }
-
-});
-angular.module('stream.tag_listc', [])
-
-.controller('tag_listCtrl', function($scope, $rootScope, TagList, $state, $stateParams, $sce) {
-
-	$scope.state = $state.current.name;
-	$scope.trustAsHtml = $sce.trustAsHtml;
-	
-    $('.stream.overlay').hide();
-    $('body').removeClass('hide-interface');
-
-    var tagId = "", tagName = "";
-
-	function getTagId() {
-		var href = location.href;
-		var post = href.split("tag")[1];
-		var hash = post.split("#")[0]
-		var id = hash.split("/")[1];
-		return id;
-	}
-     
-	if($scope.state === "list") {
-		
-		$rootScope.previousState = "list";
-		
-		tagId = getTagId();
-		
-		TagList.getTags(tagId)
-			.success(function(data) {
-				
-				$scope.tags = data;
-				$scope.page.loaded = true;
-				$(".ng-panel").css("height","auto");
-			});
-		
-	} else if($scope.state === "name") {	
-		
-		$rootScope.previousState = "name";
-		
-		var url = location.href;
-		var start = url.indexOf("/s/") + 3;
-		var end = url.indexOf("#");
-		
-		tagName = url.substring(start, end);
-		
-		TagList.getLikeName(tagName)
-			.success(function(data) {
-				var parse = data.tags;		
-				$scope.tags = parse;
-				$scope.page.loaded = true;
-				$(".ng-panel").css("height","auto");
-			});
-		
-	}
-	
-});
-angular.module('stream.tag_list', [])
-
-.factory('TagList', function($rootScope, $http) {
-
-    return {
-        
-        getTags : function(id) {
-            return $http.get('/api/v1/tag/'+id);
-        },
-        
-        getLikeName : function(tagname) {
-            return $http.get('/api/v1/tagssearch?q='+tagname);
         }
 
     }

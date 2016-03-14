@@ -3,11 +3,7 @@
 	<div class="ng-panel panel panel-default">
 	  <div class="panel-body">
 	    <div style="padding:10px;">
-
 			<h3 style="margin:0 0 20px 0">Search results:</h3>
-
-		    <!-- Laravel 5 posts -->
-		    <!-- post preloader -->
 		    <div>
 				@foreach($posts as $post)
 					@foreach($post->tags as $tag)
@@ -30,12 +26,11 @@
                                         @endif
                                     @endif
                                 @endforeach
-                                <!-- recommend button -->
                                 @if($post->photos->count() === 1)
                                     <div class="col box-2">
-                                        <a href="/signin" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;">
+                                        <a href="javascript:void(0)" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;">
                                             <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
-                                                <button type="button" class="btn btn-default" style="width:85%">Recommend a photo</button>
+                                                <!-- action button removed -->
                                             </p>
                                         </a>
                                     </div>
@@ -54,21 +49,20 @@
                                         @endif
                                     @endif
                                 @endforeach
-                                <!-- recommend buttons -->
                                 @if($post->photos->count() === 2)
                                     <div class="col box-optional">
-                                        <a href="/signin" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;height:73px;overflow:visible;">
+                                        <a href="javascript:void(0)" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;height:73px;overflow:visible;">
                                             <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
-                                                <button type="button" class="btn btn-default" style="width:75%">Recommend a photo</button>
+                                                <!-- action button removed -->
                                             </p>
                                         </a>
                                     </div>
                                 @endif
                                 @if($post->photos->count() === 3)
                                 <div class="col box-1">
-                                    <a href="/signin" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;">
+                                    <a href="javascript:void(0)" class="image-holder color-swatch gray-lighter recommend" style="position:relative;background-color:white;color:#7D7D7D;">
                                         <p style="position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;height:34px;z-index:10;text-align: center;font-size: 16px;">
-                                            <button type="button" class="btn btn-default" style="width:75%">Recommend a photo</button>
+                                            <!-- action button removed -->
                                         </p>
                                     </a>
                                 </div>
@@ -79,7 +73,7 @@
                         <div class="text-right" style="padding:0;">
                             <?php
                             if($post->photos->count() === 0) {
-                                echo '<span><a href="/signin">Recommend a photo</a>&nbsp;&nbsp;|&nbsp;&nbsp;</span>';
+                                // action link removed
                             }
                             ?><a href="/post/{{$post->id}}/#/detail">Details</a>
                         </div>
@@ -87,7 +81,6 @@
 					@endforeach
 				@endforeach
 			</div>
-
 	    </div>
 	  </div>
 	</div>

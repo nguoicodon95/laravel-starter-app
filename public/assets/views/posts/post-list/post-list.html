@@ -1,4 +1,3 @@
-<!-- AngularJS posts -->
 <div class="post ng-cloak" ng-show="page.loaded===true" ng-repeat="post in posts">
     <md-content class="md-padding" layout-xs="column" layout="row" style="background:none;padding:0">
         <div flex-xs flex-gt-xs="100" layout="column">
@@ -27,11 +26,13 @@
                 <% ::post.body.trim() | limitTo: 250 %><span>...</span>
               </p>
                 <md-grid-list
-                md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+                md-cols-xs="4" md-cols-sm="4" md-cols-md="4" md-cols-gt-md="6"
                 md-row-height-gt-md="1:1" md-row-height="2:2"
                 md-gutter="12px" md-gutter-gt-sm="8px" >
                     <md-grid-tile ng-repeat="photo in post.photos" ng-if="post.photos.length > 0" md-rowspan="1" md-colspan="1" md-colspan-sm="1" style="border:#ddd 1px solid">
-                        <img ng-src="<% ::photo.url %>" class="md-card-image" alt="Washed Out" style="max-width:100%;">
+                        <a href="<% ::photo.url %>" class="image-holder" data-lightbox="photogrid_ng<% ::post.id %>" data-title="<div class='view-post'><a href='/post/<% ::post.id %>/#/detail'>View post</a></div><div class='caption'></div>">
+                            <img ng-src="<% ::photo.url %>" class="md-card-image" alt="" style="max-width:100%;">
+                        </a>    
                     </md-grid-tile>
                 </md-grid-list>
             </md-card-content>

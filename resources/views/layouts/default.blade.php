@@ -56,8 +56,8 @@
         </div>
       </div>
     </nav>
-    <div layout="row" layout-align="center start" style="background:#F3F3F3">
-      <div layout="row" flex class="layout-max-width">
+    <div layout="row" layout-xs="column" layout-align="center start" style="background:#F3F3F3">
+      <div layout="row" layout-xs="column" flex class="layout-max-width">
         <div flex-gt-xs="60" >
           @yield('center')
         </div>
