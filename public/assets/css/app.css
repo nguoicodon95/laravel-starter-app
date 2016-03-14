@@ -7,6 +7,11 @@ body.hide-interface {
 .layout-max-width {
   max-width: 940px; }
 
+@media (max-width: 599px) {
+  .layout-max-width {
+    max-width: none;
+    width: 100%; } }
+
 .stream.overlay {
   position: fixed;
   z-index: 10;

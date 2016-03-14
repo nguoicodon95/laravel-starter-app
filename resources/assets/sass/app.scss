@@ -9,6 +9,13 @@ body.hide-interface {
 	max-width:940px;
 }
 
+@media (max-width: 599px) {
+	.layout-max-width {
+		max-width:none;
+		width:100%;
+	}
+}
+
 // stream overlay
 .stream.overlay {
 	position:fixed;

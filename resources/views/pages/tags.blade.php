@@ -10,5 +10,4 @@
 @section('right')
     @include('side.stats')
     @include('side.recent')
-    @include('side.links')
 @stop
