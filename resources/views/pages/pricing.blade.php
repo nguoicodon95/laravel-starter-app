@@ -5,7 +5,10 @@
 	        <div class="row">
 	            <div class="col-xs-12">
 	            	<h2>Pricing</h2>
-                    <p style="margin-bottom:25px;">Note: Stream Plans available by Pre-order:</p>
+                    <p style="margin-bottom:25px;">
+                        Note: Stream Plans available by Pre-order:<br />
+                        Note: Pre-orders available after 31st October 2016
+                    </p>
                     <div class="row" style="font-size:22px;">
                         <div class="col-xs-12 col-sm-12 col-md-10">
                             <div class="row">
