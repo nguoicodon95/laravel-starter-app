@@ -25,6 +25,8 @@
 
   $(".plans-link").on("click", function(e) {
     $(".invite, .cloud, .standalone").hide();
+    $(".plans-link").attr("style", "display:inline-block;text-decoration:none;border-bottom:2px solid #fff;margin-bottom:5px");
+    $(e.target).attr("style", "display:inline-block;text-decoration:none;border-bottom:2px solid #337ab7;margin-bottom:5px");
     var option = $(e.target).data("option");
     $("."+option).show();
   })

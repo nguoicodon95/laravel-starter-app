@@ -13,13 +13,13 @@
                         <div class="col-xs-12 col-sm-12 col-md-10">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-4 text-center">
-                                    <a href="javascript:void(0)" class="plans-link" data-option="invite">By Invite</a>
+                                    <a href="javascript:void(0)" class="plans-link" data-option="invite" style="display:inline-block;text-decoration:none;border-bottom:2px solid #fff;margin-bottom:5px">By Invite</a>
                                 </div>
                                 <div class="col-xs-12 col-sm-4 text-center">
-                                    <a href="javascript:void(0)" class="plans-link" data-option="cloud">Cloud</a>
+                                    <a href="javascript:void(0)" class="plans-link" data-option="cloud" style="display:inline-block;text-decoration:none;border-bottom:2px solid #337ab7;margin-bottom:5px">Cloud</a>
                                 </div>
                                 <div class="col-xs-12 col-sm-4 text-center">
-                                    <a href="javascript:void(0)" class="plans-link" data-option="standalone">Standalone</a>
+                                    <a href="javascript:void(0)" class="plans-link" data-option="standalone" style="display:inline-block;text-decoration:none;border-bottom:2px solid #fff;margin-bottom:5px">Standalone</a>
                                 </div>
                             </div>
                             <hr style="margin-bottom:0" />
