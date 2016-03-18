@@ -256,9 +256,9 @@
                                 <div class="col-sm-4 col-xs-12">
                                         <div class="list-group text-center">
                                         <a href="#" class="list-group-item active">
-                                            <h4 class="list-group-item-heading" style="line-height:1.3">You set it up - Dev Business*</h4>
-                                            <h6>At your own cost</h6>
-                                            <h6>You migrate new features</h6>
+                                            <h4 class="list-group-item-heading" style="line-height:1.3">We set it up - Dev Business*</h4>
+                                            <h6>You pay us to set up</h6>
+                                            <h6>Automatic feature updates</h6>
                                         </a>
                                         <a href="#" class="list-group-item">
                                             <p class="list-group-item-text">One Stream Instance</p>
@@ -279,7 +279,7 @@
                                             <p class="list-group-item-text">10 users</p>
                                         </a>
                                         <a href="#" class="list-group-item">
-                                            <button class="btn btn-primary btn-lg btn-block" style="white-space: normal;">$899 per year & Download</button>
+                                            <button class="btn btn-primary btn-lg btn-block" style="white-space: normal;">$899 per year Pre-order</button>
                                         </a>
                                         </div>
                                 </div><!--/right-->
