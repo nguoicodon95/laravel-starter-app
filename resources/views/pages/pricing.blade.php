@@ -10,7 +10,7 @@
                         Note: Stream Plans available by Pre-order<br />
                         Note: Pre-orders available after 31st October 2016<br />
                         Note: Not all plans available at this time (until further notice)<br />
-                        Note: You can help quicken the process by helping fund a plan
+                        Note: You can help quicken the process by helping to fund a plan
                     </p>
                     <div class="row" style="font-size:22px;">
                         <div class="col-xs-12 col-sm-12 col-md-10">
