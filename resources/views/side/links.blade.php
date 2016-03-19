@@ -51,8 +51,8 @@
 				<a href="https://github.com/puffstream" target="_blank">Code</a>&nbsp;	
 				<div style="display:inline-block">
 					<div class="visible-xs visible-sm">
-						<a href="/page/pricing" target="_blank">Pricing</a>&nbsp;
-						<a href="/page/funding" target="_blank">Funding</a>	
+						<a href="/page/pricing">Pricing</a>&nbsp;
+						<a href="/page/funding">Funding</a>	
 					</div>
 				</div>
 			</div>
