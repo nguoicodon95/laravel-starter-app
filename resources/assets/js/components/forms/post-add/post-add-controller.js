@@ -70,7 +70,7 @@ angular.module('stream.post_addc', [])
 	
 	$scope.createNewStream = function(e) {
 		$(".selected-stream").show();
-		$("input[name='displaystream']").val($(e.target).data("tag"));	
+		$("input[name='displaystream']").val($(e.target).data("tag"));
 		$("input[name='streamname']").val($(e.target).data("tag"));
 		$(".tag-results-wrapper").hide();
 		$(".get-stream").hide();
