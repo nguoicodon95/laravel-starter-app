@@ -4,6 +4,12 @@
 
 Photos and posts streaming software, open source.
 
+#### Here's what I'll be placing my efforts on next:
+- Uploading videos on YouTube for Stream and SaaS (Software as a Service)
+- Completing Cloud Module (private) for end-users to join up and try Stream
+- Updating readme.md for better installation instructions
+- Taking a short breather
+
 ![alt text](screenshots/stream-v2.0.0.jpg "Stream software")
 
 ## MIT License
