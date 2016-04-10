@@ -10,6 +10,7 @@ Photos and posts streaming software, open source.
 - Updating readme.md for better installation instructions
 - Taking a short breather
 
+#### Screenshot before Cards
 ![alt text](screenshots/stream-v2.0.0.jpg "Stream software")
 
 ## MIT License
