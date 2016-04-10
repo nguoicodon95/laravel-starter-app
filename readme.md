@@ -5,7 +5,7 @@
 Photos and posts streaming software, open source.
 
 #### Here's what I'll be placing my efforts on next:
-- Uploading videos on YouTube for Stream and SaaS (Software as a Service)
+- Uploading videos on YouTube to talk about Building Software for SaaS (Software as a Service) and promote Stream
 - Completing Cloud Module (private) for end-users to join up and try Stream
 - Updating readme.md for better installation instructions
 - Taking a short breather
