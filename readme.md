@@ -4,7 +4,6 @@
 
 Photos and posts streaming software, open source.
 
-#### Screenshot before cards:
 ![alt text](screenshots/stream-cards.jpg "Stream software")
 
 ## MIT License

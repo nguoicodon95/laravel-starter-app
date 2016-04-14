@@ -49,12 +49,14 @@
 				<a href="https://puffstream.atlassian.net/wiki/display/STREAM/Docs" target="_blank">Docs</a>&nbsp;
 				<a href="http://puffstream.github.io/stream/" target="_blank">Devs</a>&nbsp;
 				<a href="https://github.com/puffstream" target="_blank">Code</a>&nbsp;	
+				<!--
 				<div style="display:inline-block">
 					<div class="visible-xs visible-sm">
 						<a href="/page/pricing">Pricing</a>&nbsp;
 						<a href="/page/funding">Funding</a>	
 					</div>
 				</div>
+				-->
 			</div>
 		</md-card>
 	</div>

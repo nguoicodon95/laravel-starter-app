@@ -7,10 +7,7 @@
                     <h2>Pricing</h2>
                     <h4>Plans Terms and Conditions</h4>
                     <p style="margin-bottom:25px;">
-                        Note: Stream Plans available by Pre-order<br />
-                        Note: Pre-orders available after 31st October 2016<br />
-                        Note: Not all plans available at this time (until further notice)<br />
-                        Note: You can help quicken the process by helping to fund a plan
+                        NB: Stream Plans available by Pre-order
                     </p>
                     <div class="row" style="font-size:22px;">
                         <div class="col-xs-12 col-sm-12 col-md-10">
@@ -182,7 +179,7 @@
                                         <p class="list-group-item-text">5 users</p>
                                     </a>
                                     <a href="#" class="list-group-item">
-                                        <button class="btn btn-primary btn-lg btn-block">Help fund</button>
+                                        <button class="btn btn-primary btn-lg btn-block">Pre-order</button>
                                     </a>
                                     </div>
                             </div><!--/middle-->
@@ -211,7 +208,7 @@
                                         <p class="list-group-item-text">20 users</p>
                                     </a>
                                     <a href="#" class="list-group-item">
-                                        <button class="btn btn-primary btn-lg btn-block">Help fund</button>
+                                        <button class="btn btn-primary btn-lg btn-block">Pre-order</button>
                                     </a>
                                     </div>
                             </div><!--/right-->
@@ -249,7 +246,7 @@
                                             <p class="list-group-item-text">10 users</p>
                                         </a>
                                         <a href="#" class="list-group-item">
-                                            <button class="btn btn-primary btn-lg btn-block" style="white-space: normal;">$399 per year Pre-order</button>
+                                            <button class="btn btn-primary btn-lg btn-block" style="white-space: normal;">$99 per year Pre-order</button>
                                         </a>
                                         </div>
                                 </div><!--/left-->        
@@ -279,7 +276,7 @@
                                             <p class="list-group-item-text">25 users</p>
                                         </a>
                                         <a href="#" class="list-group-item">
-                                            <button class="btn btn-primary btn-lg btn-block" style="white-space: normal;">$899 per year Pre-order</button>
+                                            <button class="btn btn-primary btn-lg btn-block" style="white-space: normal;">$129 per year Pre-order</button>
                                         </a>
                                         </div>
                                 </div><!--/right-->
