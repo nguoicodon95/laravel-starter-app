@@ -7,7 +7,7 @@
                     <h2>Pricing</h2>
                     <h4>Plans Terms and Conditions</h4>
                     <p style="margin-bottom:25px;">
-                        NB: Stream Plans available by Pre-order
+                        NB: Plans available by Pre-order
                     </p>
                     <div class="row" style="font-size:22px;">
                         <div class="col-xs-12 col-sm-12 col-md-10">
