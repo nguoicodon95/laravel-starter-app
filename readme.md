@@ -5,7 +5,7 @@
 Photos and posts streaming software, open source.
 
 #### Screenshot before cards:
-![alt text](screenshots/stream-v2.0.0.jpg "Stream software")
+![alt text](screenshots/stream-cards.jpg "Stream software")
 
 ## MIT License
 MIT is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
