@@ -1,10 +1,20 @@
-## Overview
+# Overview #
+Use our Laravel Starter App to start creating reactive messages. 
 
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Requirements ##
+- PHP >= 5.5.9
+- Composer
 
-Photos and posts streaming software, open source.
+## Installation ##
+1. composer install
+2. php artisan key:generate
+3. php artisan serve
 
-![alt text](screenshots/stream-cards.jpg "Stream software")
+### Looking for our legacy code? ###
+[git clone -b legacy-code --single-branch https://github.com/puffstream/stream.git](https://github.com/puffstream/stream/tree/legacy-code)
 
-## MIT License
-MIT is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## MIT License ##
+MIT is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Contribute ##
+Contributions welcome

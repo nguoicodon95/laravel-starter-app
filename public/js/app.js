@@ -26,3 +26,4 @@ function outputSchema() {
 window.onload = function() {
   outputSchema();
 }
+//# sourceMappingURL=app.js.map

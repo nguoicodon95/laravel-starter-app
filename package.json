@@ -1,13 +1,16 @@
 {
+  "name": "laravel-starter-app",
+  "version": "0.0.1",
   "private": true,
-  "version": "2.9.50",
-  "name": "StreamPackages",
-  "description": "Stream Software",
-  "url": "http://www.puffstream.com",
-  "author": "Puff Stream",
-  "license": "MIT",
-  "dependencies": {
-    "gulp": "^3.9.0",
-    "laravel-elixir": "*"
-  }
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "laravel-elixir": "^5.0.0",
+    "bootstrap-sass": "^3.0.0"
+  },
+  "author": "puffstream",
+  "license": "MIT"
 }
