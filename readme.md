@@ -19,7 +19,8 @@ What's that quote? 1 Step back, 2 steps forward? That's the one. Before I can re
 In the mean-time I've put up some placeholder text and images that might seem somewhat unrelated. But their just placeholders for now :/ Sorry about that.
 
 Some inspiration while you wait :) Meet Paul, our Spaceman.
-![alt text](screenshots/spaceman-helmet-banner.jpg "Spaceman Paul")
+
+![alt text](screenshots/spaceman-helmet-banner.png "Spaceman Paul")
 
 ## MIT License ##
 MIT is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
