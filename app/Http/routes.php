@@ -12,5 +12,5 @@
 */
 
 Route::get('/', function () {
-    return view('book-example');
+    return view('app');
 });
