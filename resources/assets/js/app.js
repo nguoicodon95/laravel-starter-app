@@ -13,8 +13,23 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('child', {
+  beforeCreate: () => {
+    //
+  },
+  template: '<div>Child component?</div>'
+});
 
-const app = new Vue({
-    el: '#app'
+new Vue({
+  el: '#app',
+  beforeCreate: () => {
+    fetch('/api/v1/messages/').then(function(response) {
+      return response.json();
+    }).then(function(data) {
+      console.log(JSON.parse(data[0].scene).text);
+    });
+  },
+  data: {
+   message: 'Wrapping message...'
+  }
 });

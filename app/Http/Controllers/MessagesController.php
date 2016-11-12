@@ -10,7 +10,7 @@ class MessagesController extends Controller {
 
 	public function index()
 	{
-		$message = Message::get();	
+		$message = Message::where('scene->text', 'Rainbow\'s are pretty...')->get();	
 		return view('app')->with('message', $message);
 	}
 

@@ -11,5 +11,8 @@
 |
 */
 
-// Stream
 Route::get('/', 'MessagesController@index');
+
+Route::group(['prefix' => 'api/v1'], function() {
+	Route::resource('messages', '\\App\\Http\\Controllers\\api\\v1\\MessagesController');
+});
