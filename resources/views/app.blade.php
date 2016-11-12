@@ -27,12 +27,9 @@
           <textarea class="form-control"></textarea>
           <br />
           <input type="button" class="btn btn-primary" value="Publish" />
-
-          <div id="app">
-            @{{message}}
-            <child></child>
-          </div>
-
+          <br />
+          <br />
+          <div class="messages-container"></div>
         </div>
        </div> 
       </div>

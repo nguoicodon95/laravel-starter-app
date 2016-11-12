@@ -13,23 +13,30 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-Vue.component('child', {
-  beforeCreate: () => {
-    //
+const sceneTemplate = '<div><div v-for="data in scenes">{{ doSomething(data) }}</div></div>';
+
+const messages = new Vue({
+  el: '.messages-container',
+  data: {
+    scenes: []
   },
-  template: '<div>Child component?</div>'
+  methods: {
+    getScenes: (cb) => {
+      fetch('/api/v1/messages/').then(function(response) {
+        return response.json();
+      }).then(function(data) {
+        messages.scenes = data;
+      });
+    },
+    doSomething: (data) => {
+      const scene = JSON.parse(data.scene);
+      if (scene.hasOwnProperty('text')) {
+        return scene.text;
+      }
+      return 'something else...';
+    }
+  },
+  template: sceneTemplate
 });
 
-new Vue({
-  el: '#app',
-  beforeCreate: () => {
-    fetch('/api/v1/messages/').then(function(response) {
-      return response.json();
-    }).then(function(data) {
-      console.log(JSON.parse(data[0].scene).text);
-    });
-  },
-  data: {
-   message: 'Wrapping message...'
-  }
-});
+messages.getScenes();
