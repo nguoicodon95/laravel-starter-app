@@ -24,7 +24,9 @@
           <input type="button" class="btn btn-primary" value="Publish" />
           -->
           <h1>Post</h1>
-          <textarea class="form-control"></textarea>
+          <textarea class="form-control" placeholder="Write something..."></textarea>
+          <br />
+          <input type="text" class="form-control" placeholder="Stream name" />
           <br />
           <input type="button" class="btn btn-primary" value="Publish" />
           <br />

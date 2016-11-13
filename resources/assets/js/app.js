@@ -13,7 +13,9 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-const sceneTemplate = '<div><div v-for="data in scenes">{{ doSomething(data) }}</div></div>';
+const sceneTemplate = '<table class="table"><thead><tr><th>Posts</th><th>Action</th></thead></tr><tbody>' + 
+                      '<tr v-for="data in scenes"><td>{{ doSomething(data) }}</td><td><a href="#">Delete</a></td></tr>' +
+                      '</tbody></table>';
 
 const messages = new Vue({
   el: '.messages-container',
@@ -21,7 +23,7 @@ const messages = new Vue({
     scenes: []
   },
   methods: {
-    getScenes: (cb) => {
+    getScenes: () => {
       fetch('/api/v1/messages/').then(function(response) {
         return response.json();
       }).then(function(data) {
